@@ -11,9 +11,7 @@ public class Refresh_Field {
     public void ref_for_sklad_kp(){
 
         Main.classOstatku.clear(); Ostatku.count_sklad_plu = 0;
-
         Add_new_Object.null_for_all_field();
-
         SAXPars.clear_all_in_parse();
 
     }
