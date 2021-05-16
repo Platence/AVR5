@@ -1,0 +1,31 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="AVR5">
+    <output-path>D:/AVR5_TEST</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="sample.Main" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="JavaFXApp.jar">
+        <element id="module-output" name="AVR5" />
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+        </element>
+      </element>
+      <element id="directory" name="lib">
+        <element id="file-copy" path="C:/apache/poi-4.0.1/lib/commons-collections4-4.2.jar" />
+        <element id="library" level="project" name="commons-compress-1.18" />
+        <element id="library" level="project" name="poi-4.0.1" />
+        <element id="library" level="project" name="poi-ooxml-4.0.1" />
+        <element id="library" level="project" name="poi-ooxml-schemas-4.0.1" />
+        <element id="library" level="project" name="xmlbeans-3.0.2" />
+      </element>
+    </root>
+  </artifact>
+</component>

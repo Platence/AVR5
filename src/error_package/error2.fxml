@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="error_package.Controller_Error2">
+   <children>
+      <Pane prefHeight="500.0" prefWidth="900.0">
+         <children>
+            <Accordion fx:id="accordeon" prefHeight="500.0" prefWidth="893.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

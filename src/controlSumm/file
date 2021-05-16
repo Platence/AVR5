@@ -1,0 +1,54 @@
+
+Номер магазина - ShopNumber.currentNumberShop   (текущий)
+
+Организация - имя AllOrganization.currentPickNamePrganization
+
+Организация - приказ AllOrganization.currentPickOrderNumber
+
+дата пи - DateIni.dateFromPlanInventory
+
+дата приказа - DateIni.dateFromOrderMonth
+
+Путь выгрузки : Paths_Main_File.path_final_out
+
+Проверочные PLU : CrashesPlu
+
+Получить PLU из строки : CreateLabel_to_YU3.get_name_regular
+
+Получить номер магазина  :
+for(ShopDescription sd : ShopDescription.listShopSheetOne){
+
+               if(number.equals(sd.getNumberShop())){
+                   System.out.println(sd.toString());
+               }
+        }
+
+        Номер магазина загружается автоматически перед стартом.
+
+
+
+
+
+ИНВ-15 :
+ПКО, РКО, Сумма по реестру, Сумма по факту
+Inv15Field
+
+
+Список КП склада Container_KP_Sklad
+
+Получить текущую группу КП ФИН BoxAnotherTMC.getNowPicked
+
+Добавление позиции в КПФИН AddPositionToTableAndList().addPosition
+
+
+
+Не сделано : Вывести кол-во итераций и начало итерации в настройки. Как и сами столбцы
+Так же, для непродаваек
+
+
+ExportExcel - создание Excel файлов
+ExportInv15 - инв-15
+
+Члены коммисиии PeopleComisson
+
+Получить случайны объект из общего листа Algorithm_sklad.get_random_index()
