@@ -83,6 +83,7 @@ public class Paths_Main_File {
     public static final String PATH_CHAT_MESSSSS = "src/binn/mesz";
    //public static final String PATH_CHAR_ON_W = "W:\\08_Управление_по_ФК_и_анализу\\Группа КРП\\СПЕЦИАЛИСТЫ\\Списки разниц\\2017\\AVR\\FDBCKVR\\SNMMES";
     public static final String PATH_CHAR_ON_W = "W:\\08_Управление_по_ФК_и_анализу\\Группа КРП\\СПЕЦИАЛИСТЫ\\Списки разниц\\2017\\AVR\\FDBCKVR\\SNMMES";
+    public static final String PATH_CHAR_SOURSE_NEW_TG= "TG_ODDS_DETAL.xlsx";
 
     //public static final String PATH_CHAR_ON_W = "D:\\CREATINGS.txt";
 

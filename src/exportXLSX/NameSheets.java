@@ -12,4 +12,5 @@ public class NameSheets {
     public final static String name_sheets_Svod = "SvodPu";
     public final static String name_Sheets_Apps = "AppS";
     public final static String name_Sheets_AppsSML = "AppSML";
+    public final static String name_Sheets_APNEWTG = "Лист1";
 }

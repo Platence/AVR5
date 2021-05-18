@@ -66,6 +66,7 @@ import sklad_KP_AI.CheckZonHall;
 import sklad_KP_AI.Container_KP_Sklad;
 import sklad_KP_AI.settngsHa.MetaHalfAutoSet;
 import testPackege.PrintDialogPath;
+import tgODDS.ControlPackegeNEWTG;
 import warehouse_plu.ExtendedOstatku;
 import warehouse_plu.Ostatku;
 import warehouse_plu.odds_from_group.Odds_level_One;
@@ -665,6 +666,7 @@ public class Controller {
     }
 
     public void createrODSALEFINASTART(){
+        ControlPackegeNEWTG.toDo(); // TEST!!!
         ExtendedOstatku.getMeOddsSkladAndKP();
         CreateFinalMessage cf = CreateFinalMessage.giveMemessage();
     }

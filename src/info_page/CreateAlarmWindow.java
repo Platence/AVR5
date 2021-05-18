@@ -2,13 +2,10 @@ package info_page;
 
 import chekCrashPLU.flowSearchPane.CreatePaneSearch;
 import javafx.collections.ObservableList;
-import javafx.geometry.Orientation;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.FlowPane;
+import tgODDS.ControlPackegeNEWTG;
 import warehouse_plu.Ostatku;
-
-import java.util.Collections;
 
 public class CreateAlarmWindow {
 
@@ -80,6 +77,10 @@ public class CreateAlarmWindow {
             createPaneSearch.setPaneToAlert(alert,tableView,ost);
             return;
         }
+
+
+
+
         alert.getDialogPane().setContent(tableView);
         alert.show();
     }

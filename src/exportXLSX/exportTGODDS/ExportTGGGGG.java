@@ -129,7 +129,6 @@ public class ExportTGGGGG extends ExportExcel {
 
     }
 
-
     public static int pulseOrMinus(double summ){
 
         return summ >= 0 ? 2 : 3;

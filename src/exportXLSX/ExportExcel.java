@@ -10,10 +10,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.awt.*;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.LinkedList;
 
 public abstract class ExportExcel {
@@ -34,6 +31,10 @@ public abstract class ExportExcel {
     public static String COMAND_TO_EXPORT_APP_ORDER = "Приложение";
     public static String COMAND_TO_EXPORT_APP_ORDERSML = "ПриложениеСМ";
 
+    // Resourses
+
+    public static String COMAND_TO_EXPORT_NEWTG_ODDS = "Разница по группам Детальная";
+
     /*
         Команда на выгрузку определенного файла
         Для создания нового файла
@@ -53,14 +54,40 @@ public abstract class ExportExcel {
 
         FileInputStream fis = null;
         XSSFWorkbook myFFFBook = null;
+        boolean skip = false;
+
+        if(comand.equals(COMAND_TO_EXPORT_NEWTG_ODDS)){
+            skip = true;
+
+            try {
+                //fis = new FileInputStream(getMePathOfCommand(comand));
+                InputStream in = ExportExcel.class.getClassLoader().getResourceAsStream(getMePathOfCommand(comand));
+                myFFFBook = new XSSFWorkbook(in);
+                in.close();
+            }
+
+            catch (Exception e) {
+                new Modal_Error().set_erroe_messege("Ошибка создания WORKBOOK (IN) " + e.getMessage());
+                e.printStackTrace();
+                return;
+            }
+        }
+
+
+
+
+
 
         try {
-            fis = new FileInputStream(getMePathOfCommand(comand));
-            myFFFBook = new XSSFWorkbook(fis);
+            if(!skip) {
+                fis = new FileInputStream(getMePathOfCommand(comand));
+                myFFFBook = new XSSFWorkbook(fis);
+            }
         }
 
         catch (Exception e) {
             new Modal_Error().set_erroe_messege("Ошибка создания WORKBOOK " + e.getMessage());
+            e.printStackTrace();
             return;
         }
 
@@ -106,7 +133,7 @@ public abstract class ExportExcel {
 
 
 
-        try { fis.close(); }
+        try { if(!skip){ fis.close(); }}
         catch (IOException e) {
             e.printStackTrace();
             new Modal_Error().set_erroe_messege("Ошибка при попытке выгрузки  " + comand + " " +  e.getMessage());
@@ -156,7 +183,26 @@ public abstract class ExportExcel {
 
         String path = getMePathOfCommand(comand);
 
+
+        if(path.equals(Paths_Main_File.PATH_CHAR_SOURSE_NEW_TG)){
+            try{
+
+                InputStream in = ExportExcel.class.getClassLoader().getResourceAsStream(Paths_Main_File.PATH_CHAR_SOURSE_NEW_TG);
+                myFFFBook = new XSSFWorkbook(in);
+                XSSFSheet sheet_fff = myFFFBook.getSheet(getnameSheet(comand));
+                in.close();
+                return sheet_fff;
+            }
+            catch (Exception e){
+                new Modal_Error().set_erroe_messege("Ошибка создания WORKBOOK " + e.getMessage());
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+
         try {
+
             fis = new FileInputStream(path);
             // возвращает путь в соответсвии
             // с командой
@@ -199,6 +245,7 @@ public abstract class ExportExcel {
         if(command.equals(COMAND_TO_EXPORT_TG_ODDS)){return Paths_Main_File.PATH_TG_ODDS;}
         if(command.equals(COMAND_TO_EXPORT_APP_ORDER)){return Paths_Main_File.PATH_APP_ORD;}
         if(command.equals(COMAND_TO_EXPORT_APP_ORDERSML)){return Paths_Main_File.PATH_APP_ORDSML;}
+        if(command.equals(COMAND_TO_EXPORT_NEWTG_ODDS)){return Paths_Main_File.PATH_CHAR_SOURSE_NEW_TG;}
 
         return "";
     }
@@ -222,6 +269,7 @@ public abstract class ExportExcel {
         if(comand.equals(COMAND_TO_EXPORT_TG_ODDS)){return NameSheets.name_Sheets_TG;}
         if(comand.equals(COMAND_TO_EXPORT_APP_ORDER)){return NameSheets.name_Sheets_Apps;}
         if(comand.equals(COMAND_TO_EXPORT_APP_ORDERSML)){return NameSheets.name_Sheets_AppsSML;}
+        if(comand.equals(COMAND_TO_EXPORT_NEWTG_ODDS)){return NameSheets.name_Sheets_APNEWTG;}
 
         return "";
     }
