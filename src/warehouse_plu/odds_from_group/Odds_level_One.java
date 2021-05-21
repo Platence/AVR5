@@ -8,7 +8,7 @@ public class Odds_level_One implements Comparable<Odds_level_One>{
 
     public static TreeMap<Odds_level_One,ArrayList<Odds_Level_two>> all_list_map = new TreeMap<>();
 
-    private String name;
+    private char []  name;
     private int sum;
 
     /*
@@ -17,7 +17,7 @@ public class Odds_level_One implements Comparable<Odds_level_One>{
 
 
     public Odds_level_One(String name, int sum) {
-        this.name = name;
+        this.name = name.toCharArray();
         this.sum = sum;
     }
 
@@ -28,11 +28,11 @@ public class Odds_level_One implements Comparable<Odds_level_One>{
 
 
     public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+        StringBuilder s = new StringBuilder();
+        for(int i = 0 ; i < name.length;i++){
+            s.append(this.name[i]);
+        }
+        return s.toString();
     }
 
     public int getSum() {

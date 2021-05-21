@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Add_new_Object {
     public static  StringBuilder plu =  new StringBuilder();;
     public static  StringBuilder name = new StringBuilder();
+    public static  StringBuilder bs_1 = new StringBuilder();
     public static  short uy2 ;
     public static  short uy3 ;
     public static  String that_count ="";
@@ -112,7 +113,6 @@ public class Add_new_Object {
 
     public static ArrayList<String> span_String_area(String word){
         ArrayList<String> temp_l = new ArrayList<>();
-        StringBuilder bs_1 = new StringBuilder();
         for(int i = 0 ; i < word.length(); i ++){
             if(word.charAt(i)==','){temp_l.add(bs_1.toString());bs_1.setLength(0);continue;}
             if(word.charAt(i)==' '){bs_1.setLength(0);continue;}

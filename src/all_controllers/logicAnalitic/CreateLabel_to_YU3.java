@@ -36,7 +36,7 @@ public class CreateLabel_to_YU3 {
 
             if(Math.abs(target.oddsSUM)<minimal_sum){continue;}
             if(target.getYu3().equals(group_name_level_3)){
-                word_and_sum.add(target.plu + " " + target.name + "->[ " + target.oddsSUM  + " ]");
+                word_and_sum.add(target.plu + " " + target.getName()+ "->[ " + target.oddsSUM  + " ]");
             }
         }
 

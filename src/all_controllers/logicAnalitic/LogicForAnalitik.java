@@ -12,7 +12,10 @@ import java.util.Map;
 public class LogicForAnalitik {
 
 
-    public static boolean need_start=false;                // Планируется отказ выполнения при покидании вкладки
+    public static boolean need_start = false;                // Планируется отказ выполнения при покидании вкладки
+
+    private static StringBuilder s__level_1 = new StringBuilder();
+    private static StringBuilder s_level_2 = new StringBuilder();
 
     /*
     Будем возвращать отсюда элементы
@@ -48,10 +51,10 @@ public class LogicForAnalitik {
             // Далее поиск повторов, и обновления в случае таковых
             boolean add_yu2 = true;
             for(Map.Entry<Odds_level_One,ArrayList<Odds_Level_two>> entry : Odds_level_One.all_list_map.entrySet()){
+                    s__level_1.setLength(0);
+                    s__level_1.append(entry.getKey().getName());    // Получим УИ2
 
-                    String s__level_1 = entry.getKey().getName();    // Получим УИ2
-
-                    if(target.getYu2().equals(s__level_1)){
+                    if(target.getYu2().equals(s__level_1.toString())){
 
                         // Если такой УИ2 уже есть, просто обновим у него сумму
 
@@ -64,10 +67,10 @@ public class LogicForAnalitik {
                         boolean add_yu3 = true;
 
                         for(Odds_Level_two level_2 : entry.getValue()){
+                            s_level_2.setLength(0);
+                            s_level_2.append(level_2.getName());
 
-                            String s_level_2 = level_2.getName();
-
-                            if(s_level_2.equals(target.getYu3())){
+                            if(s_level_2.toString().equals(target.getYu3())){
                                 int temp_sum_level_2 = level_2.getSum();
                                 level_2.setSum(temp_sum_level_2+=summ);
                                 add_yu3 = false;break;

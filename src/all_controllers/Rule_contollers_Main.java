@@ -144,7 +144,7 @@ public class Rule_contollers_Main {
             }
         });
 
-        new PositionElements().setPositionToListLabel(); // Move Object chain
+        //new PositionElements().setPositionToListLabel(); // Move Object chain
 
         new SettingsOtherHere().initGroup();
 

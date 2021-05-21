@@ -53,7 +53,7 @@ public class ExportNullOstatku extends ExportExcel {
                 Cell control = rowinfo.getCell(7);
 
                 plu.setCellValue(ost.getPlu());
-                name.setCellValue(ost.name);
+                name.setCellValue(ost.getName());
                 area.setCellValue(ost.gates.toString());
                 qf.setCellValue(ost.qfinal);
                 qu.setCellValue(ost.qychetnoe);

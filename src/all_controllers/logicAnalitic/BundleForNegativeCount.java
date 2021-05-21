@@ -23,10 +23,7 @@ public class BundleForNegativeCount {
 
     public static ArrayList<Ostatku> nullnumberOstatku = new ArrayList<>();
 
-    public static int COUNT_CUT_NAME = 12;
-
     public static TitledPane getBundleFromNegative(){
-
 
 
         cheknullnumber();
@@ -36,7 +33,6 @@ public class BundleForNegativeCount {
         fp.setOrientation(Orientation.VERTICAL);
 
         ScrollPane sp = new ScrollPane();
-        StringBuilder sb = new StringBuilder();
 
         addLabelUpload(fp);                     // Добавление лейбла ( кнопки ) на выгрузку отчета
 
@@ -83,16 +79,6 @@ public class BundleForNegativeCount {
         System.out.println(" ");
 
 
-    }
-
-    public static void setOnMouseclickedOnNegative(String s){
-        String temp = CreateLabel_to_YU3.get_name_regular(s);
-        for(Ostatku ost : Main.classOstatku){
-            if(temp.equals(ost.getPlu())){
-                new Modal_Error().set_erroe_messege(ost.to_String_detail(ost));
-                break;
-            }
-        }
     }
 
     public static void addLabelUpload(FlowPane fp){

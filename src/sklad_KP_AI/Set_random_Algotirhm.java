@@ -2,12 +2,10 @@ package sklad_KP_AI;
 
 import all_controllers.Rule_contollers_Main;
 import interfaces_all.Settings_control_add_KPPP;
-import javafx.concurrent.Task;
-import sample.Main;
 import warehouse_plu.Ostatku;
 
 import java.util.ArrayList;
-import java.util.TreeSet;
+
 
 public class Set_random_Algotirhm implements Settings_control_add_KPPP {
 

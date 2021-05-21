@@ -232,16 +232,6 @@
                      <children>
                         <TabPane fx:id="mainPain2" prefHeight="645.0" prefWidth="1270.0" tabClosingPolicy="UNAVAILABLE">
                           <tabs>
-                              <Tab fx:id="wrsOnLine" text="WRS_ON_LINE">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <FlowPane fx:id="browserPane" prefHeight="619.0" prefWidth="1255.0" />
-                                          <ComboBox fx:id="comboBoxSite" layoutX="1100.0" opacity="0.55" prefWidth="150.0" />
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                              </Tab>
                               <Tab fx:id="analitik_tab" onCloseRequest="#empty_method" onSelectionChanged="#go_analitiks" text="Аналитика">
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -285,6 +275,16 @@
                                           <Label layoutX="20.0" layoutY="14.0" prefHeight="17.0" prefWidth="260.0" text="Выберите отчет" />
                                           <Button fx:id="buttonPr" disable="true" layoutX="20.0" layoutY="123.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="257.0" text="Распечатать" />
                                           <Button fx:id="buttonViewSALE" layoutY="434.0" mnemonicParsing="false" onAction="#createrODSALEFINASTART" prefHeight="28.0" prefWidth="258.0" text="Продажи ( посмотреть )" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                              <Tab fx:id="wrsOnLine" text="WRS_ON_LINE">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <FlowPane fx:id="browserPane" prefHeight="619.0" prefWidth="1255.0" />
+                                          <ComboBox fx:id="comboBoxSite" layoutX="1100.0" opacity="0.55" prefWidth="150.0" />
                                        </children>
                                     </AnchorPane>
                                 </content>

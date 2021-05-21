@@ -174,7 +174,7 @@ public class KpppSKLADExport extends ExportExcel {
                     try {
 
                         plu.setCellValue(temp_new.plu); interarion++;
-                        name.setCellValue(temp_new.name);interarion++;
+                        name.setCellValue(temp_new.getName());interarion++;
                         qFIN.setCellValue(temp_new.qfinal);interarion++;
                         zone.setCellValue(temp_new.gates.toString());interarion++;
                         qf2.setCellValue(temp_new.qfinal);interarion++;
@@ -302,7 +302,7 @@ public class KpppSKLADExport extends ExportExcel {
                     try {
 
                         plu.setCellValue(temp_new.plu); interarion++;
-                        name.setCellValue(temp_new.name);interarion++;
+                        name.setCellValue(temp_new.getName());interarion++;
                         qFIN.setCellValue(temp_new.qfinal);interarion++;
                         zone.setCellValue(temp_new.gates.toString());interarion++;
                         qf2.setCellValue(temp_new.qfinal);interarion++;

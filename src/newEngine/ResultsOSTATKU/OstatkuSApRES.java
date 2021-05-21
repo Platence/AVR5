@@ -51,7 +51,7 @@ public class OstatkuSApRES {
                         ostatku.plu = ost.value;
                     }
                     if (ost.column == 'B') {
-                        ostatku.name = ost.value;
+                        ostatku.name = ost.value.toCharArray();
                     }
                     if (ost.column == 'C') {
                         ostatku.yu2 = BaseGroup.addnewGroupIndexAndName(ost.value);

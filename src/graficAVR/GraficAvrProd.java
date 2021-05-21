@@ -6,42 +6,35 @@ import error_package.Modal_Error;
 
 import error_package.SlideError.SlideModalError;
 import graficAVR.scaleStepChoiceBox.SetStandartScale;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
-import javafx.util.Duration;
 import sample.Main;
-
-import java.lang.reflect.Field;
-
 
 public class GraficAvrProd {
 
     public static String currentGroup = "ALL";
-    public static final String eternalCode = "NaN(ETERNAL)";
     public static int stepMax = 0;
     public static int stepMin = 0;
 
 
+    private static StringBuilder secondInterval = new StringBuilder();
+
 
     public void drawGrafic(){
 
-        if (Main.classOstatku.size()<1){new Modal_Error().set_erroe_messege("Сначала расчитайте список разниц!");
-        return;
+        if (Main.classOstatku.size()<1){
+            new Modal_Error().set_erroe_messege("Сначала расчитайте список разниц!");
+            return;
         }
 
         Rule_contollers_Main.main_controller.flowPaneGrafics.getChildren().clear();
@@ -182,18 +175,16 @@ public class GraficAvrProd {
          *  Поместим Тул тип на каждый пункт
          */
 
-        StringBuilder sb = new StringBuilder();
-
-        String secondInterval = Math.abs(x)==2000 ? "+100500" : String.valueOf((x+ListXY.sizeStep));
-        int temp = x-50;
-        int summ = (y*temp);
+        //StringBuilder sb = new StringBuilder();
+        secondInterval.setLength(0);
+        secondInterval.append(Math.abs(x)==2000 ? "+100500" : String.valueOf((x+ListXY.sizeStep)));
 
         if(y==0){return null;}
 
-        sb.append("Сумма RUR ~  : " + y  );
-        sb.append(System.lineSeparator());
-        sb.append("Интерввл RUR : " + x  + " - " + secondInterval);
-        sb.append(System.lineSeparator());
+//        sb.append("Сумма RUR ~  : " + y  );
+//        sb.append(System.lineSeparator());
+//        sb.append("Интерввл RUR : " + x  + " - " + secondInterval);
+//        sb.append(System.lineSeparator());
 
 
         AnchorPane stack = new AnchorPane();
@@ -201,12 +192,12 @@ public class GraficAvrProd {
         stack.setMaxSize(2,2);
 
         int firstInter = 0;
-        try { firstInter = Integer.parseInt(secondInterval); }
+        try { firstInter = Integer.parseInt(secondInterval.toString()); }
         catch (Exception e){ System.out.println(e.getMessage()); }
 
         ListOddsFromGropGR.addNewPositionSurplus(stack,firstInter,x);     // addpoSitionToList
 
-        sb.setLength(0);
+        //sb.setLength(0);
         Text text = new Text(String.valueOf(y));
         text.setFill(Color.YELLOW);
 
@@ -239,19 +230,17 @@ public class GraficAvrProd {
          *  Поместим Тул тип на каждый пункт
          */
 
-        int temp = Math.abs(x)-50;
-        int summ = (Math.abs(y)*temp);
-
         if(y==0){return null;}
-        StringBuilder sb = new StringBuilder();
 
-        String secondInterval = Math.abs(x)==2000 ? "-100500" : String.valueOf((x-ListXY.sizeStep));
+        //StringBuilder sb = new StringBuilder();
+        secondInterval.setLength(0);
+        secondInterval.append(Math.abs(x)==2000 ? "-100500" : String.valueOf((x-ListXY.sizeStep)));
 
 
-        sb.append("Сумма RUR ~ : " + y  );
-        sb.append(System.lineSeparator());
-        sb.append("Интерввл RUR : " + x  + " ( -> ) " + secondInterval);
-        sb.append(System.lineSeparator());
+//        sb.append("Сумма RUR ~ : " + y  );
+//        sb.append(System.lineSeparator());
+//        sb.append("Интерввл RUR : " + x  + " ( -> ) " + secondInterval);
+//        sb.append(System.lineSeparator());
 
 
         AnchorPane stack = new AnchorPane();
@@ -259,12 +248,12 @@ public class GraficAvrProd {
         stack.setMaxSize(3,3);
 
         int firstInter = 0;
-        try { firstInter = Integer.parseInt(secondInterval); }
+        try { firstInter = Integer.parseInt(secondInterval.toString()); }
         catch (Exception e){ System.out.println(e.getMessage()); }
 
         ListOddsFromGropGR.addNewPosition(stack,firstInter,x);     // addpoSitionToList
 
-        sb.setLength(0);
+        //sb.setLength(0);
 
         stack.setStyle("-fx-background-color : transparent");
 

@@ -12,7 +12,8 @@ public class Ostatku {
 
 
     public String plu = "";
-    public String name = "";
+    //public String name = "";
+    public char [] name;
     public short yu2;
     public short yu3;
     public String that_count ="";
@@ -59,7 +60,7 @@ public class Ostatku {
         }
 
         this.plu = plu;
-        this.name = name;
+        this.name = name.toCharArray();
         this.yu2 = yu2;
         this.yu3 = yu3;
         this.that_count = that_count;
@@ -153,7 +154,12 @@ public class Ostatku {
     }
 
     public String getName() {
-        return name;
+
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0 ; i < this.name.length; i++){
+            sb.append(this.name[i]);
+        }
+        return sb.toString();
     }
 
     public double getQfinal() {
@@ -257,7 +263,7 @@ public class Ostatku {
 
     public String to_String_detail(Ostatku x){
         return "plu : -> " + x.plu + System.lineSeparator() +
-                "Name : -> " + x.name + System.lineSeparator() +
+                "Name : -> " + x.getName() + System.lineSeparator() +
                 "Area : -> " + x.area_one_strok + System.lineSeparator() +
                 "Qфин : -> " + x.qfinal + System.lineSeparator() +
                 "Qуч : -> " + x.qychetnoe + System.lineSeparator() +

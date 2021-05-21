@@ -10,7 +10,8 @@ import warehouse_plu.Add_new_Object;
 public class SAXPars extends DefaultHandler {
 
 
-    String thisElement = "";
+    //String thisElement = "";
+    public static StringBuilder thisElement = new StringBuilder();
     public static int count_start_cp = 1;
     public static StringBuilder sb = new StringBuilder();
 
@@ -22,9 +23,6 @@ public class SAXPars extends DefaultHandler {
     public DownloadTask ttt ;
     public static int percent = 51;
     public static boolean newsverka = false;
-    public static final String specialSymbol = "X";
-    public static int tested = 0;
-
 
     @Override
     public void startDocument() throws SAXException {
@@ -33,7 +31,8 @@ public class SAXPars extends DefaultHandler {
 
     @Override
     public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException {
-        thisElement = qName;
+        thisElement.setLength(0);
+        thisElement.append(qName);
 
         // Далее метод для прогресс бара
         count_size_list++;
@@ -55,7 +54,7 @@ public class SAXPars extends DefaultHandler {
     public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
 
 
-        if(count_start_cp==0&&!thisElement.equals("")){
+        if(count_start_cp==0&&!thisElement.toString().equals("")){
 
                 Add_new_Object.init_String(sb.toString(),count_for_add);
 
@@ -68,17 +67,16 @@ public class SAXPars extends DefaultHandler {
                     count_for_add++;
                 }
 
-
         }
 
         if(sb.toString().equals("Контр. пересчет")){count_start_cp=0;sb.setLength(0);succefull=true;}
         if(sb.toString().equals("Подсчет на ТСД")){count_start_cp=0;sb.setLength(0);newsverka = true;count_for_add=1;}
 
-        if(!thisElement.equals("")){
+        if(!thisElement.toString().equals("")){
             sb.setLength(0);
         }
 
-        thisElement = "";
+        thisElement.setLength(0);
 
     }
 
@@ -87,12 +85,12 @@ public class SAXPars extends DefaultHandler {
 
 
 
-        if (thisElement.equals("t")) {
+        if (thisElement.toString().equals("t")) {
             final String temp_text = new String(ch, start, length);
             sb.append(temp_text);
             //System.out.print(temp_text);
         }
-        if (thisElement.equals("v")) {
+        if (thisElement.toString().equals("v")) {
             final String temp_number_double = new String(ch, start, length);
             sb.append(temp_number_double);
             //System.out.print(temp_number_double);
@@ -115,18 +113,6 @@ public class SAXPars extends DefaultHandler {
         count_for_add = 1;
         size_cieqle = 13;
         percent = 51; // Не относится к акту КП
-    }
-
-    public static boolean testOnPLU(String z){
-
-        try{
-            long vb = Long.parseLong(z);
-            return true;
-        }
-
-        catch (Exception e){
-            return false;
-        }
     }
 
 

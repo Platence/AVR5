@@ -6,21 +6,21 @@ import java.util.TreeMap;
 public class Odds_Level_two extends Odds_level_One {
 
 
-    private String name;
+    private char [] name;
     private int sum;
 
     public Odds_Level_two(String name, int sum) {
-        this.name = name;
+        this.name = name.toCharArray();
         this.sum = sum;
     }
 
 
     public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+        StringBuilder s = new StringBuilder();
+        for(int i = 0 ; i < name.length;i++){
+            s.append(this.name[i]);
+        }
+        return s.toString();
     }
 
     public int getSum() {

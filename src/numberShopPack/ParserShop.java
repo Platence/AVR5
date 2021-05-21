@@ -9,6 +9,7 @@ public class ParserShop {
 
     public static String sharedStringcurrentPath = "EMP";
     public static String sheet1CurrentPath = "EMP";
+    public static StringBuilder s = new StringBuilder();;
 
     public static int countIndex = 0;                        // Переменная хранит индексы строк
 
@@ -18,9 +19,12 @@ public class ParserShop {
         File file = new File("src/binn/baseShop/AllMagazine.txt");
         System.out.println("Файл списка магазинов получен...");
         Scanner sc = null;
+
         try {
             sc = new Scanner(file);
-        } catch (FileNotFoundException e) {
+        }
+
+        catch (FileNotFoundException e) {
             e.printStackTrace();
             System.out.println(e.getLocalizedMessage());
             new Modal_Error().set_erroe_messege("НЕ УДАЛОСЬ ПРОЧИТАТЬ МАГАЗИНЫ");
@@ -30,7 +34,7 @@ public class ParserShop {
         System.out.println("Запуск цикла парсинга файла(Магазины)");
 
         while (sc.hasNextLine()) {
-            StringBuilder s = new StringBuilder();
+            s.setLength(0);
             s.append(sc.nextLine());
             String mas[] = s.toString().split("%");
 
@@ -47,7 +51,6 @@ public class ParserShop {
 
         sc.close();
         System.gc();
-
         System.out.println("Инъекция магазинов прошла успешно");
 
     }

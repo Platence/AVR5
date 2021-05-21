@@ -152,7 +152,7 @@ public class ExportKPPFIN extends ExportExcel {
             try {
 
                 plu.setCellValue(target.plu); interarion++;
-                name.setCellValue(target.name);interarion++;
+                name.setCellValue(target.getName());interarion++;
                 qFIN.setCellValue(target.qfinal);interarion++;
                 zone.setCellValue(target.gates.toString());interarion++;
 
@@ -294,7 +294,7 @@ public class ExportKPPFIN extends ExportExcel {
             try {
 
                 plu.setCellValue(target.plu); interarion++;
-                name.setCellValue(target.name);interarion++;
+                name.setCellValue(target.getName());interarion++;
                 qFIN.setCellValue(target.qfinal);interarion++;
                 zone.setCellValue(target.gates.toString());interarion++;
                 //qy4et.setCellValue(String.valueOf(target.getQychetnoe()));
@@ -452,7 +452,7 @@ public class ExportKPPFIN extends ExportExcel {
             try {
 
                 plu.setCellValue(target.plu); interarion++;
-                name.setCellValue(target.name);interarion++;
+                name.setCellValue(target.getName());interarion++;
                 qFIN.setCellValue(target.qfinal);interarion++;
                 zone.setCellValue(target.gates.toString());interarion++;
 

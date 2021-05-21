@@ -13,16 +13,19 @@ public class ListXY {
 
     public static int maxSize = 0;
     public static int sizeStep;
+    private static StringBuilder d = new StringBuilder();
 
     public static int toShortage(int z ){
 
         if(z>0){
-            String d = "-" + z;
+            d.append("-").append(z);
             try{
-                int x = Integer.parseInt(d);
+                int x = Integer.parseInt(d.toString());
+                d.setLength(0);
                 return x;
             }
             catch (Exception e){
+                d.setLength(0);
                 return z;
             }
         }
@@ -67,7 +70,7 @@ public class ListXY {
 
             if(treshhodOne==0){treshhodOne = 1;}
             list.add(new XYChart.Data<Integer, Integer>(treshhodOne,countPlu));
-            System.out.println("В промежутке " + treshhodOne + " и " + tresholdTwo + " Добавлено " + countPlu);
+            //System.out.println("В промежутке " + treshhodOne + " и " + tresholdTwo + " Добавлено " + countPlu);
 
             tresholdTwo = treshhodOne;
             treshhodOne-=sizeStep;
@@ -134,7 +137,7 @@ public class ListXY {
             countPlu = Math.abs(countPlu);
             if(treshhodOne==0){treshhodOne = -1;}
             shortage.put(treshhodOne,countPlu);
-            System.out.println("В промежутке " + treshhodOne+ " и " + tresholdTwo + " Добавлено " + countPlu);
+            //System.out.println("В промежутке " + treshhodOne+ " и " + tresholdTwo + " Добавлено " + countPlu);
 
             tresholdTwo = treshhodOne;
             treshhodOne+=sizeStep;
@@ -183,7 +186,7 @@ public class ListXY {
             }
 
             list.add(new XYChart.Data<Integer, Integer>(treshhodOne,countPlu));
-            System.out.println("В промежутке " + treshhodOne + " и " + tresholdTwo + " Добавлено " + countPlu);
+            //System.out.println("В промежутке " + treshhodOne + " и " + tresholdTwo + " Добавлено " + countPlu);
 
             tresholdTwo = treshhodOne;
             treshhodOne-=sizeStep;
