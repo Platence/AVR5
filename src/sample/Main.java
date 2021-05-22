@@ -25,7 +25,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         stage_main_copy = primaryStage;
-        //stage_main_copy.initStyle(StageStyle.UNDECORATED);
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("AVR5");
         Scene scene = new Scene(root,1250,655);

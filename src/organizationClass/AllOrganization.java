@@ -235,23 +235,14 @@ public class AllOrganization {
 
         main_controller.table_organization.setItems(new AllOrganization().resetListOBS());
         main_controller.table_organization.refresh();
+
+        main_controller.organization_box.getItems().clear();
+        main_controller.organization_box.setItems(new AllOrganization().resetListOBS());
     }
 
     public static void setListner(){
 
         // update box every on click
-
-        main_controller.organization_box.setOnMouseClicked(event -> {
-            try {
-                main_controller.organization_box.getItems().clear();
-                System.out.println("Клик мышью ");
-                main_controller.organization_box.setItems(new AllOrganization().resetListOBS());
-                System.gc();
-            }
-            catch (Exception e){
-                System.out.println("Error update box organization " + e.getMessage() + " 222 line");
-            }
-        });
 
         main_controller.organization_box.setOnAction(event -> {
             try {
@@ -291,6 +282,8 @@ public class AllOrganization {
         main_controller.table_organization.setOnKeyReleased(event -> {
             if(event.getCode() == KeyCode.DELETE){
                 deletePosition(main_controller.table_organization.getSelectionModel().getSelectedItem());
+                main_controller.organization_box.getItems().clear();
+                main_controller.organization_box.setItems(new AllOrganization().resetListOBS());
             }
         });
 
