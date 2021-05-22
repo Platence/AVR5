@@ -6,445 +6,617 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="mainPainnn" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-   <children>
-      <ImageView fx:id="image_main" fitHeight="736.0" fitWidth="1271.0" opacity="0.52" pickOnBounds="true" />
-      <TabPane fx:id="main_pain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1270.0" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab fx:id="prepeareToPu" text="Подготовка">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="670.0" prefWidth="1271.0">
-                        <DatePicker fx:id="calendar_main" layoutX="9.0" layoutY="72.0" onAction="#saveDateInventory" prefHeight="25.0" prefWidth="120.0" />
-                        <Label fx:id="dateOrderLabel" layoutX="138.0" layoutY="137.0" opacity="0.5" prefHeight="17.0" prefWidth="95.0" text="Дата приказа ">
-                           <font>
-                              <Font name="Arial" size="11.0" />
-                           </font></Label>
-                        <DatePicker fx:id="calendar_order" layoutX="137.0" layoutY="108.0" onAction="#saveMonthOrderDate" prefHeight="25.0" prefWidth="158.0" />
-                        <Label fx:id="orgDatePu" layoutX="143.0" layoutY="49.0" opacity="0.5" prefHeight="17.0" prefWidth="85.0" text="ЮЛ">
-                           <font>
-                              <Font name="Arial" size="11.0" />
-                           </font></Label>
-                        <ChoiceBox fx:id="organization_box" layoutX="138.0" layoutY="72.0" prefHeight="25.0" prefWidth="157.0" />
-                        <TextField fx:id="number_shop" layoutX="8.0" layoutY="108.0" prefHeight="25.0" prefWidth="121.0" />
-                        <Label fx:id="numberShop" layoutX="14.0" layoutY="137.0" opacity="0.5" prefHeight="17.0" prefWidth="58.0" text="№ маг ">
-                           <font>
-                              <Font name="Arial" size="11.0" />
-                           </font></Label>
-                        <Button fx:id="buttonadPath" layoutX="10.0" layoutY="540.0" mnemonicParsing="false" onAction="#add_directory_path" prefHeight="28.0" prefWidth="218.0" text="Выбрать рабочую папку*" />
-                        <Label fx:id="label_changeDatePU" layoutX="12.0" layoutY="49.0" opacity="0.5" prefHeight="17.0" prefWidth="82.0" text="Дата ПИ">
-                           <font>
-                              <Font name="Arial" size="11.0" />
-                           </font></Label>
-                        <TextField fx:id="info_path_field" layoutX="228.0" layoutY="538.0" prefHeight="25.0" prefWidth="500.0" promptText="Директория не выбрана...(Укажите путь к папке содержащей списки разниц)" />
-                        <Label fx:id="ck1" layoutX="14.0" layoutY="172.0" opacity="0.45" prefHeight="17.0" prefWidth="374.0" text="Должность                       ФИО">
-                           <font>
-                              <Font name="Arial" size="11.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="partOne" layoutX="137.0" layoutY="196.0" prefHeight="25.0" prefWidth="251.0" text="ваня" />
-                        <TextField fx:id="parttWo" layoutX="137.0" layoutY="223.0" prefHeight="25.0" prefWidth="251.0" text="саша" />
-                        <TextField fx:id="partThree" layoutX="137.0" layoutY="253.0" prefHeight="25.0" prefWidth="251.0" text="Петя" />
-                        <Button fx:id="buttonSave" layoutX="1005.0" layoutY="222.0" mnemonicParsing="false" onAction="#savePeople" prefHeight="28.0" prefWidth="160.0" text="Зафиксировать" visible="false" />
-                        <Label fx:id="versionLabel" layoutX="14.0" layoutY="587.0" prefHeight="20.0" prefWidth="338.0" text="InfoLabel" visible="false">
-                           <font>
-                              <Font name="System Italic" size="14.0" />
-                           </font>
-                        </Label>
-                        <PasswordField fx:id="sskrrpasswordFIELD" disable="true" layoutX="977.0" layoutY="535.0" visible="false" />
-                        <Label disable="true" layoutX="980.0" layoutY="518.0" prefHeight="17.0" prefWidth="140.0" text="Режим ССКРР" visible="false" />
-                        <TextField fx:id="d1" layoutX="13.0" layoutY="196.0" prefHeight="25.0" prefWidth="89.0" />
-                        <TextField fx:id="d2" layoutX="13.0" layoutY="224.0" prefHeight="25.0" prefWidth="89.0" />
-                        <TextField fx:id="d3" layoutX="13.0" layoutY="253.0" prefHeight="25.0" prefWidth="89.0" />
-                        <TextField fx:id="dMOL" layoutX="13.0" layoutY="329.0" prefHeight="25.0" prefWidth="87.0" />
-                        <TextField fx:id="partMol" layoutX="137.0" layoutY="329.0" prefHeight="25.0" prefWidth="251.0" text="Петя" />
-                        <Label layoutX="15.0" layoutY="308.0" opacity="0.45" prefHeight="17.0" prefWidth="38.0" text="МОЛ">
-                           <font>
-                              <Font name="Arial" size="11.0" />
-                           </font></Label>
-                        <TextField fx:id="dolMOLfield" layoutX="13.0" layoutY="364.0" prefHeight="25.0" prefWidth="86.0" promptText="fieldDOLSMENAMOL" text="ДМпринял" />
-                        <TextField fx:id="fieldSMENAMOL" layoutX="137.0" layoutY="364.0" prefHeight="25.0" prefWidth="251.0" promptText="ФИО..." />
-                        <ComboBox fx:id="listSHTYPE" layoutX="8.0" layoutY="14.0" opacity="0.87" prefHeight="25.0" prefWidth="122.0" promptText="Плановая" />
-                        <Button fx:id="buttonAddNewMag" layoutX="75.0" layoutY="109.0" mnemonicParsing="false" onAction="#showmesNewShop" opacity="0.92" prefHeight="28.0" prefWidth="54.0" text="+добавить" />
-                        <Button layoutX="987.0" layoutY="15.0" mnemonicParsing="false" onAction="#closeProgram" prefHeight="28.0" prefWidth="267.0" text="Закрыть программу AVR" visible="false" />
-                        <Button layoutX="15.0" layoutY="490.0" mnemonicParsing="false" onAction="#startTest" prefHeight="28.0" prefWidth="194.0" text="ТЕСТ НА ПУТЬ К ФАЙЛУ" visible="false" />
-                  </AnchorPane>
-            </content>
-          </Tab>
-          <Tab fx:id="kp_sklad_tab" text="Исполнение">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                        <ProgressBar fx:id="progress_bar_main" layoutX="14.0" layoutY="613.0" prefHeight="20.0" prefWidth="1166.0" progress="0.0" visible="false" />
-                        <Label fx:id="label_info" layoutX="23.0" layoutY="590.0" prefHeight="17.0" prefWidth="851.0" visible="false" />
-                        <ComboBox fx:id="list_files_ch" layoutX="4.0" layoutY="14.0" opacity="0.62" prefHeight="28.0" prefWidth="380.0" promptText="Файл не выбран..." />
-                        <Button fx:id="button_kp_sklad_ras4et" layoutX="391.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadingExcelForOstatku" prefHeight="30.0" prefWidth="241.0" text="Произвести расчет" />
-                        <TabPane layoutY="60.0" prefHeight="555.0" prefWidth="1255.0" tabClosingPolicy="UNAVAILABLE">
-                          <tabs>
-                            <Tab fx:id="kpskadskad" text="КП_Склад">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                          <Button fx:id="create_act_cp_sklad" layoutX="14.0" layoutY="58.0" mnemonicParsing="false" onAction="#creat_kp_s_act" prefHeight="28.0" prefWidth="242.0" text="Создать акт" visible="false" />
-                                          <ComboBox fx:id="pick_algorith_sklad" layoutX="14.0" layoutY="22.0" opacity="0.62" prefHeight="25.0" prefWidth="240.0" promptText="Выберите алгоритм" visible="false" />
-                                          <TextField fx:id="qf_kp_sklad_c" layoutX="1005.0" layoutY="54.0" prefHeight="25.0" prefWidth="32.0" text="7" visible="false" />
-                                          <Label fx:id="info1" disable="true" layoutX="1048.0" layoutY="58.0" prefHeight="17.0" prefWidth="128.0" text="QФин &gt; X" visible="false" />
-                                          <CheckBox fx:id="ignor_in_out" layoutX="770.0" layoutY="27.0" mnemonicParsing="false" selected="true" text="Игнор расхождений(+)" visible="false" />
-                                          <Label fx:id="info2" layoutX="1048.0" layoutY="20.0" prefHeight="17.0" prefWidth="128.0" text="Ин аут plu &lt;= X" visible="false" />
-                                          <TextField fx:id="qf_in_ayt_plu_c" layoutX="1004.0" layoutY="16.0" prefHeight="25.0" prefWidth="33.0" text="2" visible="false" />
-                                          <TableView fx:id="kpskladTable" layoutX="12.0" layoutY="95.0" prefHeight="398.0" prefWidth="1237.0">
-                                            <columns>
-                                              <TableColumn fx:id="plukpSklTAB" prefWidth="118.0" text="plu" />
-                                              <TableColumn fx:id="plukpdescTAB" minWidth="490.0" prefWidth="532.0" text="Описание" />
-                                                <TableColumn fx:id="plukpdareaTAB" prefWidth="144.0" text="Зоны" />
-                                                <TableColumn fx:id="plukpdqFFFFTAB" text="QF" />
-                                                <TableColumn fx:id="plukpdoddsTAB" prefWidth="69.0" text="+ -" />
-                                                <TableColumn fx:id="plukpdqyyyTAB" prefWidth="112.0" text="QY" />
-                                                <TableColumn fx:id="plukpdqPPPPPTAB" editable="false" minWidth="180.0" prefWidth="300.0" resizable="false" text="УИ2" />
-                                            </columns>
-                                          </TableView>
-                                          <Button fx:id="buttonLoad" layoutX="280.0" layoutY="58.0" mnemonicParsing="false" onAction="#uploadNewSklad" prefHeight="28.0" prefWidth="179.0" text="Выгрузить снова" visible="false" />
-                                          <Label fx:id="info11" disable="true" layoutX="1011.0" layoutY="500.0" prefHeight="17.0" prefWidth="237.0" text=" ">
-                                             <font>
-                                                <Font name="System Bold Italic" size="14.0" />
-                                             </font></Label>
+<Pane fx:id="mainPainnn" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="sample.Controller">
+    <ImageView fx:id="image_main" fitHeight="736.0" fitWidth="1271.0" opacity="0.52" pickOnBounds="true"/>
+    <TabPane fx:id="main_pain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+             prefHeight="670.0" prefWidth="1270.0" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE">
+        <Tab fx:id="prepeareToPu" text="Подготовка">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="670.0" prefWidth="1271.0">
+                <DatePicker fx:id="calendar_main" layoutX="9.0" layoutY="72.0" onAction="#saveDateInventory"
+                            prefHeight="25.0" prefWidth="120.0"/>
+                <Label fx:id="dateOrderLabel" layoutX="138.0" layoutY="137.0" opacity="0.5" prefHeight="17.0"
+                       prefWidth="95.0" text="Дата приказа ">
+                    <font>
+                        <Font name="Arial" size="11.0"/>
+                    </font>
+                </Label>
+                <DatePicker fx:id="calendar_order" layoutX="137.0" layoutY="108.0"
+                            onAction="#saveMonthOrderDate" prefHeight="25.0" prefWidth="158.0"/>
+                <Label fx:id="orgDatePu" layoutX="143.0" layoutY="49.0" opacity="0.5" prefHeight="17.0"
+                       prefWidth="85.0" text="ЮЛ">
+                    <font>
+                        <Font name="Arial" size="11.0"/>
+                    </font>
+                </Label>
+                <ChoiceBox fx:id="organization_box" layoutX="138.0" layoutY="72.0" prefHeight="25.0"
+                           prefWidth="157.0"/>
+                <TextField fx:id="number_shop" layoutX="8.0" layoutY="108.0" prefHeight="25.0"
+                           prefWidth="121.0"/>
+                <Label fx:id="numberShop" layoutX="14.0" layoutY="137.0" opacity="0.5" prefHeight="17.0"
+                       prefWidth="58.0" text="№ маг ">
+                    <font>
+                        <Font name="Arial" size="11.0"/>
+                    </font>
+                </Label>
+                <Button fx:id="buttonadPath" layoutX="10.0" layoutY="540.0" mnemonicParsing="false"
+                        onAction="#add_directory_path" prefHeight="28.0" prefWidth="218.0"
+                        text="Выбрать рабочую папку*"/>
+                <Label fx:id="label_changeDatePU" layoutX="12.0" layoutY="49.0" opacity="0.5" prefHeight="17.0"
+                       prefWidth="82.0" text="Дата ПИ">
+                    <font>
+                        <Font name="Arial" size="11.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="info_path_field" layoutX="228.0" layoutY="538.0" prefHeight="25.0"
+                           prefWidth="500.0"
+                           promptText="Директория не выбрана...(Укажите путь к папке содержащей списки разниц)"/>
+                <Label fx:id="ck1" layoutX="14.0" layoutY="172.0" opacity="0.45" prefHeight="17.0"
+                       prefWidth="374.0" text="Должность                       ФИО">
+                    <font>
+                        <Font name="Arial" size="11.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="partOne" layoutX="137.0" layoutY="196.0" prefHeight="25.0" prefWidth="251.0"
+                           text="ваня"/>
+                <TextField fx:id="parttWo" layoutX="137.0" layoutY="223.0" prefHeight="25.0" prefWidth="251.0"
+                           text="саша"/>
+                <TextField fx:id="partThree" layoutX="137.0" layoutY="253.0" prefHeight="25.0" prefWidth="251.0"
+                           text="Петя"/>
+                <Button fx:id="buttonSave" layoutX="1005.0" layoutY="222.0" mnemonicParsing="false"
+                        onAction="#savePeople" prefHeight="28.0" prefWidth="160.0" text="Зафиксировать"
+                        visible="false"/>
+                <Label fx:id="versionLabel" layoutX="14.0" layoutY="587.0" prefHeight="20.0" prefWidth="338.0"
+                       text="InfoLabel" visible="false">
+                    <font>
+                        <Font name="System Italic" size="14.0"/>
+                    </font>
+                </Label>
+                <PasswordField fx:id="sskrrpasswordFIELD" disable="true" layoutX="977.0" layoutY="535.0"
+                               visible="false"/>
+                <Label disable="true" layoutX="980.0" layoutY="518.0" prefHeight="17.0" prefWidth="140.0"
+                       text="Режим ССКРР" visible="false"/>
+                <TextField fx:id="d1" layoutX="13.0" layoutY="196.0" prefHeight="25.0" prefWidth="89.0"/>
+                <TextField fx:id="d2" layoutX="13.0" layoutY="224.0" prefHeight="25.0" prefWidth="89.0"/>
+                <TextField fx:id="d3" layoutX="13.0" layoutY="253.0" prefHeight="25.0" prefWidth="89.0"/>
+                <TextField fx:id="dMOL" layoutX="13.0" layoutY="329.0" prefHeight="25.0" prefWidth="87.0"/>
+                <TextField fx:id="partMol" layoutX="137.0" layoutY="329.0" prefHeight="25.0" prefWidth="251.0"
+                           text="Петя"/>
+                <Label layoutX="15.0" layoutY="308.0" opacity="0.45" prefHeight="17.0" prefWidth="38.0"
+                       text="МОЛ">
+                    <font>
+                        <Font name="Arial" size="11.0"/>
+                    </font>
+                </Label>
+                <TextField fx:id="dolMOLfield" layoutX="13.0" layoutY="364.0" prefHeight="25.0" prefWidth="86.0"
+                           promptText="fieldDOLSMENAMOL" text="ДМпринял"/>
+                <TextField fx:id="fieldSMENAMOL" layoutX="137.0" layoutY="364.0" prefHeight="25.0"
+                           prefWidth="251.0" promptText="ФИО..."/>
+                <ComboBox fx:id="listSHTYPE" layoutX="8.0" layoutY="14.0" opacity="0.87" prefHeight="25.0"
+                          prefWidth="122.0" promptText="Плановая"/>
+                <Button fx:id="buttonAddNewMag" layoutX="75.0" layoutY="109.0" mnemonicParsing="false"
+                        onAction="#showmesNewShop" opacity="0.92" prefHeight="28.0" prefWidth="54.0"
+                        text="+добавить"/>
+                <Button layoutX="987.0" layoutY="15.0" mnemonicParsing="false" onAction="#closeProgram"
+                        prefHeight="28.0" prefWidth="267.0" text="Закрыть программу AVR" visible="false"/>
+                <Button layoutX="15.0" layoutY="490.0" mnemonicParsing="false" onAction="#startTest"
+                        prefHeight="28.0" prefWidth="194.0" text="ТЕСТ НА ПУТЬ К ФАЙЛУ" visible="false"/>
+            </AnchorPane>
+        </Tab>
+        <Tab fx:id="kp_sklad_tab" text="Исполнение">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <ProgressBar fx:id="progress_bar_main" layoutX="14.0" layoutY="613.0" prefHeight="20.0"
+                             prefWidth="1166.0" progress="0.0" visible="false"/>
+                <Label fx:id="label_info" layoutX="23.0" layoutY="590.0" prefHeight="17.0" prefWidth="851.0"
+                       visible="false"/>
+                <ComboBox fx:id="list_files_ch" layoutX="4.0" layoutY="14.0" opacity="0.62" prefHeight="28.0"
+                          prefWidth="380.0" promptText="Файл не выбран..."/>
+                <Button fx:id="button_kp_sklad_ras4et" layoutX="391.0" layoutY="14.0" mnemonicParsing="false"
+                        onAction="#loadingExcelForOstatku" prefHeight="30.0" prefWidth="241.0"
+                        text="Произвести расчет"/>
+                <TabPane layoutY="60.0" prefHeight="555.0" prefWidth="1255.0" tabClosingPolicy="UNAVAILABLE">
+                    <Tab fx:id="kpskadskad" text="КП_Склад">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <Button fx:id="create_act_cp_sklad" layoutX="14.0" layoutY="58.0"
+                                    mnemonicParsing="false" onAction="#creat_kp_s_act" prefHeight="28.0"
+                                    prefWidth="242.0" text="Создать акт" visible="false"/>
+                            <ComboBox fx:id="pick_algorith_sklad" layoutX="14.0" layoutY="22.0"
+                                      opacity="0.62" prefHeight="25.0" prefWidth="240.0"
+                                      promptText="Выберите алгоритм" visible="false"/>
+                            <TextField fx:id="qf_kp_sklad_c" layoutX="1005.0" layoutY="54.0"
+                                       prefHeight="25.0" prefWidth="32.0" text="7" visible="false"/>
+                            <Label fx:id="info1" disable="true" layoutX="1048.0" layoutY="58.0"
+                                   prefHeight="17.0" prefWidth="128.0" text="QФин &gt; X"
+                                   visible="false"/>
+                            <CheckBox fx:id="ignor_in_out" layoutX="770.0" layoutY="27.0"
+                                      mnemonicParsing="false" selected="true"
+                                      text="Игнор расхождений(+)" visible="false"/>
+                            <Label fx:id="info2" layoutX="1048.0" layoutY="20.0" prefHeight="17.0"
+                                   prefWidth="128.0" text="Ин аут plu &lt;= X" visible="false"/>
+                            <TextField fx:id="qf_in_ayt_plu_c" layoutX="1004.0" layoutY="16.0"
+                                       prefHeight="25.0" prefWidth="33.0" text="2" visible="false"/>
+                            <TableView fx:id="kpskladTable" layoutX="12.0" layoutY="95.0"
+                                       prefHeight="398.0" prefWidth="1237.0">
+                                <columns>
+                                    <TableColumn fx:id="plukpSklTAB" prefWidth="118.0" text="plu"/>
+                                    <TableColumn fx:id="plukpdescTAB" minWidth="490.0" prefWidth="532.0"
+                                                 text="Описание"/>
+                                    <TableColumn fx:id="plukpdareaTAB" prefWidth="144.0" text="Зоны"/>
+                                    <TableColumn fx:id="plukpdqFFFFTAB" text="QF"/>
+                                    <TableColumn fx:id="plukpdoddsTAB" prefWidth="69.0" text="+ -"/>
+                                    <TableColumn fx:id="plukpdqyyyTAB" prefWidth="112.0" text="QY"/>
+                                    <TableColumn fx:id="plukpdqPPPPPTAB" editable="false"
+                                                 minWidth="180.0" prefWidth="300.0" resizable="false"
+                                                 text="УИ2"/>
+                                </columns>
+                            </TableView>
+                            <Button fx:id="buttonLoad" layoutX="280.0" layoutY="58.0"
+                                    mnemonicParsing="false" onAction="#uploadNewSklad" prefHeight="28.0"
+                                    prefWidth="179.0" text="Выгрузить снова" visible="false"/>
+                            <Label fx:id="info11" disable="true" layoutX="1011.0" layoutY="500.0"
+                                   prefHeight="17.0" prefWidth="237.0" text=" ">
+                                <font>
+                                    <Font name="System Bold Italic" size="14.0"/>
+                                </font>
+                            </Label>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab fx:id="tab_fin_kp" text="КП_ФИН">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <TabPane layoutX="-2.0" layoutY="7.0" prefHeight="100.0"
+                                     prefWidth="1255.0" tabClosingPolicy="UNAVAILABLE">
+                                <Tab text="Непродаваемые">
+                                    <AnchorPane minHeight="0.0" minWidth="0.0"
+                                                prefHeight="180.0" prefWidth="200.0">
+                                        <Label layoutX="695.0" layoutY="49.0"
+                                               prefHeight="17.0" prefWidth="75.0"
+                                               text="Last File :"/>
+                                        <Button fx:id="add_neprodam_but" layoutX="15.0"
+                                                layoutY="20.0" mnemonicParsing="false"
+                                                onAction="#add_neprodam_path"
+                                                prefHeight="28.0" prefWidth="128.0"
+                                                text="Добавить файл"/>
+                                        <Button fx:id="but_add_neprodam_ct"
+                                                layoutX="14.0" layoutY="20.0"
+                                                mnemonicParsing="false"
+                                                prefHeight="28.0" prefWidth="130.0"
+                                                text="Добавить в акт"/>
+                                        <TextField fx:id="field_min_q_neprodam"
+                                                   layoutX="334.0" layoutY="10.0"
+                                                   maxHeight="-Infinity"
+                                                   maxWidth="-Infinity"
+                                                   minHeight="-Infinity"
+                                                   minWidth="-Infinity"
+                                                   prefHeight="24.0" prefWidth="37.0"
+                                                   text="4"/>
+                                        <TextField fx:id="field_max_odds_nepr"
+                                                   layoutX="334.0" layoutY="34.0"
+                                                   maxHeight="-Infinity"
+                                                   maxWidth="-Infinity"
+                                                   minHeight="-Infinity"
+                                                   minWidth="-Infinity"
+                                                   prefHeight="24.0" prefWidth="37.0"
+                                                   text="0"/>
+                                        <Label fx:id="qfInfoLab" layoutX="379.0"
+                                               layoutY="14.0" prefHeight="17.0"
+                                               prefWidth="72.0" text="QF min"/>
+                                        <Label fx:id="maxrash" layoutX="378.0"
+                                               layoutY="38.0" prefHeight="17.0"
+                                               prefWidth="90.0" text="Макс. расхож"/>
+                                        <Slider fx:id="slider_neprodam" layoutX="159.0"
+                                                layoutY="22.0"/>
+                                        <Label fx:id="label_info_neprodan_max_Count"
+                                               layoutX="164.0" layoutY="48.0"
+                                               prefHeight="17.0" prefWidth="157.0"
+                                               text="Мак. кол-во PLU"/>
                                     </AnchorPane>
-                              </content>
-                            </Tab>
-                            <Tab fx:id="tab_fin_kp" text="КП_ФИН">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <TabPane layoutX="-2.0" layoutY="7.0" prefHeight="100.0" prefWidth="1255.0" tabClosingPolicy="UNAVAILABLE">
-                                            <tabs>
-                                              <Tab text="Непродаваемые">
-                                                <content>
-                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                                         <children>
-                                                            <Label layoutX="695.0" layoutY="49.0" prefHeight="17.0" prefWidth="75.0" text="Last File :" />
-                                                            <Button fx:id="add_neprodam_but" layoutX="15.0" layoutY="20.0" mnemonicParsing="false" onAction="#add_neprodam_path" prefHeight="28.0" prefWidth="128.0" text="Добавить файл" />
-                                                            <Button fx:id="but_add_neprodam_ct" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="130.0" text="Добавить в акт" />
-                                                            <TextField fx:id="field_min_q_neprodam" layoutX="334.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="37.0" text="4" />
-                                                            <TextField fx:id="field_max_odds_nepr" layoutX="334.0" layoutY="34.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="37.0" text="0" />
-                                                            <Label fx:id="qfInfoLab" layoutX="379.0" layoutY="14.0" prefHeight="17.0" prefWidth="72.0" text="QF min" />
-                                                            <Label fx:id="maxrash" layoutX="378.0" layoutY="38.0" prefHeight="17.0" prefWidth="90.0" text="Макс. расхож" />
-                                                            <Slider fx:id="slider_neprodam" layoutX="159.0" layoutY="22.0" />
-                                                            <Label fx:id="label_info_neprodan_max_Count" layoutX="164.0" layoutY="48.0" prefHeight="17.0" prefWidth="157.0" text="Мак. кол-во PLU" />
-                                                         </children>
-                                                      </AnchorPane>
-                                                </content>
-                                              </Tab>
-                                                <Tab text="Остальное">
-                                                   <content>
-                                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                                         <children>
-                                                            <Label layoutX="375.0" layoutY="10.0" prefHeight="17.0" prefWidth="75.0" text="QF(min)" />
-                                                            <ChoiceBox fx:id="boxTmc" layoutX="14.0" layoutY="17.0" prefWidth="150.0" />
-                                                            <TextField fx:id="qfMinKpFin" layoutX="322.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="42.0" text="7" />
-                                                            <TextField fx:id="maxOdsKpFin" layoutX="322.0" layoutY="37.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="42.0" text="0" />
-                                                            <Label layoutX="375.0" layoutY="40.0" prefHeight="17.0" prefWidth="75.0" text="Max odds" />
-                                                            <Button layoutX="175.0" layoutY="18.0" mnemonicParsing="false" onAction="#addPositionFinKP" prefHeight="28.0" prefWidth="126.0" text="Добавить" />
-                                                            <CheckBox fx:id="control_p_block" layoutX="469.0" layoutY="24.0" mnemonicParsing="false" selected="true" text="Блокировать контр.пересч." />
-                                                         </children>
-                                                      </AnchorPane>
-                                                   </content>
-                                                </Tab>
-                                              <Tab text="Проверка/Выгрузка">
-                                                <content>
-                                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                                         <children>
-                                                            <Button fx:id="chek_old_kp_fin" layoutX="22.0" layoutY="14.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="188.0" text="Загрузить старые PLU" />
-                                                            <Button fx:id="save_and_upload_new_fin" layoutX="244.0" layoutY="14.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="188.0" text="Выгрузить текущий акт" />
-                                                         </children>
-                                                      </AnchorPane>
-                                                </content>
-                                              </Tab>
-                                            </tabs>
-                                          </TabPane>
-                                          <TableView fx:id="kp_fin_table_m" layoutY="109.0" prefHeight="387.0" prefWidth="1255.0">
-                                            <columns>
-                                              <TableColumn fx:id="name_c" prefWidth="439.0" text="Наиманование" />
-                                                <TableColumn fx:id="area_c" prefWidth="106.0" text="Зоны" />
-                                              <TableColumn fx:id="plu_c" minWidth="0.0" prefWidth="86.0" text="Plu" />
-                                                <TableColumn fx:id="yu_c" minWidth="0.0" prefWidth="127.0" text="УИ2/3" />
-                                                <TableColumn fx:id="qf_c" prefWidth="41.0" text="QF" />
-                                                <TableColumn fx:id="qy_c" prefWidth="51.0" text="QY" />
-                                                <TableColumn fx:id="odds_c_c" prefWidth="58.0" text="+ -" />
-                                                <TableColumn fx:id="control_c" prefWidth="60.0" text="Контр.пер" />
-                                                <TableColumn fx:id="neprodam_value" prefWidth="106.0" text="Непрод.(да/нет)" />
-                                                <TableColumn fx:id="prihod_value" minWidth="8.0" prefWidth="111.0" text="Last Import" />
-                                                <TableColumn fx:id="prodaja_value" prefWidth="69.0" text="Last Sale" />
-                                            </columns>
-                                          </TableView>
-                                       </children>
+                                </Tab>
+                                <Tab text="Остальное">
+                                    <AnchorPane minHeight="0.0" minWidth="0.0"
+                                                prefHeight="180.0" prefWidth="200.0">
+                                        <Label layoutX="375.0" layoutY="10.0"
+                                               prefHeight="17.0" prefWidth="75.0"
+                                               text="QF(min)"/>
+                                        <ChoiceBox fx:id="boxTmc" layoutX="14.0"
+                                                   layoutY="17.0" prefWidth="150.0"/>
+                                        <TextField fx:id="qfMinKpFin" layoutX="322.0"
+                                                   layoutY="9.0" maxHeight="-Infinity"
+                                                   maxWidth="-Infinity"
+                                                   minHeight="-Infinity"
+                                                   minWidth="-Infinity"
+                                                   prefHeight="24.0" prefWidth="42.0"
+                                                   text="7"/>
+                                        <TextField fx:id="maxOdsKpFin" layoutX="322.0"
+                                                   layoutY="37.0" maxHeight="-Infinity"
+                                                   maxWidth="-Infinity"
+                                                   minHeight="-Infinity"
+                                                   minWidth="-Infinity"
+                                                   prefHeight="24.0" prefWidth="42.0"
+                                                   text="0"/>
+                                        <Label layoutX="375.0" layoutY="40.0"
+                                               prefHeight="17.0" prefWidth="75.0"
+                                               text="Max odds"/>
+                                        <Button layoutX="175.0" layoutY="18.0"
+                                                mnemonicParsing="false"
+                                                onAction="#addPositionFinKP"
+                                                prefHeight="28.0" prefWidth="126.0"
+                                                text="Добавить"/>
+                                        <CheckBox fx:id="control_p_block"
+                                                  layoutX="469.0" layoutY="24.0"
+                                                  mnemonicParsing="false"
+                                                  selected="true"
+                                                  text="Блокировать контр.пересч."/>
                                     </AnchorPane>
-                              </content>
-                            </Tab>
-                              <Tab text="ИНВ-15">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <TextField fx:id="pkoField" layoutX="7.0" layoutY="45.0" prefHeight="25.0" prefWidth="241.0" />
-                                          <TextField fx:id="rko_field" layoutX="306.0" layoutY="45.0" prefHeight="25.0" prefWidth="241.0" />
-                                          <TextField fx:id="reestr_summ" layoutX="7.0" layoutY="128.0" prefHeight="25.0" prefWidth="241.0" />
-                                          <TextField fx:id="fact_summ" layoutX="306.0" layoutY="128.0" prefHeight="25.0" prefWidth="241.0" />
-                                          <Button layoutX="7.0" layoutY="236.0" mnemonicParsing="false" onAction="#uploadNewInv15" prefHeight="28.0" prefWidth="170.0" text="Выгрузить" />
-                                          <Label layoutX="14.0" layoutY="28.0" prefHeight="17.0" prefWidth="47.0" text="ПКО" />
-                                          <Label layoutX="318.0" layoutY="28.0" prefHeight="17.0" prefWidth="47.0" text="РКО" />
-                                          <Label layoutX="13.0" layoutY="111.0" prefHeight="17.0" prefWidth="229.0" text="Сумма по реестру">
-                                             <font>
-                                                <Font name="System Italic" size="12.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="312.0" layoutY="111.0" prefHeight="17.0" prefWidth="229.0" text="Сумма по факту">
-                                             <font>
-                                                <Font name="System Italic" size="12.0" />
-                                             </font>
-                                          </Label>
-                                          <CheckBox fx:id="save_all_field_inv_15" layoutX="14.0" layoutY="305.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="291.0" selected="true" text="Сохранить все данные" />
-                                       </children>
+                                </Tab>
+                                <Tab text="Проверка/Выгрузка">
+                                    <AnchorPane minHeight="0.0" minWidth="0.0"
+                                                prefHeight="180.0" prefWidth="200.0">
+                                        <Button fx:id="chek_old_kp_fin" layoutX="22.0"
+                                                layoutY="14.0" mnemonicParsing="false"
+                                                prefHeight="28.0" prefWidth="188.0"
+                                                text="Загрузить старые PLU"/>
+                                        <Button fx:id="save_and_upload_new_fin"
+                                                layoutX="244.0" layoutY="14.0"
+                                                mnemonicParsing="false"
+                                                prefHeight="28.0" prefWidth="188.0"
+                                                text="Выгрузить текущий акт"/>
                                     </AnchorPane>
-                                 </content>
-                              </Tab>
-                              <Tab text="Расписка/Приложение к приказу">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <Button layoutX="8.0" layoutY="51.0" mnemonicParsing="false" onAction="#crRaspuska" prefHeight="28.0" prefWidth="187.0" text="Расписка" />
-                                          <Button layoutX="8.0" layoutY="96.0" mnemonicParsing="false" onAction="#crApplicORDER" prefHeight="28.0" prefWidth="187.0" text="Приложение к приказу" />
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                              </Tab>
-                          </tabs>
-                        </TabPane>
-                        <CheckBox fx:id="skladlisttempbox" layoutX="639.0" layoutY="19.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="340.0" text="Запомнить как &quot;Первый слив&quot;" />
-                  </AnchorPane>
-            </content>
-          </Tab>
-            <Tab fx:id="awrsos" onSelectionChanged="#anakitiksfromDan" text="Просмотр данных">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TabPane fx:id="mainPain2" prefHeight="645.0" prefWidth="1270.0" tabClosingPolicy="UNAVAILABLE">
-                          <tabs>
-                              <Tab fx:id="analitik_tab" onCloseRequest="#empty_method" onSelectionChanged="#go_analitiks" text="Аналитика">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <Accordion fx:id="accordion_TEST" layoutX="5.0" layoutY="12.0" prefHeight="599.0" prefWidth="1262.0" />
-                                          <Label fx:id="last_info" layoutX="99.0" layoutY="15.0" prefHeight="17.0" prefWidth="503.0" text="Проведена ( Последний расчет)  :" visible="false" />
-                                       </children>
-                                    </AnchorPane>
-                                 </content>
-                              </Tab>
-                              <Tab fx:id="gravr_tab" text="График ">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <FlowPane fx:id="flowPaneGrafics" layoutX="21.0" layoutY="14.0" prefHeight="515.0" prefWidth="1164.0" />
-                                          <Button layoutX="143.0" layoutY="559.0" mnemonicParsing="false" onAction="#reopnet" text="Обновить" />
-                                          <Slider fx:id="sliderOddsGrathic" layoutX="37.0" layoutY="512.0" prefHeight="20.0" prefWidth="311.0" visible="false" />
-                                          <ChoiceBox fx:id="change_group_from_oods_gr" layoutX="938.0" layoutY="551.0" prefHeight="25.0" prefWidth="247.0" visible="false" />
-                                          <Label layoutX="938.0" layoutY="524.0" prefHeight="17.0" prefWidth="246.0" text="PLU по группам" visible="false" />
-                                          <Label fx:id="labelSliderGrath" layoutX="123.0" layoutY="556.0" prefHeight="17.0" prefWidth="96.0" text="Label" visible="false" />
-                                          <TextField fx:id="fieldNan1" layoutX="28.0" layoutY="527.0" prefHeight="25.0" prefWidth="94.0" promptText="NaN(ETERNAL)" text="5000" />
-                                          <TextField fx:id="fieldNan" layoutX="28.0" layoutY="490.0" prefHeight="25.0" prefWidth="94.0" promptText="NaN(300)" text="500" />
-                                          <Pane fx:id="extendPaneGrapth" layoutX="625.0" layoutY="560.0" prefHeight="600.0" prefWidth="948.0">
-                                             <children>
-                                                <Button mnemonicParsing="false" onAction="#updownPane" prefHeight="28.0" prefWidth="183.0" text="Поднять подробную информацию" />
-                                             </children></Pane>
-                                          <ChoiceBox fx:id="choiceStep" layoutX="28.0" layoutY="558.0" prefHeight="25.0" prefWidth="93.0" />
-                                          <Label layoutX="2.0" layoutY="533.0" text="До" />
-                                          <Label layoutX="2.0" layoutY="494.0" text="От" />
-                                          <Label layoutX="2.0" layoutY="562.0" text="Шаг" />
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                              </Tab>
-                              <Tab text="Карта главной проверки">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <Button fx:id="buttonView" layoutX="21.0" layoutY="84.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="258.0" text="Посмотреть" />
-                                          <ComboBox fx:id="optionView" layoutX="20.0" layoutY="41.0" prefHeight="25.0" prefWidth="258.0" />
-                                          <Label layoutX="20.0" layoutY="14.0" prefHeight="17.0" prefWidth="260.0" text="Выберите отчет" />
-                                          <Button fx:id="buttonPr" disable="true" layoutX="20.0" layoutY="123.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="257.0" text="Распечатать" />
-                                          <Button fx:id="buttonViewSALE" layoutY="434.0" mnemonicParsing="false" onAction="#createrODSALEFINASTART" prefHeight="28.0" prefWidth="258.0" text="Продажи ( посмотреть )" />
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                              </Tab>
-                              <Tab fx:id="wrsOnLine" text="WRS_ON_LINE">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <FlowPane fx:id="browserPane" prefHeight="619.0" prefWidth="1255.0" />
-                                          <ComboBox fx:id="comboBoxSite" layoutX="1100.0" opacity="0.55" prefWidth="150.0" />
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                              </Tab>
-                              <Tab fx:id="tab_Hand_auto" disable="true" text="Лобби Склад">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <FlowPane fx:id="flow_panf_HA" layoutX="354.0" layoutY="14.0" prefHeight="602.0" prefWidth="841.0" />
-                                          <Button fx:id="save_button_hakpSklad" disable="true" layoutX="30.0" layoutY="369.0" mnemonicParsing="false" onAction="#savekpAI" prefHeight="28.0" prefWidth="293.0" text="Сохранить/покинуть лобби склад" />
-                                          <TextArea editable="false" layoutY="14.0" prefHeight="340.0" prefWidth="352.0" text="Памятка по редактированию :&#10;&#10;---------------------------------------------&#10;Как поменять Qфин или MAX PLU ?&#10;&#10;1) Выделите желаемое значение двойным кликом.&#10;Введите новое число. &#10;Нажите Enter.&#10;(Так же для QPlu)&#10;&#10;&#10;2)Назначить для всех групп один Q :&#10;В поле &quot;Консоль&quot; введите : &quot;число и переменную&quot;&#10;(Например : 10F или 10Q) &#10;Нажмите Enter.&#10;Всем группам присвоится одно значение&#10;---------------------------------------------&#10;&#10;&#10;Как удалить группу ?&#10;Встаньте курсором на нужный вам объект&#10;и нажмите клавишу del.&#10;&#10;&#10;Как добавить группу ? &#10;Выберите недостающую группу из списка,&#10;возле консоли.&#10;Нажмите добавить.&#10;&#10;Стандартный QF = 7;&#10;Стандартный Qplu = 3;&#10;&#10;&#10;&#10;&#10;" />
-                                          <Button layoutX="30.0" layoutY="410.0" mnemonicParsing="false" onAction="#savekpAI2" prefHeight="28.0" prefWidth="293.0" text="Создать, открыть файл" />
-                                       </children>
-                                    </AnchorPane>
-                                 </content>
-                              </Tab>
-                          </tabs>
-                        </TabPane>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
-            <Tab fx:id="settings_tab" text="Настройки">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TabPane layoutY="90.0" prefHeight="530.0" prefWidth="1255.0" tabClosingPolicy="UNAVAILABLE">
-                          <tabs>
-                              <Tab text="Приказы и организации">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <Label layoutX="123.0" layoutY="437.0" prefHeight="17.0" prefWidth="317.0" text="Редактирование списка организаций" />
-                                          <TableView fx:id="table_organization" layoutY="14.0" prefHeight="412.0" prefWidth="478.0">
-                                            <columns>
-                                              <TableColumn fx:id="name_organization_col" prefWidth="266.0" text="Наименование организации" />
-                                              <TableColumn fx:id="number_organization_col" prefWidth="211.0" text="№ приказа" />
-                                            </columns>
-                                          </TableView>
-                                          <Button layoutX="478.0" layoutY="14.0" mnemonicParsing="false" onAction="#addNewPositionToOrgList" text="+" />
-                                          <TextArea layoutX="691.0" layoutY="14.0" prefHeight="314.0" prefWidth="495.0" text="Памятка по редактированию&#10;*Все сохранения производятся автоматически.&#10;&#10;------------------------------------------------&#10;Добавить новую организацию/приказ :&#10;&#10;1)Нажмите на &quot;+&quot; возле номера приказа.&#10;2)Будут добавлены поля &quot;Unknown&quot;.&#10;&#10;------------------------------------------------&#10;&#10;Отредактировать поля орг./приказ :&#10;&#10;1)Дважды щелкните на нужной строке. &#10;2)Введите новое значение.&#10;3)Нажмите Enter на клавиатуре.&#10;&#10;------------------------------------------------&#10;&#10;Удалить объект :&#10;&#10;1)Выделите нужную строку&#10;2)Нажмите Delete" />
-                                       </children>
-                                    </AnchorPane>
-                                 </content>
-                              </Tab>
-                            <Tab text="Переменные среды">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="59.0" text="ПИК">
-                                             <font>
-                                                <Font name="Corbel" size="13.0" />
-                                             </font>
-                                          </Label>
-                                          <TextField fx:id="peek_field" layoutX="6.0" layoutY="43.0" prefHeight="25.0" prefWidth="482.0" text="Иванов Владислав Станиславович" />
-                                          <CheckBox fx:id="month_to_words" layoutX="6.0" layoutY="221.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="307.0" selected="true" text="Писать месяц &quot;словом&quot; в  ИНВ-15" />
-                                          <TextField fx:id="tvoy_padej" layoutX="6.0" layoutY="104.0" prefHeight="25.0" prefWidth="295.0" promptText="Ивановым.В.С" />
-                                          <Label layoutX="13.0" layoutY="80.0" prefHeight="17.0" prefWidth="293.0" text="ПИК (Творительный падеж)">
-                                             <font>
-                                                <Font name="Corbel" size="13.0" />
-                                             </font>
-                                          </Label>
-                                          <Button layoutX="6.0" layoutY="442.0" mnemonicParsing="false" onAction="#savePeople2" prefHeight="28.0" prefWidth="239.0" text="Сохранить" />
-                                          <CheckBox fx:id="sortByGroup" layoutX="6.0" layoutY="257.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="238.0" text="Сортировка по зонам в актах" />
-                                          <Button layoutX="5.0" layoutY="350.0" mnemonicParsing="false" onAction="#createDefoltFolder" prefHeight="28.0" prefWidth="292.0" text="Назначить главную папку" />
-                                          <CheckBox fx:id="blockAlcInNeprod" layoutX="6.0" layoutY="185.0" mnemonicParsing="false" onAction="#blockNeprods" prefHeight="20.0" prefWidth="548.0" text="Блокировать алкоголь в КП ФИН (Непродаваемые)" />
-                                          <CheckBox fx:id="blockS999KPFIN" layoutX="6.0" layoutY="150.0" mnemonicParsing="false" onAction="#changeS999Status" prefHeight="20.0" prefWidth="289.0" text="Блокировать S9999 в КП ФИН" />
-                                          <CheckBox fx:id="webPageSettings" layoutX="6.0" layoutY="296.0" mnemonicParsing="false" onAction="#saveNewStatus" prefHeight="18.0" prefWidth="315.0" text="Отключить веб страницу(Для слабых систем)" />
-                                          <Button layoutX="479.0" layoutY="463.0" mnemonicParsing="false" onAction="#startTest" opacity="0.56" prefHeight="28.0" prefWidth="137.0" text="Test Connection" />
-                                          <TextField fx:id="sdfsdfsdf" layoutX="479.0" layoutY="421.0" opacity="0.56" prefHeight="25.0" prefWidth="762.0" text="\\\x5.ru\root\Regions\TUL-KLG\DATA\08_Управление_по_ФК_и_анализу\Группа КРП\СПЕЦИАЛИСТЫ\Списки разниц\2017\AVR\RES\docLock.txt" />
-                                          <Label layoutX="479.0" layoutY="394.0" opacity="0.65" prefHeight="17.0" prefWidth="482.0" text="Путь для сетевой папки (Блокированный запас)">
-                                             <font>
-                                                <Font name="Corbel" size="13.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                              </content>
-                            </Tab>
-                              <Tab text="Карантин PLU">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <Label layoutX="646.0" layoutY="415.0" prefHeight="79.0" prefWidth="507.0" text="Здесь хранятся PLU, которые нельзя добавлять в акты КП С/Ф.&#10;Чтобы снять блокировку, выделите нужную позицию,&#10;и нажмите клавишу delete" wrapText="true" />
-                                          <TableView fx:id="karaPlutable" layoutX="14.0" layoutY="14.0" prefHeight="488.0" prefWidth="617.0">
-                                            <columns>
-                                              <TableColumn fx:id="pluKarantin" prefWidth="136.0" text="PLU" />
-                                              <TableColumn fx:id="descKarantin" prefWidth="314.0" text="Описание товара" />
-                                                <TableColumn fx:id="reazon" prefWidth="166.0" text="Причина" />
-                                            </columns>
-                                          </TableView>
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                              </Tab>
-                              <Tab text="Игнор PLU(Отчеты)">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <Label layoutX="768.0" layoutY="445.0" prefHeight="17.0" prefWidth="354.0" text="NOT AUTOMATIC SAVE HERE" />
-                                          <TableView fx:id="tableIgnor" layoutX="14.0" layoutY="38.0" prefHeight="429.0" prefWidth="615.0">
-                                            <columns>
-                                              <TableColumn fx:id="ignorePluCol" prefWidth="141.0" text="PLU/YU2" />
-                                              <TableColumn fx:id="simpledescignorcol" prefWidth="168.0" text="Краткое описание" />
-                                                <TableColumn fx:id="totalignorcolBox" prefWidth="164.0" text="Тотальный игнор" />
-                                                <TableColumn fx:id="onlyWrsIgnored" prefWidth="141.0" text="Акты КП, WRS(Игнор)" />
-                                            </columns>
-                                          </TableView>
-                                          <Button layoutX="629.0" layoutY="38.0" mnemonicParsing="false" onAction="#addstandartPositopn" text="+" />
-                                          <Button layoutX="768.0" layoutY="409.0" mnemonicParsing="false" onAction="#saveallIgnor" prefHeight="28.0" prefWidth="160.0" text="Сохранить" />
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                              </Tab>
-                              <Tab fx:id="crashes_tab" text="Проверочные PLU">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <TableView fx:id="table_crashes" editable="true" layoutX="14.0" layoutY="14.0" prefHeight="469.0" prefWidth="397.0">
-                                            <columns>
-                                              <TableColumn fx:id="plu_crashes" prefWidth="119.0" text="PLU" />
-                                              <TableColumn fx:id="description_crashes" prefWidth="277.0" text="Описание" />
-                                            </columns>
-                                          </TableView>
-                                          <Button layoutX="411.0" layoutY="14.0" mnemonicParsing="false" onAction="#addNewCrashesPLU" prefHeight="28.0" prefWidth="209.0" text="+ (Add new Position)" />
-                                          <Button layoutX="411.0" layoutY="455.0" mnemonicParsing="false" onAction="#savesrushesPLU" prefHeight="28.0" prefWidth="306.0" text="Сохранить" />
-                                          <Button layoutX="411.0" layoutY="60.0" mnemonicParsing="false" onAction="#deletePos" prefHeight="28.0" prefWidth="208.0" text="- (Delete Position)" />
-                                          <Button layoutX="611.0" layoutY="14.0" mnemonicParsing="false" onAction="#tested" prefHeight="28.0" prefWidth="177.0" text="Create File BZ" />
-                                       </children>
-                                    </AnchorPane>
-                                 </content>
-                              </Tab>
-                              <Tab text="Вид">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <Button layoutX="14.0" layoutY="33.0" mnemonicParsing="false" onAction="#add_picture_from_podgotovka" prefHeight="28.0" prefWidth="109.0" text="Выбрать" />
-                                          <Label layoutX="209.0" layoutY="39.0" prefHeight="17.0" prefWidth="430.0" text="Установка изображения на вкладку &quot;Подготовка&quot;" />
-                                       </children>
-                                    </AnchorPane>
-                                 </content>
-                              </Tab>
-                              <Tab text="О программе">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="14.0" prefHeight="333.0" prefWidth="1151.0" text="Автор программы выражает благорадность Артёму Крюченкову, Сергею Гудкову за существенный вклад&#10;в развитие проекта, и помощь в доработке дизайна.&#10;&#10;Рекомендуется использовать AVR, в качестве ДОПОЛНЕНИЯ к вашему рабочему месту.&#10;&#10;Обращение к пользователю : &#10;Запрещено передавать копию ПО &quot;AVR&quot; третьим лицам, без согласования с автором.&#10;Автор не несёт ответственности  за возможные ошибки в ходе обработки данных,&#10;формировании данных.&#10;&#10;Обратная связь : &#10;vladislav.ivanov@x5.ru&#10;&#10;&#10;Текущая версия сборки V10_SEARCH_UPDATE&#10;&#10;" wrapText="true">
-                                             <font>
-                                                <Font name="Constantia Italic" size="14.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                              </Tab>
-                          </tabs>
-                        </TabPane>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
-        </tabs>
-      </TabPane>
-      <FlowPane fx:id="flow_Message" hgap="10.0" layoutX="960.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.81" prefHeight="112.0" prefWidth="315.0" style="-fx-background-color: black; -fx-background-radius: 22;" vgap="20.0">
-         <padding>
-            <Insets left="15.0" top="10.0" />
-         </padding>
-      </FlowPane>
-   </children>
+                                </Tab>
+                            </TabPane>
+                            <TableView fx:id="kp_fin_table_m" layoutY="109.0" prefHeight="387.0"
+                                       prefWidth="1255.0">
+                                <columns>
+                                    <TableColumn fx:id="name_c" prefWidth="439.0"
+                                                 text="Наиманование"/>
+                                    <TableColumn fx:id="area_c" prefWidth="106.0" text="Зоны"/>
+                                    <TableColumn fx:id="plu_c" minWidth="0.0" prefWidth="86.0"
+                                                 text="Plu"/>
+                                    <TableColumn fx:id="yu_c" minWidth="0.0" prefWidth="127.0"
+                                                 text="УИ2/3"/>
+                                    <TableColumn fx:id="qf_c" prefWidth="41.0" text="QF"/>
+                                    <TableColumn fx:id="qy_c" prefWidth="51.0" text="QY"/>
+                                    <TableColumn fx:id="odds_c_c" prefWidth="58.0" text="+ -"/>
+                                    <TableColumn fx:id="control_c" prefWidth="60.0"
+                                                 text="Контр.пер"/>
+                                    <TableColumn fx:id="neprodam_value" prefWidth="106.0"
+                                                 text="Непрод.(да/нет)"/>
+                                    <TableColumn fx:id="prihod_value" minWidth="8.0"
+                                                 prefWidth="111.0" text="Last Import"/>
+                                    <TableColumn fx:id="prodaja_value" prefWidth="69.0"
+                                                 text="Last Sale"/>
+                                </columns>
+                            </TableView>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab text="ИНВ-15">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <TextField fx:id="pkoField" layoutX="7.0" layoutY="45.0"
+                                       prefHeight="25.0" prefWidth="241.0"/>
+                            <TextField fx:id="rko_field" layoutX="306.0" layoutY="45.0"
+                                       prefHeight="25.0" prefWidth="241.0"/>
+                            <TextField fx:id="reestr_summ" layoutX="7.0" layoutY="128.0"
+                                       prefHeight="25.0" prefWidth="241.0"/>
+                            <TextField fx:id="fact_summ" layoutX="306.0" layoutY="128.0"
+                                       prefHeight="25.0" prefWidth="241.0"/>
+                            <Button layoutX="7.0" layoutY="236.0" mnemonicParsing="false"
+                                    onAction="#uploadNewInv15" prefHeight="28.0" prefWidth="170.0"
+                                    text="Выгрузить"/>
+                            <Label layoutX="14.0" layoutY="28.0" prefHeight="17.0" prefWidth="47.0"
+                                   text="ПКО"/>
+                            <Label layoutX="318.0" layoutY="28.0" prefHeight="17.0" prefWidth="47.0"
+                                   text="РКО"/>
+                            <Label layoutX="13.0" layoutY="111.0" prefHeight="17.0"
+                                   prefWidth="229.0" text="Сумма по реестру">
+                                <font>
+                                    <Font name="System Italic" size="12.0"/>
+                                </font>
+                            </Label>
+                            <Label layoutX="312.0" layoutY="111.0" prefHeight="17.0"
+                                   prefWidth="229.0" text="Сумма по факту">
+                                <font>
+                                    <Font name="System Italic" size="12.0"/>
+                                </font>
+                            </Label>
+                            <CheckBox fx:id="save_all_field_inv_15" layoutX="14.0" layoutY="305.0"
+                                      mnemonicParsing="false" prefHeight="40.0" prefWidth="291.0"
+                                      selected="true" text="Сохранить все данные"/>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab text="Расписка/Приложение к приказу">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <Button layoutX="8.0" layoutY="51.0" mnemonicParsing="false"
+                                    onAction="#crRaspuska" prefHeight="28.0" prefWidth="187.0"
+                                    text="Расписка"/>
+                            <Button layoutX="8.0" layoutY="96.0" mnemonicParsing="false"
+                                    onAction="#crApplicORDER" prefHeight="28.0" prefWidth="187.0"
+                                    text="Приложение к приказу"/>
+                        </AnchorPane>
+                    </Tab>
+                </TabPane>
+                <CheckBox fx:id="skladlisttempbox" layoutX="639.0" layoutY="19.0" mnemonicParsing="false"
+                          prefHeight="17.0" prefWidth="340.0" text="Запомнить как &quot;Первый слив&quot;"/>
+            </AnchorPane>
+        </Tab>
+        <Tab fx:id="awrsos" onSelectionChanged="#anakitiksfromDan" text="Просмотр данных">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <TabPane fx:id="mainPain2" prefHeight="645.0" prefWidth="1270.0" tabClosingPolicy="UNAVAILABLE">
+                    <Tab fx:id="analitik_tab" onCloseRequest="#empty_method"
+                         onSelectionChanged="#go_analitiks" text="Аналитика">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <Accordion fx:id="accordion_TEST" layoutX="5.0" layoutY="12.0"
+                                       prefHeight="599.0" prefWidth="1262.0"/>
+                            <Label fx:id="last_info" layoutX="99.0" layoutY="15.0" prefHeight="17.0"
+                                   prefWidth="503.0" text="Проведена ( Последний расчет)  :"
+                                   visible="false"/>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab fx:id="gravr_tab" text="График ">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <FlowPane fx:id="flowPaneGrafics" layoutX="21.0" layoutY="14.0"
+                                      prefHeight="515.0" prefWidth="1164.0"/>
+                            <Button layoutX="143.0" layoutY="559.0" mnemonicParsing="false"
+                                    onAction="#reopnet" text="Обновить"/>
+                            <Slider fx:id="sliderOddsGrathic" layoutX="37.0" layoutY="512.0"
+                                    prefHeight="20.0" prefWidth="311.0" visible="false"/>
+                            <ChoiceBox fx:id="change_group_from_oods_gr" layoutX="938.0"
+                                       layoutY="551.0" prefHeight="25.0" prefWidth="247.0"
+                                       visible="false"/>
+                            <Label layoutX="938.0" layoutY="524.0" prefHeight="17.0"
+                                   prefWidth="246.0" text="PLU по группам" visible="false"/>
+                            <Label fx:id="labelSliderGrath" layoutX="123.0" layoutY="556.0"
+                                   prefHeight="17.0" prefWidth="96.0" text="Label" visible="false"/>
+                            <TextField fx:id="fieldNan1" layoutX="28.0" layoutY="527.0"
+                                       prefHeight="25.0" prefWidth="94.0" promptText="NaN(ETERNAL)"
+                                       text="5000"/>
+                            <TextField fx:id="fieldNan" layoutX="28.0" layoutY="490.0"
+                                       prefHeight="25.0" prefWidth="94.0" promptText="NaN(300)"
+                                       text="500"/>
+                            <Pane fx:id="extendPaneGrapth" layoutX="625.0" layoutY="560.0"
+                                  prefHeight="600.0" prefWidth="948.0">
+                                <Button mnemonicParsing="false" onAction="#updownPane"
+                                        prefHeight="28.0" prefWidth="183.0"
+                                        text="Поднять подробную информацию"/>
+                            </Pane>
+                            <ChoiceBox fx:id="choiceStep" layoutX="28.0" layoutY="558.0"
+                                       prefHeight="25.0" prefWidth="93.0"/>
+                            <Label layoutX="2.0" layoutY="533.0" text="До"/>
+                            <Label layoutX="2.0" layoutY="494.0" text="От"/>
+                            <Label layoutX="2.0" layoutY="562.0" text="Шаг"/>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab text="Карта главной проверки">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <Button fx:id="buttonView" layoutX="21.0" layoutY="84.0"
+                                    mnemonicParsing="false" prefHeight="28.0" prefWidth="258.0"
+                                    text="Посмотреть"/>
+                            <ComboBox fx:id="optionView" layoutX="20.0" layoutY="41.0"
+                                      prefHeight="25.0" prefWidth="258.0"/>
+                            <Label layoutX="20.0" layoutY="14.0" prefHeight="17.0" prefWidth="260.0"
+                                   text="Выберите отчет"/>
+                            <Button fx:id="buttonPr" disable="true" layoutX="20.0" layoutY="123.0"
+                                    mnemonicParsing="false" prefHeight="28.0" prefWidth="257.0"
+                                    text="Распечатать"/>
+                            <Button fx:id="buttonViewSALE" layoutY="434.0" mnemonicParsing="false"
+                                    onAction="#createrODSALEFINASTART" prefHeight="28.0"
+                                    prefWidth="258.0" text="Продажи ( посмотреть )"/>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab fx:id="wrsOnLine" text="WRS_ON_LINE">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <FlowPane fx:id="browserPane" prefHeight="619.0" prefWidth="1255.0"/>
+                            <ComboBox fx:id="comboBoxSite" layoutX="1100.0" opacity="0.55"
+                                      prefWidth="150.0"/>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab fx:id="tab_Hand_auto" disable="true" text="Лобби Склад">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <FlowPane fx:id="flow_panf_HA" layoutX="354.0" layoutY="14.0"
+                                      prefHeight="602.0" prefWidth="841.0"/>
+                            <Button fx:id="save_button_hakpSklad" disable="true" layoutX="30.0"
+                                    layoutY="369.0" mnemonicParsing="false" onAction="#savekpAI"
+                                    prefHeight="28.0" prefWidth="293.0"
+                                    text="Сохранить/покинуть лобби склад"/>
+                            <TextArea editable="false" layoutY="14.0" prefHeight="340.0"
+                                      prefWidth="352.0"
+                                      text="Памятка по редактированию :&#10;&#10;---------------------------------------------&#10;Как поменять Qфин или MAX PLU ?&#10;&#10;1) Выделите желаемое значение двойным кликом.&#10;Введите новое число. &#10;Нажите Enter.&#10;(Так же для QPlu)&#10;&#10;&#10;2)Назначить для всех групп один Q :&#10;В поле &quot;Консоль&quot; введите : &quot;число и переменную&quot;&#10;(Например : 10F или 10Q) &#10;Нажмите Enter.&#10;Всем группам присвоится одно значение&#10;---------------------------------------------&#10;&#10;&#10;Как удалить группу ?&#10;Встаньте курсором на нужный вам объект&#10;и нажмите клавишу del.&#10;&#10;&#10;Как добавить группу ? &#10;Выберите недостающую группу из списка,&#10;возле консоли.&#10;Нажмите добавить.&#10;&#10;Стандартный QF = 7;&#10;Стандартный Qplu = 3;&#10;&#10;&#10;&#10;&#10;"/>
+                            <Button layoutX="30.0" layoutY="410.0" mnemonicParsing="false"
+                                    onAction="#savekpAI2" prefHeight="28.0" prefWidth="293.0"
+                                    text="Создать, открыть файл"/>
+                        </AnchorPane>
+                    </Tab>
+                </TabPane>
+            </AnchorPane>
+        </Tab>
+        <Tab fx:id="settings_tab" text="Настройки">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <TabPane layoutY="90.0" prefHeight="530.0" prefWidth="1255.0"
+                         tabClosingPolicy="UNAVAILABLE">
+                    <Tab text="Приказы и организации">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                    prefWidth="200.0">
+                            <Label layoutX="123.0" layoutY="437.0" prefHeight="17.0"
+                                   prefWidth="317.0" text="Редактирование списка организаций"/>
+                            <TableView fx:id="table_organization" layoutY="14.0"
+                                       prefHeight="412.0" prefWidth="478.0">
+                                <columns>
+                                    <TableColumn fx:id="name_organization_col" prefWidth="266.0"
+                                                 text="Наименование организации"/>
+                                    <TableColumn fx:id="number_organization_col"
+                                                 prefWidth="211.0" text="№ приказа"/>
+                                </columns>
+                            </TableView>
+                            <Button layoutX="478.0" layoutY="14.0" mnemonicParsing="false"
+                                    onAction="#addNewPositionToOrgList" text="+"/>
+                            <TextArea layoutX="691.0" layoutY="14.0" prefHeight="314.0"
+                                      prefWidth="495.0"
+                                      text="Памятка по редактированию&#10;*Все сохранения производятся автоматически.&#10;&#10;------------------------------------------------&#10;Добавить новую организацию/приказ :&#10;&#10;1)Нажмите на &quot;+&quot; возле номера приказа.&#10;2)Будут добавлены поля &quot;Unknown&quot;.&#10;&#10;------------------------------------------------&#10;&#10;Отредактировать поля орг./приказ :&#10;&#10;1)Дважды щелкните на нужной строке. &#10;2)Введите новое значение.&#10;3)Нажмите Enter на клавиатуре.&#10;&#10;------------------------------------------------&#10;&#10;Удалить объект :&#10;&#10;1)Выделите нужную строку&#10;2)Нажмите Delete"/>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab text="Переменные среды">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                    prefWidth="200.0">
+                            <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0"
+                                   prefWidth="59.0" text="ПИК">
+                                <font>
+                                    <Font name="Corbel" size="13.0"/>
+                                </font>
+                            </Label>
+                            <TextField fx:id="peek_field" layoutX="6.0" layoutY="43.0"
+                                       prefHeight="25.0" prefWidth="482.0"
+                                       text="Иванов Владислав Станиславович"/>
+                            <CheckBox fx:id="month_to_words" layoutX="6.0" layoutY="221.0"
+                                      mnemonicParsing="false" prefHeight="21.0"
+                                      prefWidth="307.0" selected="true"
+                                      text="Писать месяц &quot;словом&quot; в  ИНВ-15"/>
+                            <TextField fx:id="tvoy_padej" layoutX="6.0" layoutY="104.0"
+                                       prefHeight="25.0" prefWidth="295.0"
+                                       promptText="Ивановым.В.С"/>
+                            <Label layoutX="13.0" layoutY="80.0" prefHeight="17.0"
+                                   prefWidth="293.0" text="ПИК (Творительный падеж)">
+                                <font>
+                                    <Font name="Corbel" size="13.0"/>
+                                </font>
+                            </Label>
+                            <Button layoutX="6.0" layoutY="442.0" mnemonicParsing="false"
+                                    onAction="#savePeople2" prefHeight="28.0" prefWidth="239.0"
+                                    text="Сохранить"/>
+                            <CheckBox fx:id="sortByGroup" layoutX="6.0" layoutY="257.0"
+                                      mnemonicParsing="false" prefHeight="18.0"
+                                      prefWidth="238.0" text="Сортировка по зонам в актах"/>
+                            <Button layoutX="5.0" layoutY="350.0" mnemonicParsing="false"
+                                    onAction="#createDefoltFolder" prefHeight="28.0"
+                                    prefWidth="292.0" text="Назначить главную папку"/>
+                            <CheckBox fx:id="blockAlcInNeprod" layoutX="6.0" layoutY="185.0"
+                                      mnemonicParsing="false" onAction="#blockNeprods"
+                                      prefHeight="20.0" prefWidth="548.0"
+                                      text="Блокировать алкоголь в КП ФИН (Непродаваемые)"/>
+                            <CheckBox fx:id="blockS999KPFIN" layoutX="6.0" layoutY="150.0"
+                                      mnemonicParsing="false" onAction="#changeS999Status"
+                                      prefHeight="20.0" prefWidth="289.0"
+                                      text="Блокировать S9999 в КП ФИН"/>
+                            <CheckBox fx:id="webPageSettings" layoutX="6.0" layoutY="296.0"
+                                      mnemonicParsing="false" onAction="#saveNewStatus"
+                                      prefHeight="18.0" prefWidth="315.0"
+                                      text="Отключить веб страницу(Для слабых систем)"/>
+                            <Button layoutX="479.0" layoutY="463.0" mnemonicParsing="false"
+                                    onAction="#startTest" opacity="0.56" prefHeight="28.0"
+                                    prefWidth="137.0" text="Test Connection"/>
+                            <TextField fx:id="sdfsdfsdf" layoutX="479.0" layoutY="421.0"
+                                       opacity="0.56" prefHeight="25.0" prefWidth="762.0"
+                                       text="\\\x5.ru\root\Regions\TUL-KLG\DATA\08_Управление_по_ФК_и_анализу\Группа КРП\СПЕЦИАЛИСТЫ\Списки разниц\2017\AVR\RES\docLock.txt"/>
+                            <Label layoutX="479.0" layoutY="394.0" opacity="0.65"
+                                   prefHeight="17.0" prefWidth="482.0"
+                                   text="Путь для сетевой папки (Блокированный запас)">
+                                <font>
+                                    <Font name="Corbel" size="13.0"/>
+                                </font>
+                            </Label>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab text="Карантин PLU">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                    prefWidth="200.0">
+                            <Label layoutX="646.0" layoutY="415.0" prefHeight="79.0"
+                                   prefWidth="507.0"
+                                   text="Здесь хранятся PLU, которые нельзя добавлять в акты КП С/Ф.&#10;Чтобы снять блокировку, выделите нужную позицию,&#10;и нажмите клавишу delete"
+                                   wrapText="true"/>
+                            <TableView fx:id="karaPlutable" layoutX="14.0" layoutY="14.0"
+                                       prefHeight="488.0" prefWidth="617.0">
+                                <columns>
+                                    <TableColumn fx:id="pluKarantin" prefWidth="136.0"
+                                                 text="PLU"/>
+                                    <TableColumn fx:id="descKarantin" prefWidth="314.0"
+                                                 text="Описание товара"/>
+                                    <TableColumn fx:id="reazon" prefWidth="166.0"
+                                                 text="Причина"/>
+                                </columns>
+                            </TableView>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab text="Игнор PLU(Отчеты)">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                    prefWidth="200.0">
+                            <Label layoutX="768.0" layoutY="445.0" prefHeight="17.0"
+                                   prefWidth="354.0" text="NOT AUTOMATIC SAVE HERE"/>
+                            <TableView fx:id="tableIgnor" layoutX="14.0" layoutY="38.0"
+                                       prefHeight="429.0" prefWidth="615.0">
+                                <columns>
+                                    <TableColumn fx:id="ignorePluCol" prefWidth="141.0"
+                                                 text="PLU/YU2"/>
+                                    <TableColumn fx:id="simpledescignorcol" prefWidth="168.0"
+                                                 text="Краткое описание"/>
+                                    <TableColumn fx:id="totalignorcolBox" prefWidth="164.0"
+                                                 text="Тотальный игнор"/>
+                                    <TableColumn fx:id="onlyWrsIgnored" prefWidth="141.0"
+                                                 text="Акты КП, WRS(Игнор)"/>
+                                </columns>
+                            </TableView>
+                            <Button layoutX="629.0" layoutY="38.0" mnemonicParsing="false"
+                                    onAction="#addstandartPositopn" text="+"/>
+                            <Button layoutX="768.0" layoutY="409.0" mnemonicParsing="false"
+                                    onAction="#saveallIgnor" prefHeight="28.0" prefWidth="160.0"
+                                    text="Сохранить"/>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab fx:id="crashes_tab" text="Проверочные PLU">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                    prefWidth="200.0">
+                            <TableView fx:id="table_crashes" editable="true" layoutX="14.0"
+                                       layoutY="14.0" prefHeight="469.0" prefWidth="397.0">
+                                <columns>
+                                    <TableColumn fx:id="plu_crashes" prefWidth="119.0"
+                                                 text="PLU"/>
+                                    <TableColumn fx:id="description_crashes" prefWidth="277.0"
+                                                 text="Описание"/>
+                                </columns>
+                            </TableView>
+                            <Button layoutX="411.0" layoutY="14.0" mnemonicParsing="false"
+                                    onAction="#addNewCrashesPLU" prefHeight="28.0"
+                                    prefWidth="209.0" text="+ (Add new Position)"/>
+                            <Button layoutX="411.0" layoutY="455.0" mnemonicParsing="false"
+                                    onAction="#savesrushesPLU" prefHeight="28.0"
+                                    prefWidth="306.0" text="Сохранить"/>
+                            <Button layoutX="411.0" layoutY="60.0" mnemonicParsing="false"
+                                    onAction="#deletePos" prefHeight="28.0" prefWidth="208.0"
+                                    text="- (Delete Position)"/>
+                            <Button layoutX="611.0" layoutY="14.0" mnemonicParsing="false"
+                                    onAction="#tested" prefHeight="28.0" prefWidth="177.0"
+                                    text="Create File BZ"/>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab text="Вид">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                    prefWidth="200.0">
+                            <Button layoutX="14.0" layoutY="33.0" mnemonicParsing="false"
+                                    onAction="#add_picture_from_podgotovka" prefHeight="28.0"
+                                    prefWidth="109.0" text="Выбрать"/>
+                            <Label layoutX="209.0" layoutY="39.0" prefHeight="17.0"
+                                   prefWidth="430.0"
+                                   text="Установка изображения на вкладку &quot;Подготовка&quot;"/>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab text="О программе">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                    prefWidth="200.0">
+                            <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="14.0"
+                                   prefHeight="333.0" prefWidth="1151.0"
+                                   text="Автор программы выражает благорадность Артёму Крюченкову, Сергею Гудкову за существенный вклад&#10;в развитие проекта, и помощь в доработке дизайна.&#10;&#10;Рекомендуется использовать AVR, в качестве ДОПОЛНЕНИЯ к вашему рабочему месту.&#10;&#10;Обращение к пользователю : &#10;Запрещено передавать копию ПО &quot;AVR&quot; третьим лицам, без согласования с автором.&#10;Автор не несёт ответственности  за возможные ошибки в ходе обработки данных,&#10;формировании данных.&#10;&#10;Обратная связь : &#10;vladislav.ivanov@x5.ru&#10;&#10;&#10;Текущая версия сборки V10_SEARCH_UPDATE&#10;&#10;"
+                                   wrapText="true">
+                                <font>
+                                    <Font name="Constantia Italic" size="14.0"/>
+                                </font>
+                            </Label>
+                        </AnchorPane>
+                    </Tab>
+                </TabPane>
+            </AnchorPane>
+        </Tab>
+    </TabPane>
+    <FlowPane fx:id="flow_Message" hgap="10.0" layoutX="960.0" maxHeight="-Infinity" maxWidth="-Infinity"
+              minHeight="-Infinity" minWidth="-Infinity" opacity="0.81" prefHeight="112.0" prefWidth="315.0"
+              style="-fx-background-color: black; -fx-background-radius: 22;" vgap="20.0">
+        <padding>
+          <Insets left="15.0" top="10.0"/>
+        </padding>
+    </FlowPane>
 </Pane>
