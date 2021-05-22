@@ -5,13 +5,13 @@ import all_paths.Paths_Main_File;
 import autoOpen.AutoOpen;
 import chekCrashPLU.IgnoredPlu;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.scene.Cursor;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
-import javafx.scene.effect.BlendMode;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import mailMessage.ConsolidationInformation;
@@ -192,7 +192,7 @@ public class Bundle_For_WRS {
                 " [ " + cigarettesShortage + " недостача ]" + " [ " + cigarettesSURPLUS + "  Излишек ]");
 
         Label correct_Control = new Label();
-        correct_Control.setText("Считано PLU :          " + String.valueOf(was_press_plu) +" шт." + " Не / " + (vsego_plu - was_press_plu));
+        correct_Control.setText("Считано PLU :          " + (was_press_plu) +" шт." + " Не / " + (vsego_plu - was_press_plu));
 
         Label rasxojd_label = new Label();
         rasxojd_label.setText("Расхождений  :        " + rashojdenyu + " По кол-ву(Не руб.)");
@@ -245,26 +245,11 @@ public class Bundle_For_WRS {
         TitledPane result = new TitledPane();
         result.setText("Общие данные / WRS");
 
+        Button buttonreport = new Button("Создать письмо");
+            buttonreport.setOnMouseEntered(e -> buttonreport.setCursor(Cursor.HAND));
+            buttonreport.setOnAction(event -> uploadinf());
+            fp.getChildren().add(buttonreport);
 
-        // Image Source
-        try {
-
-            ImageView imageView = Rule_contollers_Main.imageView;
-            imageView.setFitHeight(65);
-            imageView.setFitWidth(75);
-            imageView.setBlendMode(BlendMode.OVERLAY);
-            imageView.setOnMouseEntered(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    imageView.setCursor(Cursor.HAND);
-                }
-            });
-            imageView.setOnMouseClicked(e->uploadinf());
-            fp.getChildren().add(imageView);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
 
         result.setContent(fp);
 
@@ -285,7 +270,7 @@ public class Bundle_For_WRS {
 
     public static String resultOnSmoke(){
         if(sigarets>0){return "+"+sigarets+"р.";}
-        return String.valueOf(sigarets)+"р.";
+        return (sigarets)+"р.";
     }
 
 
@@ -308,7 +293,7 @@ public class Bundle_For_WRS {
         }
 
         //Platform.runLater(()->{new ConsolidationInformation().composeEmail();});
-        Platform.runLater(()->{new OddsFromTg().createOddsGroup();});
+        Platform.runLater(()-> new OddsFromTg().createOddsGroup());
     }
     public static String addResult(){
         StringBuilder sb = new StringBuilder();

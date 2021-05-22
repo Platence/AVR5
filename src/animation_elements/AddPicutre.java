@@ -16,20 +16,18 @@ public class AddPicutre implements JustSaveInformation {
 
 
     public void setImage(String path_Image)  {
-
-
         System.out.println("Подгрузка изображения");
         File fie = new File(path_Image);
         Image image  = null;
         try {
             image = new Image(fie.toURL().toString(),1250,655,false,false);
-        } catch (MalformedURLException e) {
+        }
+        catch (MalformedURLException e) {
             new Modal_Error().set_erroe_messege("Сожалеем, ваше изображение " + path_Image + " " + System.lineSeparator() + "" +
                     "Не удалось присвоить");
         }
         Rule_contollers_Main.main_controller.image_main.setImage(image);
         Rule_contollers_Main.main_controller.image_main.setOpacity(0.4);
-        fie = null;
     }
 
     public void get_PathToPodgotovkaPicture(){
@@ -56,7 +54,8 @@ public class AddPicutre implements JustSaveInformation {
 
         try {
             fw.write(z);
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -92,8 +91,6 @@ public class AddPicutre implements JustSaveInformation {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        file = null;
-
         setImage(s);
 
     }

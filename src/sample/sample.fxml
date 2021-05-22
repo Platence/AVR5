@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
@@ -15,7 +14,6 @@
           <Tab fx:id="prepeareToPu" text="Подготовка">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="670.0" prefWidth="1271.0">
-                     <children>
                         <DatePicker fx:id="calendar_main" layoutX="9.0" layoutY="72.0" onAction="#saveDateInventory" prefHeight="25.0" prefWidth="120.0" />
                         <Label fx:id="dateOrderLabel" layoutX="138.0" layoutY="137.0" opacity="0.5" prefHeight="17.0" prefWidth="95.0" text="Дата приказа ">
                            <font>
@@ -69,24 +67,21 @@
                         <Button fx:id="buttonAddNewMag" layoutX="75.0" layoutY="109.0" mnemonicParsing="false" onAction="#showmesNewShop" opacity="0.92" prefHeight="28.0" prefWidth="54.0" text="+добавить" />
                         <Button layoutX="987.0" layoutY="15.0" mnemonicParsing="false" onAction="#closeProgram" prefHeight="28.0" prefWidth="267.0" text="Закрыть программу AVR" visible="false" />
                         <Button layoutX="15.0" layoutY="490.0" mnemonicParsing="false" onAction="#startTest" prefHeight="28.0" prefWidth="194.0" text="ТЕСТ НА ПУТЬ К ФАЙЛУ" visible="false" />
-                     </children>
                   </AnchorPane>
             </content>
           </Tab>
           <Tab fx:id="kp_sklad_tab" text="Исполнение">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
                         <ProgressBar fx:id="progress_bar_main" layoutX="14.0" layoutY="613.0" prefHeight="20.0" prefWidth="1166.0" progress="0.0" visible="false" />
                         <Label fx:id="label_info" layoutX="23.0" layoutY="590.0" prefHeight="17.0" prefWidth="851.0" visible="false" />
                         <ComboBox fx:id="list_files_ch" layoutX="4.0" layoutY="14.0" opacity="0.62" prefHeight="28.0" prefWidth="380.0" promptText="Файл не выбран..." />
                         <Button fx:id="button_kp_sklad_ras4et" layoutX="391.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadingExcelForOstatku" prefHeight="30.0" prefWidth="241.0" text="Произвести расчет" />
-                        <TabPane fx:id="tabBapeIsp" layoutY="60.0" prefHeight="555.0" prefWidth="1255.0" tabClosingPolicy="UNAVAILABLE">
+                        <TabPane layoutY="60.0" prefHeight="555.0" prefWidth="1255.0" tabClosingPolicy="UNAVAILABLE">
                           <tabs>
                             <Tab fx:id="kpskadskad" text="КП_Склад">
                               <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
                                           <Button fx:id="create_act_cp_sklad" layoutX="14.0" layoutY="58.0" mnemonicParsing="false" onAction="#creat_kp_s_act" prefHeight="28.0" prefWidth="242.0" text="Создать акт" visible="false" />
                                           <ComboBox fx:id="pick_algorith_sklad" layoutX="14.0" layoutY="22.0" opacity="0.62" prefHeight="25.0" prefWidth="240.0" promptText="Выберите алгоритм" visible="false" />
                                           <TextField fx:id="qf_kp_sklad_c" layoutX="1005.0" layoutY="54.0" prefHeight="25.0" prefWidth="32.0" text="7" visible="false" />
@@ -110,7 +105,6 @@
                                              <font>
                                                 <Font name="System Bold Italic" size="14.0" />
                                              </font></Label>
-                                       </children>
                                     </AnchorPane>
                               </content>
                             </Tab>
@@ -222,7 +216,6 @@
                           </tabs>
                         </TabPane>
                         <CheckBox fx:id="skladlisttempbox" layoutX="639.0" layoutY="19.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="340.0" text="Запомнить как &quot;Первый слив&quot;" />
-                     </children>
                   </AnchorPane>
             </content>
           </Tab>
@@ -285,17 +278,6 @@
                                        <children>
                                           <FlowPane fx:id="browserPane" prefHeight="619.0" prefWidth="1255.0" />
                                           <ComboBox fx:id="comboBoxSite" layoutX="1100.0" opacity="0.55" prefWidth="150.0" />
-                                       </children>
-                                    </AnchorPane>
-                                </content>
-                              </Tab>
-                              <Tab text="Круг(В разработке)">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <Button layoutX="8.0" layoutY="8.0" mnemonicParsing="false" onAction="#actionPie" prefHeight="28.0" prefWidth="149.0" text="Излишек" />
-                                          <FlowPane fx:id="flowPanePie" layoutX="392.0" layoutY="-70.0" prefHeight="617.0" prefWidth="794.0" />
-                                          <Button layoutX="8.0" layoutY="36.0" mnemonicParsing="false" onAction="#actionPieShortage" prefHeight="28.0" prefWidth="149.0" text="Недостача" />
                                        </children>
                                     </AnchorPane>
                                 </content>

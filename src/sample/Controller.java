@@ -1,7 +1,5 @@
 package sample;
 
-import PieAVR.CretePane;
-import PieAVR.TaskPie;
 import WRSOnLine.ComboBoxSite;
 import WRSOnLine.SettingsOnWrs;
 import all_controllers.*;
@@ -316,7 +314,7 @@ public class Controller {
 
         new SetColorsToObject().setColors(this);
         new DescriptionSmenaMOL().createSmenaMolList(this);
-        Platform.runLater(()->{new CheckDefoltFolder().startLogicDefolt();}); // Проверка на статическую папку
+        Platform.runLater(()-> new CheckDefoltFolder().startLogicDefolt()); // Проверка на статическую папку
 
         new SlideModalError().defultXYFlowPane();                             // Установка слайда окна сообщений
 
@@ -327,7 +325,7 @@ public class Controller {
         ComboBoxSite.initialComboBox(comboBoxSite);
         //Инициализация списка сайтов
 
-        Platform.runLater(()->{new BundleResultGraph(this); });
+        Platform.runLater(()-> new BundleResultGraph(this));
         StartNeprodamParse.setPositionToButton();
         createListNode();
     }
@@ -344,9 +342,7 @@ public class Controller {
     }
 
     public void loadingExcelForOstatku(){
-        Platform.runLater(()->{
-            button_kp_sklad_ras4et.setVisible(false);
-        });
+        Platform.runLater(()-> button_kp_sklad_ras4et.setVisible(false));
         repression();
         new HoldButtodDisable().holdbutton(button_kp_sklad_ras4et); // Временная блокировка
     }
@@ -360,7 +356,7 @@ public class Controller {
             Rule_contollers_Main.null_all_static_field();
             clearAllList();
 
-            String s = list_files_ch.getSelectionModel().getSelectedItem().toString();
+            String s = list_files_ch.getSelectionModel().getSelectedItem();
 
             setInfLastLoad(s); // Лейбл последнего просчета
 
@@ -477,7 +473,7 @@ public class Controller {
 
         Container_KP_Sklad.chekAutoSave();
 
-        String x = pick_algorith_sklad.getSelectionModel().getSelectedItem().toString();
+        String x = pick_algorith_sklad.getSelectionModel().getSelectedItem();
 
         if(x.equals("Случайный") || x.equals("Стандарт")){Rule_contollers_Main.creating_Act_CP_Sklad(x);}
 
@@ -576,9 +572,7 @@ public class Controller {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("AVR MESSAGE");
         alert.setHeaderText("Предупреждение: Будет создан новый КП СКЛАД");
-        Platform.runLater(()->{
-            Rule_contollers_Main.main_controller.main_pain.getSelectionModel().select(kp_sklad_tab);
-        });
+        Platform.runLater(()-> Rule_contollers_Main.main_controller.main_pain.getSelectionModel().select(kp_sklad_tab));
         alert.setContentText("Нажмите ОК, чтобы начать...");
         alert.showAndWait();
 
@@ -679,22 +673,22 @@ public class Controller {
         new AplicationforOrder();
     }
 
-    public void actionPie(){
-        CretePane.shOrSO = true;
-        Rule_contollers_Main.main_controller.flowPanePie.getChildren().clear();
-        TaskPie tp = new TaskPie();
-        tp.createListYU2();
-        CretePane cp = new CretePane();
-        cp.drawGrathiks(tp);
-    }
-    public void actionPieShortage(){
-        CretePane.shOrSO = false;
-        Rule_contollers_Main.main_controller.flowPanePie.getChildren().clear();
-        TaskPie tp = new TaskPie();
-        tp.createListYU2();
-        CretePane cp = new CretePane();
-        cp.drawGrathiks(tp);
-    }
+//    public void actionPie(){
+////        CretePane.shOrSO = true;
+////        Rule_contollers_Main.main_controller.flowPanePie.getChildren().clear();
+////        TaskPie tp = new TaskPie();
+////        tp.createListYU2();
+////        CretePane cp = new CretePane();
+////        cp.drawGrathiks(tp);
+//    }
+//    public void actionPieShortage(){
+////        CretePane.shOrSO = false;
+////        Rule_contollers_Main.main_controller.flowPanePie.getChildren().clear();
+////        TaskPie tp = new TaskPie();
+////        tp.createListYU2();
+////        CretePane cp = new CretePane();
+////        cp.drawGrathiks(tp);
+//    }
 
     public void changeS999Status(){
         BlockingClass.changeStatusS999(Paths_Main_File.PATH_BLOCK_S999, blockS999KPFIN);

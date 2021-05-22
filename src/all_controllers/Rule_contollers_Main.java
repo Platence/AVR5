@@ -4,7 +4,6 @@ import WRSOnLine.OpenBrowser;
 import all_paths.List_xlsx_files;
 import all_paths.Paths_Main_File;
 import animation_elements.AddPicutre;
-import animation_elements.PositionElements;
 import chekCrashPLU.CrashesPlu;
 import chekCrashPLU.Karantin.ControlClassKarantin;
 import dateClass.DateIni;
@@ -24,8 +23,6 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import numberShopPack.ShopDescription;
@@ -44,7 +41,6 @@ import warehouse_plu.All_List_group_info;
 import warehouse_plu.Ostatku;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.TreeSet;
@@ -60,7 +56,7 @@ public class Rule_contollers_Main {
     public static Controller main_controller;
 
     public static boolean wasInitialized = false;           // Инициализирует таблицы (  1 раз )
-    public static ImageView imageView;
+
 
 
 
@@ -134,13 +130,10 @@ public class Rule_contollers_Main {
 
         new CrashesPlu().load();
 
-        main_controller.crashes_tab.setOnSelectionChanged(new EventHandler<Event>() {
-            @Override
-            public void handle(Event event) {
-                CrashesPlu.setOpene();
-                if(CrashesPlu.wasOpen){
-                    CrashesPlu.setTableView();
-                }
+        main_controller.crashes_tab.setOnSelectionChanged(event -> {
+            CrashesPlu.setOpene();
+            if(CrashesPlu.wasOpen){
+                CrashesPlu.setTableView();
             }
         });
 
@@ -154,7 +147,6 @@ public class Rule_contollers_Main {
 
         new InitializateTable(main_controller);       // Loading KpSkladTable
 
-        loadPicture();                               // Loading picture For All bundleWRS
 
         main_controller.kp_sklad_tab.setOnSelectionChanged(e->saveall());
 
@@ -167,26 +159,9 @@ public class Rule_contollers_Main {
 
     }
 
-    public void loadPicture(){
-        FileInputStream input = null;
-        try {
-            input = new FileInputStream("src/binn/photoPicture/pic button.png");
-            Image image = new Image(input,130,120,false,false);
-            imageView = new ImageView(image);
-        }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     public void createForInfo1(){
-        main_controller.skladlisttempbox.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                new SlideModalError().setMessage(InformationForSlide.messageForThirstTempSklad());
-            }
-        });
+        main_controller.skladlisttempbox.setOnMouseClicked(event -> new SlideModalError().setMessage(InformationForSlide.messageForThirstTempSklad()));
     }
 
     public void set_start(){
@@ -202,40 +177,34 @@ public class Rule_contollers_Main {
            Заполняем комбо-бокс именами файлов, которые затем будем открывать.
          */
 
-        main_controller.list_files_ch.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
+        main_controller.list_files_ch.setOnMouseClicked(event -> {
 
-                Add_path_address add_path_address = new Add_path_address();
-                add_path_address.go_all_around(new File(Paths_Main_File.path_final_out));
+            Add_path_address add_path_address = new Add_path_address();
+            add_path_address.go_all_around(new File(Paths_Main_File.path_final_out));
 
-                ArrayList<String> al = new ArrayList<>();
+            ArrayList<String> al = new ArrayList<>();
 
-                for(List_xlsx_files d : List_xlsx_files.list_paths_xlsx )
-                {
-                    al.add(d.getName_file());
-                }
-                ObservableList<String> oble = FXCollections.observableArrayList(al);
-                main_controller.list_files_ch.setItems(oble);
-                main_controller.list_files_ch.setVisibleRowCount(10);
-
+            for(List_xlsx_files d : List_xlsx_files.list_paths_xlsx )
+            {
+                al.add(d.getName_file());
             }
+            ObservableList<String> oble = FXCollections.observableArrayList(al);
+            main_controller.list_files_ch.setItems(oble);
+            main_controller.list_files_ch.setVisibleRowCount(10);
+
         });
 
-       main_controller.number_shop.setOnKeyReleased(new EventHandler<KeyEvent>() {
-           @Override
-           public void handle(KeyEvent event) {
+       main_controller.number_shop.setOnKeyReleased(event -> {
 
-               String s = ShopDescription.getMeMagazine(main_controller.number_shop.getText());
-               String s2 = Rule_contollers_Main.main_controller.number_shop.getText();
-               new ShopNumber().save(s2);
-               if(s.equals("EMPTY")){main_controller.number_shop.setStyle("-fx-background-color:red");
-                                     main_controller.buttonAddNewMag.setVisible(true);}
+           String s = ShopDescription.getMeMagazine(main_controller.number_shop.getText());
+           String s2 = Rule_contollers_Main.main_controller.number_shop.getText();
+           new ShopNumber().save(s2);
+           if(s.equals("EMPTY")){main_controller.number_shop.setStyle("-fx-background-color:red");
+                                 main_controller.buttonAddNewMag.setVisible(true);}
 
-               else {main_controller.number_shop.setStyle("-fx-background-color:LIGHTGREEN");
-                     main_controller.buttonAddNewMag.setVisible(false);}
+           else {main_controller.number_shop.setStyle("-fx-background-color:LIGHTGREEN");
+                 main_controller.buttonAddNewMag.setVisible(false);}
 
-           }
        });
 
 
@@ -256,21 +225,18 @@ public class Rule_contollers_Main {
         Algorithm_sklad.set_up_id();
         main_controller.pick_algorith_sklad.setVisible(true);
 
-        main_controller.pick_algorith_sklad.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                ArrayList<String> al = new ArrayList<>();
+        main_controller.pick_algorith_sklad.setOnMouseClicked(event -> {
+            ArrayList<String> al = new ArrayList<>();
 
-                for(String as : Algorithm_sklad.list_id_algorithm )
-                {
+            for(String as : Algorithm_sklad.list_id_algorithm )
+            {
 
-                    al.add(as);
-                }
-                ObservableList<String> oble = FXCollections.observableArrayList(al);
-                main_controller.pick_algorith_sklad.setItems(oble);
-                main_controller.progress_bar_main.setVisible(false);
-
+                al.add(as);
             }
+            ObservableList<String> oble = FXCollections.observableArrayList(al);
+            main_controller.pick_algorith_sklad.setItems(oble);
+            main_controller.progress_bar_main.setVisible(false);
+
         });
     }
 
@@ -281,13 +247,10 @@ public class Rule_contollers_Main {
 
     public static void set_event_handler_for_list_alg(){
 
-        Rule_contollers_Main.main_controller.pick_algorith_sklad.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if(Rule_contollers_Main.main_controller.pick_algorith_sklad.getValue()!=null)
-                {
-                    Rule_contollers_Main.set_description_KP_Sklad(Rule_contollers_Main.main_controller.pick_algorith_sklad.getValue());
-                }
+        Rule_contollers_Main.main_controller.pick_algorith_sklad.setOnAction(event -> {
+            if(Rule_contollers_Main.main_controller.pick_algorith_sklad.getValue()!=null)
+            {
+                Rule_contollers_Main.set_description_KP_Sklad(Rule_contollers_Main.main_controller.pick_algorith_sklad.getValue());
             }
         });
     }
@@ -469,12 +432,9 @@ public class Rule_contollers_Main {
         /**
          *   Запуск модуля графика по недостаче к кол-ву PLU
          */
-        main_controller.gravr_tab.setOnSelectionChanged(new EventHandler<Event>() {
-            @Override
-            public void handle(Event event) {
-                //Rule_contollers_Main.setListnerToChangeGroup();
-                new GraficAvrProd().drawGrafic();
-            }
+        main_controller.gravr_tab.setOnSelectionChanged(event -> {
+            //Rule_contollers_Main.setListnerToChangeGroup();
+            new GraficAvrProd().drawGrafic();
         });
 
     }
@@ -520,13 +480,10 @@ public class Rule_contollers_Main {
 
         main_controller.change_group_from_oods_gr.setItems(FXCollections.observableArrayList(getAllGroupYU2()));
 
-        main_controller.change_group_from_oods_gr.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                String group = main_controller.change_group_from_oods_gr.getValue();
-                GraficAvrProd.currentGroup = group;
-                new ValueSlider().setValue(GraficAvrProd.currentGroup);
-            }
+        main_controller.change_group_from_oods_gr.setOnAction(event -> {
+            String group = main_controller.change_group_from_oods_gr.getValue();
+            GraficAvrProd.currentGroup = group;
+            new ValueSlider().setValue(GraficAvrProd.currentGroup);
         });
 
     }
@@ -534,11 +491,5 @@ public class Rule_contollers_Main {
     public static void addListnerFromTableView(){
         ShowForTableView.addListnerDelete();
     }
-
-
-
-
-
-
 
 }

@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -32,41 +33,61 @@ public class AllOrganization {
         Class for Combo-box organization
      */
 
-    private String nameAndNumber;
-    private String name;
-    private String number;
+    private char [] nameAndNumber;
+    private char [] name;
+    private char [] number;
 
     public static ArrayList<AllOrganization> listOrganizationAndOrder = new ArrayList<>();
     public static String currentPickNamePrganization = "EMP";
     public static String currentPickOrderNumber = "EMP";
+    private static StringBuilder st = new StringBuilder();
 
 
 
     public AllOrganization(String name, String number) {
-        this.name = name;
-        this.number = number;
-        this.nameAndNumber = name + " : " + number;
+        this.name = name.toCharArray();
+        this.number = number.toCharArray();
+        st.append(name);st.append(number);
+        this.nameAndNumber = st.toString().toCharArray();
+        st.setLength(0);
+    }
+
+    public AllOrganization() {
+
     }
 
     public String getName() {
-        return name;
+        StringBuilder sb = new StringBuilder();
+        for (char c : this.name) {
+            sb.append(c);
+        }
+        return sb.toString();
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name.toCharArray();
     }
 
     public String getNumber() {
-        return number;
+        StringBuilder sb = new StringBuilder();
+        for (char c : this.number) {
+            sb.append(c);
+        }
+        return sb.toString();
     }
 
     public void setNumber(String number) {
-        this.number = number;
+        this.number = number.toCharArray();
     }
 
     @Override
     public String toString() {
-        return nameAndNumber;
+
+        StringBuilder sb = new StringBuilder();
+        for (char c : this.nameAndNumber) {
+            sb.append(c);
+        }
+        return sb.toString();
     }
 
     public static void load(){
@@ -99,7 +120,7 @@ public class AllOrganization {
         try(FileWriter wf = new FileWriter(new File(Paths_Main_File.PATH_TO_LIST_ORGANIZATION))){
             StringBuilder sb = new StringBuilder();
             for(AllOrganization list : listOrganizationAndOrder){
-                sb.append(list.getName()+"!"+list.getNumber()+"!"+System.lineSeparator());
+                sb.append(list.getName()).append("!").append(list.getNumber()).append("!").append(System.lineSeparator());
                 // name ! number ! + LineSeparator
             }
             wf.write(sb.toString());
@@ -170,7 +191,7 @@ public class AllOrganization {
         Pattern p = Pattern.compile("(.*?)!");
         Matcher m = p.matcher(line);
 
-        String tempMassive [] = new String[2];
+        String[] tempMassive = new String[2];
 
         int count = 0;
 
@@ -187,8 +208,8 @@ public class AllOrganization {
 
         main_controller.table_organization.setEditable(true);
 
-        main_controller.name_organization_col.setCellValueFactory(new PropertyValueFactory<AllOrganization,String>("name"));
-        main_controller.number_organization_col.setCellValueFactory(new PropertyValueFactory<AllOrganization,String>("number"));
+        main_controller.name_organization_col.setCellValueFactory(new PropertyValueFactory<>("name"));
+        main_controller.number_organization_col.setCellValueFactory(new PropertyValueFactory<>("number"));
 
         // Set settings from column
         main_controller.name_organization_col.setCellFactory(TextFieldTableCell.forTableColumn());    // Important option!!!!!!!!!!!!!
@@ -202,18 +223,17 @@ public class AllOrganization {
 
     }
 
-    public static ObservableList<AllOrganization> resetListOBS(){
+    public ObservableList<AllOrganization> resetListOBS(){
 
         // get new List organization
 
-        ObservableList<AllOrganization> tempList = FXCollections.observableArrayList(listOrganizationAndOrder);
-        return tempList;
+        return FXCollections.observableArrayList(listOrganizationAndOrder);
     }
 
     public static void goview(){
         // View table (reset)
 
-        main_controller.table_organization.setItems(resetListOBS());
+        main_controller.table_organization.setItems(new AllOrganization().resetListOBS());
         main_controller.table_organization.refresh();
     }
 
@@ -221,31 +241,26 @@ public class AllOrganization {
 
         // update box every on click
 
-        main_controller.organization_box.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                try {
-                    main_controller.organization_box.getItems().clear();
-                    System.out.println("update organization ");
-                    main_controller.organization_box.setItems(resetListOBS());
-                }
-                catch (Exception e){
-                    System.out.println("Error update box organization " + e.getMessage() + " 222 line");
-                }
+        main_controller.organization_box.setOnMouseClicked(event -> {
+            try {
+                main_controller.organization_box.getItems().clear();
+                System.out.println("Клик мышью ");
+                main_controller.organization_box.setItems(new AllOrganization().resetListOBS());
+                System.gc();
+            }
+            catch (Exception e){
+                System.out.println("Error update box organization " + e.getMessage() + " 222 line");
             }
         });
 
-        main_controller.organization_box.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                try {
-                    currentPickNamePrganization = main_controller.organization_box.getSelectionModel().getSelectedItem().getName();
-                    currentPickOrderNumber = main_controller.organization_box.getSelectionModel().getSelectedItem().getNumber();
-                    System.out.println("Update static field " + currentPickOrderNumber + " / " + currentPickNamePrganization);
-                }
-                catch (Exception e){
-                    System.out.println("Error pick org " + e.getMessage() + " line 236");
-                }
+        main_controller.organization_box.setOnAction(event -> {
+            try {
+                currentPickNamePrganization = main_controller.organization_box.getSelectionModel().getSelectedItem().getName();
+                currentPickOrderNumber = main_controller.organization_box.getSelectionModel().getSelectedItem().getNumber();
+                System.out.println("Action метод " + currentPickOrderNumber + " / " + currentPickNamePrganization);
+            }
+            catch (Exception e){
+                System.out.println("Error pick org " + e.getMessage() + " line 236");
             }
         });
     }
@@ -261,30 +276,21 @@ public class AllOrganization {
         // Для имени обновление имени
         // Для № приказа обновить номер приказа
 
-        main_controller.name_organization_col.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<AllOrganization, String>>() {
-            @Override
-            public void handle(TableColumn.CellEditEvent<AllOrganization, String> event) {
-                String tempOld = event.getOldValue();
-                String tempnew = event.getNewValue();
-                updateOrg(tempOld,tempnew,1);
-            }
+        main_controller.name_organization_col.setOnEditCommit(event -> {
+            String tempOld = event.getOldValue();
+            String tempnew = event.getNewValue();
+            updateOrg(tempOld,tempnew,1);
         });
 
-        main_controller.number_organization_col.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<AllOrganization, String>>() {
-            @Override
-            public void handle(TableColumn.CellEditEvent<AllOrganization, String> event) {
-                AllOrganization tempCurrent = event.getRowValue();
-                String newValue = event.getNewValue();
-                updateOrg(tempCurrent,newValue,2);
-            }
+        main_controller.number_organization_col.setOnEditCommit(event -> {
+            AllOrganization tempCurrent = event.getRowValue();
+            String newValue = event.getNewValue();
+            updateOrg(tempCurrent,newValue,2);
         });
 
-        main_controller.table_organization.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if(event.getCode() == KeyCode.DELETE){
-                    deletePosition(main_controller.table_organization.getSelectionModel().getSelectedItem());
-                }
+        main_controller.table_organization.setOnKeyReleased(event -> {
+            if(event.getCode() == KeyCode.DELETE){
+                deletePosition(main_controller.table_organization.getSelectionModel().getSelectedItem());
             }
         });
 
@@ -296,11 +302,11 @@ public class AllOrganization {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AllOrganization that = (AllOrganization) o;
-        return Objects.equals(name, that.name);
+        return Arrays.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash((Object) name);
     }
 }
