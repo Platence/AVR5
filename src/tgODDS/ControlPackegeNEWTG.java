@@ -12,7 +12,7 @@ public class ControlPackegeNEWTG {
     public static void toDo(){
         ControlListObjects clo = new ControlListObjects();
         // Составление всех данных для таблицы
-        printInfo(clo);
+       // printInfo(clo);
 
         try {
             TGOddsDetalXLX tg = new TGOddsDetalXLX();

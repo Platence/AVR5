@@ -27,8 +27,8 @@ public class TGOddsDetalXLX extends ExportExcel {
 
 
         for(InfoForTable x : ch.list){
-
             r = sheet.getRow(countRow);
+            if(countRow==20){countRow+=2;}
             countRow++;
 
             Cell name = r.getCell(3);

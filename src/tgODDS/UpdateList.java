@@ -20,7 +20,10 @@ public class UpdateList {
         list.add(createAnimalsEat());
         list.add(createFrov());
         list.add(createCigarets());
-
+        list.add(createShapAndCreme());
+        list.add(createRapira());
+        list.add(createSoput());
+        list.add(createInAut());
     }
 
     private InfoForTable createAlcoObj(){
@@ -142,6 +145,61 @@ public class UpdateList {
         ignore.add("");
         return SearchData.getObject(SearchData.yuL2,group,ignore,"сигареты");
     }
+
+    private InfoForTable createShapAndCreme(){
+        // Подсчет Средства ухода
+        ArrayList<String> group = new ArrayList<>();
+        group.add("Средства для ухода за бельем и одеж");
+        group.add("Средства для душа");
+        group.add("Средства для волос");
+        ArrayList<String> ignore = new ArrayList<>();
+        ignore.add("");
+        return SearchData.getObject(SearchData.yuL3,group,ignore,"Шампуни,порошки");
+    }
+
+    private InfoForTable createRapira(){
+        // Подсчет Средства ухода
+        ArrayList<String> group = new ArrayList<>();
+        group.add("Средства для бритья");
+        ArrayList<String> ignore = new ArrayList<>();
+        ignore.add("");
+        return SearchData.getObject(SearchData.yuL3,group,ignore,"Средства для бритья");
+    }
+
+    private InfoForTable createSoput(){
+        // Подсчет Средства ухода
+        ArrayList<String> group = new ArrayList<>();
+        group.add("Сопутствующие товары (Food)");
+        ArrayList<String> ignore = new ArrayList<>();
+        ignore.add("Средства для бритья");
+        ignore.add("Средства для душа");
+        ignore.add("Средства для волос");
+        ignore.add("Средства для ухода за бельем и одеж");
+        return SearchData.getObject(SearchData.yuL2,group,ignore,"Сопутка(Остальное)");
+    }
+
+    private InfoForTable createInAut(){
+        ArrayList<String> group = new ArrayList<>();
+        group.add("");
+        ArrayList<String> ignore = new ArrayList<>();
+        ignore.add("Алкоголь");
+        ignore.add("Бакалея (Food)");
+        ignore.add("Замороженные продукты");
+        ignore.add("Корма для животных");
+        ignore.add("Молочная гастрономия");
+        ignore.add("Мясная гастрономия");
+        ignore.add("Мясо и мясные изделия");
+        ignore.add("Овощи - Фрукты");
+        ignore.add("Птица и изделия из птицы");
+        ignore.add("Рыбная гастрономия");
+        ignore.add("Соки, воды, пиво");
+        ignore.add("Сопутствующие товары (Food)");
+        ignore.add("Табачные изделия и аксессуары (Food");
+        return SearchData.getObject(SearchData.yuL2Ex,group,ignore,"Ин-АУТ(+стики)");
+    }
+
+
+
 
 
 }
