@@ -246,7 +246,7 @@ public class CrashesPlu implements JustSaveInformation {
             for(Ostatku xxx : Main.classOstatku){
                 if(xxx.getYu2().equals("Хлеб СП")&& xxx.qfinal>0){
                     if(xxx.oddsSUM<9000 && xxx.oddsSUM>0){sbSP.append("Обнаружен Хлеб СП " + xxx.plu + " " + xxx.oddsSUM + " " + System.lineSeparator());}}
-                if(xxx.getYu2().equals("Тара возвратная") && xxx.controlChek.equals("EMP")){sbTara.append("Нет КП по таре : " + xxx.name + System.lineSeparator());}
+                if(xxx.getYu2().equals("Тара возвратная") && xxx.controlChek.equals("EMP")){sbTara.append("Нет КП по таре : " + xxx.getName() + System.lineSeparator());}
 
                 for(CrashesPlu plu : listCrashes){
                     if(xxx.getPlu().equals(plu.getPlu())){

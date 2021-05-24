@@ -233,7 +233,7 @@ public class Ostatku {
         return "Ostatku{" +
                 "plu='" + plu + '\'' +
 
-                ", name='" + name + '\'' +
+                ", name='" + getName() + '\'' +
                 ", yu2='" + yu2 + '\'' +
                 ", yu3='" + yu3 + '\'' +
                 ", codeyu='" + '\'' +

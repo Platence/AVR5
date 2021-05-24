@@ -12,6 +12,7 @@ import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 import warehouse_plu.Ostatku;
 
+import javax.swing.*;
 import java.lang.reflect.Field;
 import java.nio.charset.Charset;
 import java.util.ArrayList;

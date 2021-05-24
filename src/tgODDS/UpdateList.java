@@ -1,5 +1,7 @@
 package tgODDS;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -24,6 +26,8 @@ public class UpdateList {
         list.add(createRapira());
         list.add(createSoput());
         list.add(createInAut());
+
+
     }
 
     private InfoForTable createAlcoObj(){

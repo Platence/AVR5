@@ -556,7 +556,7 @@ public class Controller {
         flow_panf_HA.getChildren().clear();
         flow_panf_HA.getChildren().add(new ControllerSkladHA().fpGetNew());
         main_pain.getSelectionModel().select(awrsos);
-        mainPain2.getSelectionModel().select(5);
+        mainPain2.getSelectionModel().select(4);
     }
 
     public void savekpAI(){
