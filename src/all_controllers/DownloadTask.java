@@ -4,6 +4,7 @@ package all_controllers;
 import all_controllers.mouse_event.ButtonRas4et.HoldButtodDisable;
 import all_paths.Paths_Main_File;
 import chekCrashPLU.CrashesPlu;
+import decriptor.ConsoleAVR;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.scene.Node;
@@ -29,7 +30,7 @@ public class DownloadTask extends Task<Void> {
         new SaxParsGU().started(Paths_Main_File.path_list_diff_current, Settings.destenation_from_target,this);
         // Получение и передача файла сверки разниц
 
-        System.out.println(Paths_Main_File.path_list_diff_current);
+        ConsoleAVR.printlnn(Paths_Main_File.path_list_diff_current);
 
         //Визуальные настройки объектов после парсинга
         Rule_contollers_Main.set_settings_visible(false,true);

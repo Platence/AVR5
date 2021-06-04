@@ -1,18 +1,14 @@
 package all_controllers.logicAnalitic;
 
-import all_controllers.Rule_contollers_Main;
 import all_paths.Paths_Main_File;
 import autoOpen.AutoOpen;
 import chekCrashPLU.IgnoredPlu;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TitledPane;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import mailMessage.ConsolidationInformation;
 import megaBlock.MegaBlockYU2;
@@ -97,15 +93,6 @@ public class Bundle_For_WRS {
 
     public static void setSigarets(Ostatku ddd){
 
-//        if(ddd.yu4.contains("грев.табак,")){
-//            if(ddd.oddsSUM>0){cigarettesSURPLUS+=ddd.getOddsSUM();}
-//            if(ddd.oddsSUM<0){cigarettesShortage+=ddd.getOddsSUM();}
-//            sigarets+=ddd.oddsSUM;
-//            return;
-//        }
-
-        // Закоментирован просчет стиков
-
        if(ddd.getYu2().contains("бачные изделия и аксессуары (Foo")){
            if(ddd.oddsSUM>0){cigarettesSURPLUS+=ddd.getOddsSUM();}
            if(ddd.oddsSUM<0){cigarettesShortage+=ddd.getOddsSUM();}
@@ -176,6 +163,10 @@ public class Bundle_For_WRS {
     public static void set_result_sum_fin(Ostatku ddd){
         if(ddd.getYu3().contains("обственное произв")){return;}
         if(ddd.getYu3().contains("фабрикаты для пекар")){return;}
+
+        //System.out.println("Подсчет Объекта : " + ddd.getName() + ddd.getOddsSUM());
+        //System.out.println(result_PU);
+
         result_PU+=ddd.oddsSUM;
     }
 

@@ -1,6 +1,7 @@
 package organizationClass;
 
 import all_paths.Paths_Main_File;
+import decriptor.ConsoleAVR;
 import error_package.Modal_Error;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -108,7 +109,7 @@ public class AllOrganization {
 
         }
         catch (Exception e){
-            System.out.println("Error with loading order and name organization line 33");
+            ConsoleAVR.printlnn("Error with loading order and name organization line 33");
         }
 
     }
@@ -248,7 +249,7 @@ public class AllOrganization {
             try {
                 currentPickNamePrganization = main_controller.organization_box.getSelectionModel().getSelectedItem().getName();
                 currentPickOrderNumber = main_controller.organization_box.getSelectionModel().getSelectedItem().getNumber();
-                System.out.println("Action метод " + currentPickOrderNumber + " / " + currentPickNamePrganization);
+                ConsoleAVR.printlnn("Смена приказа " + currentPickOrderNumber + " / " + currentPickNamePrganization);
             }
             catch (Exception e){
                 System.out.println("Error pick org " + e.getMessage() + " line 236");

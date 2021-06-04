@@ -2,6 +2,7 @@ package chekCrashPLU;
 
 import all_controllers.Rule_contollers_Main;
 import all_paths.Paths_Main_File;
+import decriptor.ConsoleAVR;
 import error_package.Modal_Error;
 import error_package.SlideError.SlideModalError;
 import interfaces_all.JustSaveInformation;
@@ -155,11 +156,11 @@ public class CrashesPlu implements JustSaveInformation {
             public void handle(TableColumn.CellEditEvent<CrashesPlu, String> event) {
                 String oldWord = event.getOldValue();
                 String newWord = event.getNewValue();
-                System.out.println(oldWord + " " + newWord);
+                ConsoleAVR.printlnn(oldWord + " " + newWord);
                 updateFieldPLU(oldWord,newWord);
                 setTableView();
                 save("");
-                System.out.println("Save succefull");
+                ConsoleAVR.printlnn("Save succefull");
             }
         });
 
@@ -168,11 +169,11 @@ public class CrashesPlu implements JustSaveInformation {
             public void handle(TableColumn.CellEditEvent<CrashesPlu, String> event) {
                 String oldWord = event.getOldValue();
                 String newWord = event.getNewValue();
-                System.out.println(oldWord + " " + newWord);
+                ConsoleAVR.printlnn(oldWord + " " + newWord);
                 updateFieldDESC(oldWord,newWord);
                 setTableView();
                 save("");
-                System.out.println("Save succefull");
+                ConsoleAVR.printlnn("Save succefull");
             }
         });
 
@@ -267,7 +268,7 @@ public class CrashesPlu implements JustSaveInformation {
            if (SAXPars.newsverka){setColorRedOnTab2();}
 
 
-            System.out.println("work");
+            ConsoleAVR.printlnn("work");
 
             if(stringBuilder.length()>1){
 
@@ -307,7 +308,7 @@ public class CrashesPlu implements JustSaveInformation {
                     sp.setContent(area);
                     alert.getDialogPane().setContent(sp);
 
-                    System.out.println("Обнаружены битые PLU!");
+                    ConsoleAVR.printlnn("Обнаружены битые PLU!");
 
                     haveErrors = true;
                     alert.show();

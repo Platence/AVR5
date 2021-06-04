@@ -13,8 +13,6 @@ public class OstatkuSApRES {
 
     // Содержит данные о ячейке и значении
 
-
-
     private char column;
     private int rowNumber;
     private String value;

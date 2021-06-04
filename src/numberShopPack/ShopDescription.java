@@ -1,5 +1,7 @@
 package numberShopPack;
 
+import decriptor.ConsoleAVR;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -48,21 +50,21 @@ public class ShopDescription {
                 return sp.toString();
             }
         }
-        System.out.println(numberShop + " не найден");
+        ConsoleAVR.printlnn(numberShop + " не найден (ER)");
 
         return "EMPTY";
     }
 
     public static String getMeSap(String numberShop){
-        System.out.println("Поиск сап номера для " + numberShop);
+        ConsoleAVR.printlnn("Поиск сап номера для " + numberShop);
 
         for(ShopDescription sp : listShopSheetOne){
             if(numberShop.equals(sp.getNumberShop())){
                 return sp.getSap();
             }
         }
-        System.out.println(numberShop + " не найден");
-        System.out.println("Размер списка магазинов "+listShopSheetOne.size());
+        ConsoleAVR.printlnn(numberShop + " не найден (ER)");
+        ConsoleAVR.printlnn("Размер списка магазинов "+listShopSheetOne.size());
         return "EMPTY";
     }
 

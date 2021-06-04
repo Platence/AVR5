@@ -1,5 +1,6 @@
 package graficAVR.scaleStepChoiceBox;
 
+import decriptor.ConsoleAVR;
 import javafx.collections.FXCollections;
 import sample.Controller;
 
@@ -31,7 +32,7 @@ public class SetStandartScale {
 
     public static int getCurrentStep(){
         int z = controller.choiceStep.getSelectionModel().getSelectedItem();
-        System.out.println("Получено значение шага : " + z);
+        ConsoleAVR.printlnn("Получено значение шага : " + z);
         return z;
     }
 }

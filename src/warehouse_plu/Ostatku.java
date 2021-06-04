@@ -88,10 +88,13 @@ public class Ostatku {
 
         if(this.qfinal>0){All_List_group_info.add(this.getYu3());}
 
+
     }
 
     public Ostatku(){
         // НЕСТАНДАРТНЫЙ ПОТОК СОЗДАЕТСЯ В КЛАССЕ LISTTEMPS!
+        System.out.println("ПУСТОЙ ПОТОК!");
+
     }
 
     public void setaddAllpositionGates(String s){

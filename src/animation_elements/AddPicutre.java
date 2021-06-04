@@ -1,6 +1,7 @@
 package animation_elements;
 
 import all_controllers.Rule_contollers_Main;
+import decriptor.ConsoleAVR;
 import error_package.Modal_Error;
 import interfaces_all.JustSaveInformation;
 import javafx.scene.image.Image;
@@ -16,7 +17,7 @@ public class AddPicutre implements JustSaveInformation {
 
 
     public void setImage(String path_Image)  {
-        System.out.println("Подгрузка изображения");
+        ConsoleAVR.printlnn("Подгрузка изображения");
         File fie = new File(path_Image);
         Image image  = null;
         try {

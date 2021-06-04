@@ -2,6 +2,7 @@ package all_controllers;
 
 import all_paths.List_xlsx_files;
 import all_paths.Paths_Main_File;
+import decriptor.ConsoleAVR;
 import javafx.stage.DirectoryChooser;
 import sample.Main;
 
@@ -62,7 +63,7 @@ public class Add_path_address {
             List_xlsx_files.list_paths_xlsx.add(new List_xlsx_files(lll.getPath(),lll.getName()));
 
         }
-        System.out.println("Обход дерева завершен");
+        ConsoleAVR.printlnn("Обход дерева папок завершен");
 
         if(List_xlsx_files.list_paths_xlsx.size()>0){dir_accept=true;}
 

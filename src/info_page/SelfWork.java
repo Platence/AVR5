@@ -138,7 +138,7 @@ public class SelfWork {
                       }
                       int x = (int) (Math.abs(s.getCountFromSap(sapNumber)));
                       int testResult = (int) (x - Math.abs(z.getOddsCOUNT()));
-                      if(Math.abs(testResult)>3){continue;}
+                      if(Math.abs(testResult)>4){continue;}
 
                       tempList.add(z);
                       z.setBlockedZap(s.getCountFromSap(sapNumber));

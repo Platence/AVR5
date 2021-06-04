@@ -1,5 +1,6 @@
 package newEngine.StringClass.constructor;
 
+import decriptor.ConsoleAVR;
 import newEngine.ResultsOSTATKU.ListTemps;
 import newEngine.StringClass.CurrentLinkedString;
 
@@ -51,7 +52,7 @@ public class ConstructorWithLink {
         }
 
         catch (Exception e){
-            System.out.println("ОШИБКА ПРИ ЧТЕНИИ С ПОМОЩЬЮ ПАТТЕРНА!!!!");
+            ConsoleAVR.printlnn("ОШИБКА ПРИ ЧТЕНИИ С ПОМОЩЬЮ ПАТТЕРНА!!!!");
             System.out.println("ОШИБКА ПРИ ЧТЕНИИ С ПОМОЩЬЮ ПАТТЕРНА!!!!");
             System.out.println("ОШИБКА ПРИ ЧТЕНИИ С ПОМОЩЬЮ ПАТТЕРНА!!!!");
 

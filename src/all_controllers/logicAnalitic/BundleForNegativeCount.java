@@ -1,5 +1,6 @@
 package all_controllers.logicAnalitic;
 
+import decriptor.ConsoleAVR;
 import error_package.Modal_Error;
 import exportXLSX.exportNULL.ExportNullOstatku;
 import javafx.geometry.Orientation;
@@ -74,9 +75,9 @@ public class BundleForNegativeCount {
 
         }
 
-        System.out.println(" ");
-        System.out.println("NULL POINTER CHECK");
-        System.out.println(" ");
+        ConsoleAVR.printlnn(" ");
+        ConsoleAVR.printlnn("NULL POINTER CHECK");
+        ConsoleAVR.printlnn(" ");
 
 
     }

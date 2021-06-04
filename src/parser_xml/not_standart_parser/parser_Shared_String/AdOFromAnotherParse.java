@@ -1,6 +1,7 @@
 package parser_xml.not_standart_parser.parser_Shared_String;
 
 import chekCrashPLU.IgnoredPlu;
+import decriptor.ConsoleAVR;
 import sample.Main;
 import warehouse_plu.BaseGroup;
 import warehouse_plu.Ostatku;
@@ -41,7 +42,7 @@ public class AdOFromAnotherParse {
         }
         catch (Exception e){
             e.printStackTrace();
-            System.out.println("Ошибки при добавлении в лись AdOFromAnotherParse " + e.getMessage());
+            ConsoleAVR.printlnn("Ошибки при добавлении в лис AdOFromAnotherParse " + e.getMessage());
 
         }
 

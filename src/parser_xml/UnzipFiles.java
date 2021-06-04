@@ -1,6 +1,7 @@
 package parser_xml;
 
 import all_paths.Paths_Main_File;
+import decriptor.ConsoleAVR;
 import settings_main.Settings;
 
 import java.io.File;
@@ -82,7 +83,7 @@ public class UnzipFiles {
 
         }
         catch (Exception e){
-            System.out.println("! Exception in read xlsx");
+            ConsoleAVR.printlnn("! Exception in read xlsx");
         }
     }
 

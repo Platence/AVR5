@@ -1,6 +1,7 @@
 package graficAVR;
 
 import all_controllers.Rule_contollers_Main;
+import decriptor.ConsoleAVR;
 import groupLevel.GroupLevelAcces;
 import javafx.scene.chart.XYChart;
 import sample.Main;
@@ -43,8 +44,8 @@ public class ListXY {
         int treshhodOne = maxSize;
         int tresholdTwo = treshhodOne+sizeStep;
 
-        System.out.println("Остановка на " + brekaed);
-        System.out.println("Начало на " + tresholdTwo + "  / " + treshhodOne);
+       // ConsoleAVR.printlnn("Остановка на " + brekaed);
+       // ConsoleAVR.printlnn("Начало на " + tresholdTwo + "  / " + treshhodOne);
 
         //Для организации трешхолда и цикла
 

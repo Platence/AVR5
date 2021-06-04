@@ -1,7 +1,5 @@
 package sample;
 
-import WRSOnLine.ComboBoxSite;
-import WRSOnLine.SettingsOnWrs;
 import all_controllers.*;
 
 import all_controllers.logicAnalitic.BundleForNegativeCount;
@@ -11,6 +9,7 @@ import all_controllers.logicAnalitic.LogicForAnalitik;
 import all_controllers.mouse_event.ButtonRas4et.HoldButtodDisable;
 import animation_elements.HideComponents;
 import animation_elements.Repiat;
+import decriptor.ConsoleAVR;
 import decriptor.DecriptorBlock;
 import graficAVR.scaleStepChoiceBox.SetStandartScale;
 import all_paths.Paths_Main_File;
@@ -84,6 +83,7 @@ public class Controller {
 
     public Button buttonViewSALE;
     public Button buttonadPath;
+    public FlowPane flowConsole;
 
     // Ignored
     public TableView<IgnoredPlu> tableIgnor;
@@ -97,6 +97,7 @@ public class Controller {
     public ComboBox<String> optionView;
     public Button buttonView;
     public Button buttonPr;
+    public TextField sdfsdfsdf;
 
     public Tab awrsos;
     public TabPane mainPain2;
@@ -108,7 +109,7 @@ public class Controller {
     public Tab settings_tab;
     public Tab analitik_tab;
     public Tab tab_Hand_auto;
-    public Tab wrsOnLine;
+
 
     public FlowPane browserPane;
     public TextField info_path_field;
@@ -210,8 +211,6 @@ public class Controller {
     public Tab tab_fin_kp;
     public Tab prepeareToPu;
     public Tab tabsskrr;
-    public CheckBox webPageSettings;
-
     // Box TMC
 
     public ChoiceBox<String> boxTmc;
@@ -288,7 +287,9 @@ public class Controller {
 
     public void initialize(){
 
-        new SettingsOnWrs(this).loadSettings();
+//        ConsoleAVR consoleAVR = new ConsoleAVR(flowConsole);
+//        Thread thread = new Thread(consoleAVR);
+//        thread.start();
 
         buttonAddNewMag.setVisible(false);
         Rule_contollers_Main.main_controller = this;
@@ -322,12 +323,11 @@ public class Controller {
         BlockingClass.loadStateS999KPF(Paths_Main_File.PATH_BLOCK_S999,blockS999KPFIN);
 
         MegaBlockYU2.loadingYU2();
-        ComboBoxSite.initialComboBox(comboBoxSite);
-        //Инициализация списка сайтов
 
         Platform.runLater(()-> new BundleResultGraph(this));
         StartNeprodamParse.setPositionToButton();
         createListNode();
+
     }
 
     public void createListNode(){
@@ -363,7 +363,7 @@ public class Controller {
             Rule_contollers_Main.loadingExcel(s);
             // Путь хранится в  Paths_Main_File.path_list_diff_current
             //Проверим на Shared_String
-            System.out.println("Выбран файл " + Paths_Main_File.path_list_diff_current);
+            ConsoleAVR.printlnn("Выбран файл " + Paths_Main_File.path_list_diff_current);
 
             boolean res = StartedAnotherParse.go_go_go(Paths_Main_File.path_list_diff_current, Settings.destenation_from_target,"SPR");
             // При неудачном считывании, запускаем старый вариант res = false;
@@ -394,7 +394,7 @@ public class Controller {
 
         }
         catch (Exception e){
-            System.out.println("Критическая ошибка loadingExcelForOstatku " + e.getMessage());
+            ConsoleAVR.printlnn("Критическая ошибка loadingExcelForOstatku " + e.getMessage());
             e.printStackTrace();
         }
 
@@ -494,7 +494,7 @@ public class Controller {
     public void anakitiksfromDan(){
 
         if(!awrsos.isSelected()){
-            System.out.println("Вкладка просмотр данных НЕ активна. Выход");
+            ConsoleAVR.printlnn("Вкладка просмотр данных НЕ активна.");
         }
 
         LogicForAnalitik logicForAnalitik = new LogicForAnalitik();
@@ -597,9 +597,10 @@ public class Controller {
     }
 
     public void savePeople(){
+
         new PeopleComisson().save();
         try{
-            System.out.println(organization_box.getSelectionModel().getSelectedItem().toString());
+            ConsoleAVR.printlnn(organization_box.getSelectionModel().getSelectedItem().toString() + " WAS PICKED");
             new Repiat();
             //new Modal_Error().set_erroe_messege("Данные успешно внесены");
 
@@ -612,6 +613,7 @@ public class Controller {
             +"ДАННЫЕ НЕ СОХРАНЕНЫ, ВЕРНИТЕСЬ В ПОДГОТОВКУ");
             return;
         }
+        ConsoleAVR.printlnn("AUTOSAVE...OK");
         //new SlideModalError().setMessage("Данные по ПИ внесены...");
     }
 
@@ -673,23 +675,6 @@ public class Controller {
         new AplicationforOrder();
     }
 
-//    public void actionPie(){
-////        CretePane.shOrSO = true;
-////        Rule_contollers_Main.main_controller.flowPanePie.getChildren().clear();
-////        TaskPie tp = new TaskPie();
-////        tp.createListYU2();
-////        CretePane cp = new CretePane();
-////        cp.drawGrathiks(tp);
-//    }
-//    public void actionPieShortage(){
-////        CretePane.shOrSO = false;
-////        Rule_contollers_Main.main_controller.flowPanePie.getChildren().clear();
-////        TaskPie tp = new TaskPie();
-////        tp.createListYU2();
-////        CretePane cp = new CretePane();
-////        cp.drawGrathiks(tp);
-//    }
-
     public void changeS999Status(){
         BlockingClass.changeStatusS999(Paths_Main_File.PATH_BLOCK_S999, blockS999KPFIN);
     }
@@ -720,10 +705,6 @@ public class Controller {
         AddNewMagazine addNewMagazine = new AddNewMagazine(number_shop.getText());
     }
 
-    public void saveNewStatus(){
-        new SettingsOnWrs(this).saveSettings(!webPageSettings.isSelected());
-    }
-
     public void updownPane(){
         new BundleResultGraph(1);
     }
@@ -740,6 +721,6 @@ public class Controller {
         new DecriptorBlock();
     }
 
-    public TextField sdfsdfsdf;
+
 
 }

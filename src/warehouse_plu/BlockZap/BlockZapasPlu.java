@@ -1,6 +1,7 @@
 package warehouse_plu.BlockZap;
 
 import all_controllers.Rule_contollers_Main;
+import decriptor.ConsoleAVR;
 import error_package.Modal_Error;
 
 import java.io.File;
@@ -15,6 +16,8 @@ public class BlockZapasPlu {
 
 
     public BlockZapasPlu() {
+
+        ConsoleAVR.printlnn("Начата проверка данных по базе БЗ...");
 
         if (loadResourses()){
 
@@ -31,7 +34,7 @@ public class BlockZapasPlu {
         String path = Rule_contollers_Main.main_controller.sdfsdfsdf.getText();
         System.out.println("Path is : " + path);
         File f = new File(path);
-        System.out.println("Установка соединения с : " + path);
+        ConsoleAVR.printlnn("Установка соединения с : " + path);
         Scanner sc = new Scanner(f);
         System.out.println("Начало парсинга");
 
@@ -52,12 +55,12 @@ public class BlockZapasPlu {
     private boolean loadResourses(){
         try {
             String path = Rule_contollers_Main.main_controller.sdfsdfsdf.getText();
-            System.out.println("Path is : " + path);
+            ConsoleAVR.printlnn("Path is : " + path);
 
             File f = new File(path);
-            System.out.println("Установка соединения с : " + path);
+            ConsoleAVR.printlnn("Установка соединения с : " + path);
             Scanner sc = new Scanner(f);
-            System.out.println("Успешно");
+            ConsoleAVR.printlnn("Успешно");
             sc.close();
             f = null;
             return true;

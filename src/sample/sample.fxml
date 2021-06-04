@@ -10,6 +10,7 @@
 <Pane fx:id="mainPainnn" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
        <ImageView fx:id="image_main" fitHeight="736.0" fitWidth="1271.0" opacity="0.52" pickOnBounds="true" />
+      <FlowPane fx:id="flowConsole" layoutX="861.0" layoutY="18.0" orientation="VERTICAL" prefHeight="704.0" prefWidth="409.0" />
        <TabPane fx:id="main_pain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1270.0" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE">
           <tabs>
               <Tab fx:id="prepeareToPu" text="Подготовка">
@@ -94,11 +95,6 @@
                                              <children>
                                                  <Button fx:id="create_act_cp_sklad" layoutX="14.0" layoutY="58.0" mnemonicParsing="false" onAction="#creat_kp_s_act" prefHeight="28.0" prefWidth="242.0" text="Создать акт" visible="false" />
                                                  <ComboBox fx:id="pick_algorith_sklad" layoutX="14.0" layoutY="22.0" opacity="0.62" prefHeight="25.0" prefWidth="240.0" promptText="Выберите алгоритм" visible="false" />
-                                                 <TextField fx:id="qf_kp_sklad_c" layoutX="1005.0" layoutY="54.0" prefHeight="25.0" prefWidth="32.0" text="7" visible="false" />
-                                                 <Label fx:id="info1" disable="true" layoutX="1048.0" layoutY="58.0" prefHeight="17.0" prefWidth="128.0" text="QФин &gt; X" visible="false" />
-                                                 <CheckBox fx:id="ignor_in_out" layoutX="770.0" layoutY="27.0" mnemonicParsing="false" selected="true" text="Игнор расхождений(+)" visible="false" />
-                                                 <Label fx:id="info2" layoutX="1048.0" layoutY="20.0" prefHeight="17.0" prefWidth="128.0" text="Ин аут plu &lt;= X" visible="false" />
-                                                 <TextField fx:id="qf_in_ayt_plu_c" layoutX="1004.0" layoutY="16.0" prefHeight="25.0" prefWidth="33.0" text="2" visible="false" />
                                                  <TableView fx:id="kpskladTable" layoutX="12.0" layoutY="95.0" prefHeight="398.0" prefWidth="1237.0">
                                                      <columns>
                                                          <TableColumn fx:id="plukpSklTAB" prefWidth="118.0" text="plu" />
@@ -227,7 +223,6 @@
                                    </Tab>
                                </tabs>
                             </TabPane>
-                            <CheckBox fx:id="skladlisttempbox" layoutX="639.0" layoutY="19.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="340.0" text="Запомнить как &quot;Первый слив&quot;" />
                         </children>
                      </AnchorPane>
                  </content>
@@ -282,16 +277,6 @@
                                                  <Label layoutX="20.0" layoutY="14.0" prefHeight="17.0" prefWidth="260.0" text="Выберите отчет" />
                                                  <Button fx:id="buttonPr" disable="true" layoutX="20.0" layoutY="123.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="257.0" text="Распечатать" />
                                                  <Button fx:id="buttonViewSALE" layoutX="14.0" layoutY="434.0" mnemonicParsing="false" onAction="#createrODSALEFINASTART" prefHeight="28.0" prefWidth="298.0" text="Продажи + Детальная разница" />
-                                             </children>
-                                          </AnchorPane>
-                                      </content>
-                                   </Tab>
-                                   <Tab fx:id="wrsOnLine" text="WRS_ON_LINE">
-                                      <content>
-                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                             <children>
-                                                 <FlowPane fx:id="browserPane" prefHeight="619.0" prefWidth="1255.0" />
-                                                 <ComboBox fx:id="comboBoxSite" layoutX="1100.0" opacity="0.55" prefWidth="150.0" />
                                              </children>
                                           </AnchorPane>
                                       </content>
@@ -356,10 +341,10 @@
                                                  </Label>
                                                  <Button layoutX="6.0" layoutY="442.0" mnemonicParsing="false" onAction="#savePeople2" prefHeight="28.0" prefWidth="239.0" text="Сохранить" />
                                                  <CheckBox fx:id="sortByGroup" layoutX="6.0" layoutY="257.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="238.0" text="Сортировка по зонам в актах" />
+                                              <CheckBox fx:id="skladlisttempbox" layoutX="6.0" layoutY="293.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="340.0" text="Запомнить как &quot;Первый слив&quot;" />
                                                  <Button layoutX="5.0" layoutY="350.0" mnemonicParsing="false" onAction="#createDefoltFolder" prefHeight="28.0" prefWidth="292.0" text="Назначить главную папку" />
                                                  <CheckBox fx:id="blockAlcInNeprod" layoutX="6.0" layoutY="185.0" mnemonicParsing="false" onAction="#blockNeprods" prefHeight="20.0" prefWidth="548.0" text="Блокировать алкоголь в КП ФИН (Непродаваемые)" />
                                                  <CheckBox fx:id="blockS999KPFIN" layoutX="6.0" layoutY="150.0" mnemonicParsing="false" onAction="#changeS999Status" prefHeight="20.0" prefWidth="289.0" text="Блокировать S9999 в КП ФИН" />
-                                                 <CheckBox fx:id="webPageSettings" layoutX="6.0" layoutY="296.0" mnemonicParsing="false" onAction="#saveNewStatus" prefHeight="18.0" prefWidth="315.0" text="Отключить веб страницу(Для слабых систем)" />
                                                  <Button layoutX="479.0" layoutY="463.0" mnemonicParsing="false" onAction="#startTest" opacity="0.56" prefHeight="28.0" prefWidth="137.0" text="Test Connection" />
                                                  <TextField fx:id="sdfsdfsdf" layoutX="479.0" layoutY="421.0" opacity="0.56" prefHeight="25.0" prefWidth="762.0" text="\\\x5.ru\root\Regions\TUL-KLG\DATA\08_Управление_по_ФК_и_анализу\Группа КРП\СПЕЦИАЛИСТЫ\Списки разниц\2017\AVR\RES\docLock.txt" />
                                                  <Label layoutX="479.0" layoutY="394.0" opacity="0.65" prefHeight="17.0" prefWidth="482.0" text="Путь для сетевой папки (Блокированный запас)">
@@ -367,6 +352,16 @@
                                                          <Font name="Corbel" size="13.0" />
                                                      </font>
                                                  </Label>
+                                          <Pane layoutX="488.0" layoutY="85.0" prefHeight="278.0" prefWidth="765.0">
+                                             <children>
+                                                       <TextField fx:id="qf_kp_sklad_c" layoutX="210.0" layoutY="36.0" prefHeight="25.0" prefWidth="32.0" text="7" />
+                                                       <Label fx:id="info1" disable="true" layoutX="260.0" layoutY="42.0" prefHeight="17.0" prefWidth="128.0" text="QФин &gt; X" />
+                                                       <CheckBox fx:id="ignor_in_out" layoutX="218.0" layoutY="108.0" mnemonicParsing="false" selected="true" text="Игнор расхождений(+)" />
+                                                       <Label fx:id="info2" layoutX="260.0" layoutY="72.0" prefHeight="17.0" prefWidth="128.0" text="Ин аут plu &lt;= X" />
+                                                       <TextField fx:id="qf_in_ayt_plu_c" layoutX="210.0" layoutY="68.0" prefHeight="25.0" prefWidth="33.0" text="2" />
+                                                <Label layoutX="210.0" layoutY="6.0" prefHeight="17.0" prefWidth="409.0" text="Настройки стандартного акта КП" />
+                                             </children>
+                                          </Pane>
                                              </children>
                                           </AnchorPane>
                                       </content>
@@ -438,7 +433,7 @@
                                       <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                 <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="14.0" prefHeight="333.0" prefWidth="1151.0" text="Автор программы выражает благорадность Артёму Крюченкову, Сергею Гудкову за существенный вклад&#10;в развитие проекта, и помощь в доработке дизайна.&#10;&#10;Рекомендуется использовать AVR, в качестве ДОПОЛНЕНИЯ к вашему рабочему месту.&#10;&#10;Обращение к пользователю : &#10;Запрещено передавать копию ПО &quot;AVR&quot; третьим лицам, без согласования с автором.&#10;Автор не несёт ответственности  за возможные ошибки в ходе обработки данных,&#10;формировании данных.&#10;&#10;Обратная связь : &#10;vladislav.ivanov@x5.ru&#10;&#10;&#10;Текущая версия сборки V10_SEARCH_UPDATE&#10;&#10;" wrapText="true">
+                                                 <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="14.0" prefHeight="333.0" prefWidth="1151.0" text="Автор программы выражает благорадность Артёму Крюченкову, Сергею Гудкову за существенный вклад&#10;в развитие проекта, и помощь в доработке дизайна.&#10;&#10;Рекомендуется использовать AVR, в качестве ДОПОЛНЕНИЯ к вашему рабочему месту.&#10;&#10;Обращение к пользователю : &#10;Запрещено передавать копию ПО &quot;AVR&quot; третьим лицам, без согласования с автором.&#10;Автор не несёт ответственности  за возможные ошибки в ходе обработки данных,&#10;формировании данных.&#10;&#10;Обратная связь : &#10;vladislav.ivanov@x5.ru&#10;&#10;&#10;Текущая версия сборки V12_MVC&#10;&#10;" wrapText="true">
                                                      <font>
                                                          <Font name="Constantia Italic" size="14.0" />
                                                      </font>

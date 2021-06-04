@@ -1,14 +1,12 @@
 package numberShopPack;
 
 
+import decriptor.ConsoleAVR;
 import error_package.Modal_Error;
 import java.io.*;
 import java.util.Scanner;
 
 public class ParserShop {
-
-    public static String sharedStringcurrentPath = "EMP";
-    public static String sheet1CurrentPath = "EMP";
     public static StringBuilder s = new StringBuilder();;
 
     public static int countIndex = 0;                        // Переменная хранит индексы строк
@@ -17,7 +15,7 @@ public class ParserShop {
     public static void startSet() {
 
         File file = new File("src/binn/baseShop/AllMagazine.txt");
-        System.out.println("Файл списка магазинов получен...");
+        ConsoleAVR.printlnn("Файл списка магазинов получен...");
         Scanner sc = null;
 
         try {
@@ -31,7 +29,7 @@ public class ParserShop {
             sc.close();
         }
 
-        System.out.println("Запуск цикла парсинга файла(Магазины)");
+        ConsoleAVR.printlnn("Запуск цикла парсинга файла(Магазины)");
 
         while (sc.hasNextLine()) {
             s.setLength(0);
@@ -44,14 +42,14 @@ public class ParserShop {
             catch (Exception e) {
                 e.printStackTrace();
                 System.out.println(e.getMessage());
-                System.out.println("РАЗРУШЕНИЕ ЦИКЛА ЧТЕНИЯ МАГАЗИНОВ!!!");
+                ConsoleAVR.printlnn("РАЗРУШЕНИЕ ЦИКЛА ЧТЕНИЯ МАГАЗИНОВ!!!");
                 return;
             }
         }
 
         sc.close();
         System.gc();
-        System.out.println("Инъекция магазинов прошла успешно");
+        ConsoleAVR.printlnn("Инъекция магазинов прошла успешно");
 
     }
 

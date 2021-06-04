@@ -2,6 +2,7 @@ package chekCrashPLU.searchSpace;
 
 import all_controllers.logicAnalitic.GlobalRulesBlock;
 import animation_elements.WaitingAlarm;
+import decriptor.ConsoleAVR;
 import sample.Main;
 import warehouse_plu.Ostatku;
 
@@ -36,7 +37,7 @@ public class SearchEngine {
         HashSet<Ostatku> listSet = new HashSet<>();
         int count = 0;
 
-
+        ConsoleAVR.printlnn("Инициирована проверка Пересортов...");
 
         for(Ostatku ost : Main.classOstatku){
             if(listSet.contains(ost)){continue;}

@@ -1,6 +1,7 @@
 package chekCrashPLU;
 
 import all_paths.Paths_Main_File;
+import decriptor.ConsoleAVR;
 import error_package.Modal_Error;
 
 import java.io.FileReader;
@@ -25,9 +26,10 @@ public class PasxaPLU {
                 s.replace(',',' ');
                 s.trim();
                 paskhaPLU.add(s);
-            }
 
-            System.out.println(paskhaPLU.toString());
+            }
+            ConsoleAVR.printlnn(paskhaPLU.toString());
+            ConsoleAVR.printlnn("Семена-пасха(ИНИЦИИРОВАНО)");
             sc.close();
             fr.close();
         }

@@ -24,19 +24,23 @@ public class SlideModalError {
     public static String tempreazon = "";
 
 
-    public void defultXYFlowPane(){
+    public void startDefPostition(){
         Rule_contollers_Main.main_controller.flow_Message.setLayoutX(2000);
         Rule_contollers_Main.main_controller.flow_Message.setLayoutY(5);
         Rule_contollers_Main.main_controller.flow_Message.setPrefSize(440,125);
+    }
 
 
+    public void defultXYFlowPane(){
+
+        startDefPostition();
 
         showStatus = new TranslateTransition(Duration.millis(360), Rule_contollers_Main.main_controller.flow_Message);
         showStatus.setByX(-1130.0);
         showStatus.setOnFinished(event -> showsStatus = true);
-        hideStatus = new TranslateTransition(Duration.millis(50), Rule_contollers_Main.main_controller.flow_Message);
+        hideStatus = new TranslateTransition(Duration.millis(10), Rule_contollers_Main.main_controller.flow_Message);
         hideStatus.setByX(1130.0);
-        hideStatus.setOnFinished(event -> showsStatus = false);
+        hideStatus.setOnFinished(event -> startDefPostition());
 
     }
 
@@ -57,7 +61,7 @@ public class SlideModalError {
 
 
         Rule_contollers_Main.main_controller.flow_Message.getChildren().add(label);
-        if(showsStatus){;return;}
+        if(showsStatus){return;}
 
         if(Rule_contollers_Main.main_controller.flow_Message.getLayoutX()<700){
             Rule_contollers_Main.main_controller.flow_Message.setLayoutX(2000);

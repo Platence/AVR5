@@ -2,6 +2,7 @@ package sample;
 
 
 import chekCrashPLU.PasxaPLU;
+import decriptor.ConsoleAVR;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -35,6 +36,7 @@ public class Main extends Application {
         stage_main_copy.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
+                ConsoleAVR.alive = false;
                 System.exit(0);
             }
         });

@@ -20,6 +20,7 @@ public class SlideLiveTimer extends Task<Void> {
 
 
         SlideModalError.hideStatus.play();
+        Thread.sleep(1500);
         SlideModalError.showsStatus = false;
 
 

@@ -2,6 +2,7 @@ package parser_xml;
 
 import all_controllers.DownloadTask;
 import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+import decriptor.ConsoleAVR;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -26,7 +27,7 @@ public class SAXPars extends DefaultHandler {
 
     @Override
     public void startDocument() throws SAXException {
-        System.out.println("Start parse XML...");
+        ConsoleAVR.printlnn("Start parse XML...");
     }
 
     @Override
@@ -54,6 +55,7 @@ public class SAXPars extends DefaultHandler {
     public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
 
 
+
         if(count_start_cp==0&&!thisElement.toString().equals("")){
 
                 Add_new_Object.init_String(sb.toString(),count_for_add);
@@ -70,7 +72,9 @@ public class SAXPars extends DefaultHandler {
         }
 
         if(sb.toString().equals("Контр. пересчет")){count_start_cp=0;sb.setLength(0);succefull=true;}
-        if(sb.toString().equals("Подсчет на ТСД")){count_start_cp=0;sb.setLength(0);newsverka = true;count_for_add=1;}
+        if(sb.toString().equals("Подсчет на ТСД")) {count_start_cp=0;sb.setLength(0);newsverka = true;count_for_add=1;}
+
+
 
         if(!thisElement.toString().equals("")){
             sb.setLength(0);

@@ -1,6 +1,7 @@
 package parser_xml.not_standart_parser.parser_Sheet1;
 
 
+import decriptor.ConsoleAVR;
 import parser_xml.not_standart_parser.parser_Shared_String.AdOFromAnotherParse;
 import parser_xml.not_standart_parser.parser_Shared_String.Fields_Shared_String;
 
@@ -56,7 +57,7 @@ public class ParserSheetOne {
 
         }
         catch (Exception e){
-            System.out.println("Ошибка в считывании главного файла");
+            ConsoleAVR.printlnn("Ошибка в считывании главного файла");
         }
 
     }

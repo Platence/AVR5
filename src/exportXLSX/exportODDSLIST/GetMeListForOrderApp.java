@@ -1,6 +1,7 @@
 package exportXLSX.exportODDSLIST;
 
 import all_controllers.Rule_contollers_Main;
+import decriptor.ConsoleAVR;
 import exportXLSX.ExportExcel;
 import exportXLSX.exportAppPrikaz.AplicationforOrder;
 import exportXLSX.exportAppPrikaz.DateTomorrow;
@@ -20,7 +21,7 @@ public class GetMeListForOrderApp extends AplicationforOrder {
 
     public static LinkedList<Cell> getMelistAppORD(AplicationforOrder examp){
 
-        System.out.println(examp.isSmenaMol() + " --- > TEST SMENA MOL");
+        ConsoleAVR.printlnn(examp.isSmenaMol() + " --- > SMENA MOL");
 
         if(examp.isSmenaMol()){return getMelistAppORDSMENAMOL(examp);} // Смена мол
 
@@ -111,7 +112,7 @@ public class GetMeListForOrderApp extends AplicationforOrder {
 
     public static LinkedList<Cell> getMelistAppORDSMENAMOL(AplicationforOrder examp){
 
-        System.out.println("Сработал режим смены мол для приложения к приказу");
+        ConsoleAVR.printlnn("Сработал режим смены мол для приложения к приказу");
 
         LinkedList<Cell> listCell = examp.getCellListOrd();
         ExportODDSList eno = new ExportODDSList();

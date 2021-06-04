@@ -1,13 +1,12 @@
 package all_controllers;
 
-import WRSOnLine.OpenBrowser;
 import all_paths.List_xlsx_files;
 import all_paths.Paths_Main_File;
 import animation_elements.AddPicutre;
 import chekCrashPLU.CrashesPlu;
 import chekCrashPLU.Karantin.ControlClassKarantin;
 import dateClass.DateIni;
-import dateClass.OpenWrs;
+import decriptor.ConsoleAVR;
 import error_package.Modal_Error;
 import error_package.SlideError.SlideModalError;
 import fin_kp_AI.BoxAnotherTMC;
@@ -19,12 +18,9 @@ import info_page.InformationForSlide;
 import inv15docpack.Inv15Field;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import numberShopPack.ShopDescription;
 import numberShopPack.ShopNumber;
 import organizationClass.AllOrganization;
@@ -70,10 +66,6 @@ public class Rule_contollers_Main {
         //Применяем настройки к элементам первое подключение
         main_controller.kp_sklad_tab.setDisable(true);
         main_controller.analitik_tab.setDisable(true);
-        main_controller.wrsOnLine.setOnSelectionChanged(event -> new OpenBrowser().go(main_controller));
-
-        main_controller.kp_sklad_tab.setOnSelectionChanged(event -> new OpenWrs());
-
         try{new AddPicutre().load();}
         catch (Exception e){new Modal_Error().set_erroe_messege("Ошибка загрузки изображения");}
 
@@ -129,6 +121,7 @@ public class Rule_contollers_Main {
         addListnerFromTableView(); // Удалить позицию по нажатии Delete
 
         new CrashesPlu().load();
+        ConsoleAVR.printlnn("Загрузка проблемных PLU....OK");
 
         main_controller.crashes_tab.setOnSelectionChanged(event -> {
             CrashesPlu.setOpene();
@@ -324,7 +317,7 @@ public class Rule_contollers_Main {
 
     public static void launchStandartProgress(){
 
-        System.out.println("Выбран алгоритм Стандартный файл GK");
+        ConsoleAVR.printlnn("Выбран алгоритм Стандартный файл GK");
 
         DownloadTask downloadTask = new DownloadTask();
         main_controller.progress_bar_main.progressProperty().bind(downloadTask.progressProperty());

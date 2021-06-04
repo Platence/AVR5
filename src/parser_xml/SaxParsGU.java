@@ -2,6 +2,7 @@ package parser_xml;
 
 import all_controllers.DownloadTask;
 import all_paths.Paths_Main_File;
+import decriptor.ConsoleAVR;
 import org.xml.sax.SAXException;
 import sample.Main;
 import settings_main.Settings;
@@ -23,7 +24,7 @@ public class SaxParsGU {
          */
 
         UnzipFiles.creater(path, dest);
-        System.out.println(path +" PATH !~ " + " " + dest + " dest");
+        ConsoleAVR.printlnn(path +" PATH !~ " + " " + dest + " dest");
 
         dt.updating(10);
 

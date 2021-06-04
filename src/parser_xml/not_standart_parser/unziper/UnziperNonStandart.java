@@ -1,5 +1,7 @@
 package parser_xml.not_standart_parser.unziper;
 
+import decriptor.ConsoleAVR;
+
 public class UnziperNonStandart {
 
     public static String target_xlsx_Path = "";                    // 1 Цель для распаковки ( передать адрес)
@@ -33,7 +35,7 @@ public class UnziperNonStandart {
             res_Path = b;
             start();
 
-            System.out.println("Распаковка прошла успешно ");
+            ConsoleAVR.printlnn("Распаковка прошла успешно ");
 
          /*
                подаем на вход цель, и конечную папку.

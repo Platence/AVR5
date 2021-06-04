@@ -1,5 +1,6 @@
 package chekCrashPLU;
 
+import decriptor.ConsoleAVR;
 import error_package.Modal_Error;
 import javafx.scene.control.CheckBox;
 
@@ -235,7 +236,7 @@ public class IgnoredPlu {
             if(plu.equals(ggg.getPli()))
             {
                 if(ggg.getBoxIgnoreWrs().isSelected()){
-                    System.out.println("Нельзя добавить в акт " + plu);
+                    ConsoleAVR.printlnn("Нельзя добавить в акт " + plu);
                     return false;
                 }
             }

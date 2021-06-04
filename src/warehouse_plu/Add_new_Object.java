@@ -41,6 +41,7 @@ public class Add_new_Object {
 
     public static void init_String(String tip,byte number){
 
+        if(tip.contains("ТСД")&&number == plu_number){return;}
         try {
 
             if (number == plu_number) {

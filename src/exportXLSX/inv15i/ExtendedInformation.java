@@ -1,5 +1,6 @@
 package exportXLSX.inv15i;
 
+import decriptor.ConsoleAVR;
 import inv15docpack.Inv15Field;
 import numberShopPack.ShopNumber;
 
@@ -48,7 +49,7 @@ public class ExtendedInformation {
 
         BigDecimal bd3 = bd1.subtract(bd2, MathContext.UNLIMITED).setScale(2,RoundingMode.UP);
 
-        System.out.println(Inv15Field.currentSUMMFACT+"Current Summ");
+        ConsoleAVR.printlnn(Inv15Field.currentSUMMFACT+"Current Summ");
 
         System.out.println(bd1.doubleValue());
         System.out.println(bd2.doubleValue());
@@ -58,7 +59,7 @@ public class ExtendedInformation {
         double resultFactOfKassa = r;
 
 
-        System.out.println(resultFactOfKassa + " res kassa ");
+        ConsoleAVR.printlnn(resultFactOfKassa + " res kassa ");
 
         boolean rasx = resultFactOfKassa != 0;
 
