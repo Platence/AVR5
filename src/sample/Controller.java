@@ -107,8 +107,6 @@ public class Controller {
     public Tab analitik_tab;
     public Tab tab_Hand_auto;
 
-
-    public FlowPane browserPane;
     public TextField info_path_field;
     public ComboBox<String> list_files_ch;
     public TextField qf_kp_sklad_c;
