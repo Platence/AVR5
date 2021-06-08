@@ -275,7 +275,6 @@ public class Controller {
 
     public Button buttonLoad;
 
-    public ComboBox<String> comboBoxSite;
     public Button buttonAddNewMag;
 
     public Pane extendPaneGrapth;
@@ -426,7 +425,7 @@ public class Controller {
     }
 
     public void createDefoltFolder(){
-        Platform.runLater(()->{new CheckDefoltFolder().save();}); // Проверка на статическую папку
+        Platform.runLater(()-> new CheckDefoltFolder().save()); // Проверка на статическую папку
     }
 
     public void add_directory_path(){

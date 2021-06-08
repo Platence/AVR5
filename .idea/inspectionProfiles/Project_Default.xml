@@ -33,5 +33,6 @@
       <option name="myAdditionalJavadocTags" value="return" />
     </inspection_tool>
     <inspection_tool class="RawUseOfParameterizedType" enabled="true" level="INFORMATION" enabled_by_default="true" />
+    <inspection_tool class="ThrowablePrintedToSystemOut" enabled="false" level="WARNING" enabled_by_default="false" />
   </profile>
 </component>
