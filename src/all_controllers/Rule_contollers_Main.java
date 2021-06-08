@@ -298,14 +298,12 @@ public class Rule_contollers_Main {
                 Paths_Main_File.path_list_diff_current = zet.getPath();
             }
         }
-
         //  Показываем интерфейс
         set_settings_visible(true,true);
     }
 
 
     public static void setInformationAfterNonStandartLoad(){
-        //main_controller.label_info.textProperty().unbind();
         main_controller.progress_bar_main.setVisible(false);
         main_controller.label_info.textProperty().unbind();
         main_controller.label_info.setText("CROSS РЕЖИМ. НОВАЯ ВЕРСИЯ СВЕРКИ");
@@ -318,7 +316,6 @@ public class Rule_contollers_Main {
     public static void launchStandartProgress(){
 
         ConsoleAVR.printlnn("Выбран алгоритм Стандартный файл GK");
-
         DownloadTask downloadTask = new DownloadTask();
         main_controller.progress_bar_main.progressProperty().bind(downloadTask.progressProperty());
         main_controller.label_info.textProperty().bind(downloadTask.messageProperty());

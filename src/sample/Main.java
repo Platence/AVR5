@@ -20,8 +20,9 @@ import java.util.ArrayList;
 
 public class Main extends Application {
 
-   public static ArrayList<Ostatku> classOstatku = new ArrayList<>();
-   public static Stage stage_main_copy;   // Необходимо для FileChooser
+    public static ArrayList <Ostatku> classOstatku = new ArrayList<>();
+    public static Stage stage_main_copy;
+   // Необходимо для FileChooser
 
 
     @Override

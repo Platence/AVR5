@@ -276,7 +276,6 @@
                                                  <ComboBox fx:id="optionView" layoutX="20.0" layoutY="41.0" prefHeight="25.0" prefWidth="258.0" />
                                                  <Label layoutX="20.0" layoutY="14.0" prefHeight="17.0" prefWidth="260.0" text="Выберите отчет" />
                                                  <Button fx:id="buttonPr" disable="true" layoutX="20.0" layoutY="123.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="257.0" text="Распечатать" />
-                                                 <Button fx:id="buttonViewSALE" layoutX="14.0" layoutY="434.0" mnemonicParsing="false" onAction="#createrODSALEFINASTART" prefHeight="28.0" prefWidth="298.0" text="Продажи + Детальная разница" />
                                              </children>
                                           </AnchorPane>
                                       </content>

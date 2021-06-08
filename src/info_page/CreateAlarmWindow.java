@@ -4,7 +4,6 @@ import chekCrashPLU.flowSearchPane.CreatePaneSearch;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import tgODDS.ControlPackegeNEWTG;
 import warehouse_plu.Ostatku;
 
 public class CreateAlarmWindow {

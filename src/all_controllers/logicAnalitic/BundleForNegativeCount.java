@@ -1,21 +1,18 @@
 package all_controllers.logicAnalitic;
 
 import decriptor.ConsoleAVR;
-import error_package.Modal_Error;
 import exportXLSX.exportNULL.ExportNullOstatku;
 import javafx.geometry.Orientation;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.Scene;;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sample.Main;
 import warehouse_plu.Ostatku;
-import warehouse_plu.RememberSkladPosition;
+
 
 import java.util.ArrayList;
 import java.util.LinkedList;

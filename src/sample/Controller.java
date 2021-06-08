@@ -29,7 +29,6 @@ import exportXLSX.kpSkladXlsX.KpppSKLADExport;
 import fin_kp_AI.AddPositionToTableAndList;
 import fin_kp_AI.BannedPlU;
 import fin_kp_AI.BoxAnotherTMC;
-import finalMessege.CreateFinalMessage;
 import graficAVR.GraficAvrProd;
 import graficAVR.ValueSlider;
 import info_page.ButtonAction;
@@ -63,7 +62,6 @@ import sklad_KP_AI.CheckZonHall;
 import sklad_KP_AI.Container_KP_Sklad;
 import sklad_KP_AI.settngsHa.MetaHalfAutoSet;
 import testPackege.PrintDialogPath;
-import tgODDS.ControlPackegeNEWTG;
 import warehouse_plu.ExtendedOstatku;
 import warehouse_plu.Ostatku;
 import warehouse_plu.odds_from_group.Odds_level_One;
@@ -81,7 +79,6 @@ public class Controller {
     @FXML
     public FlowPane flow_Message;
 
-    public Button buttonViewSALE;
     public Button buttonadPath;
     public FlowPane flowConsole;
 
@@ -350,6 +347,7 @@ public class Controller {
     public void repression(){
         try
         {
+
             Main.classOstatku.clear();
             Main.classOstatku = new ArrayList<>();
             BannedPlU.clearList();
@@ -659,12 +657,6 @@ public class Controller {
         new CrashesPlu().deletePosition(temp.getPlu(),temp.getDescription());
         new CrashesPlu().save("");
         CrashesPlu.setTableView();
-    }
-
-    public void createrODSALEFINASTART(){
-        ControlPackegeNEWTG.toDo(); // TEST!!!
-        ExtendedOstatku.getMeOddsSkladAndKP();
-        CreateFinalMessage cf = CreateFinalMessage.giveMemessage();
     }
 
     public void crRaspuska(){

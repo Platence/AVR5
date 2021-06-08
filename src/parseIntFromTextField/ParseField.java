@@ -5,7 +5,7 @@ import error_package.Modal_Error;
 public class ParseField {
 
 
-    public  int getIntFromString(String word){
+    public int getIntFromString(String word){
 
         try {
              return Integer.parseInt(word);
