@@ -220,7 +220,6 @@ public class Controller {
     public Tab gravr_tab;
     public FlowPane flowPaneGrafics;
     public ChoiceBox<String> change_group_from_oods_gr;
-    public FlowPane flowPanePie;
 
     //Settings
     public CheckBox month_to_words;
