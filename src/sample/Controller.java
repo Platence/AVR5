@@ -332,7 +332,7 @@ public class Controller {
         list.add(number_shop);list.add(dMOL);
         list.add(partMol);list.add(organization_box);
         list.add(calendar_order);
-        HideComponents hideComponents = new HideComponents(list);
+        new HideComponents(list);
     }
 
     public void loadingExcelForOstatku(){
@@ -344,7 +344,6 @@ public class Controller {
     public void repression(){
         try
         {
-
             Main.classOstatku.clear();
             Main.classOstatku = new ArrayList<>();
             BannedPlU.clearList();
