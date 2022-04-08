@@ -9,6 +9,7 @@ import exportXLSX.inv15i.ExtendedInformation;
 import exportXLSX.inv15i.InformationX;
 import info_page.smenaMOLPACKAGE.DescriptionSmenaMOL;
 import numberShopPack.ShopDescription;
+import numberShopPack.ShopNumber;
 
 import java.awt.*;
 import java.io.IOException;
@@ -51,7 +52,8 @@ public class ConsolidationInformation {
         String reas = "";
         if(DescriptionSmenaMOL.smenaMolD){reas = "Смена МОЛ";}
         if(!DescriptionSmenaMOL.smenaMolD){reas = "Плановая";}
-        String s2 = "Проведена ПИ  в магазине "+ inv.getFullAdress() +NL;
+        String s2 = "Проведена ПИ  в магазине №" + ShopNumber.currentNumberShop +" по адресу : "+ NL
+                + separeteAdress(inv.getFullAdress()) +NL;
         String s3 = "___________________________________________"+NL;
         String s4 = "Причина проведения ПИ: " + reas + " "  +NL;  // Заменить
         String resalut = Bundle_For_WRS.getresultformail();
@@ -59,7 +61,7 @@ public class ConsolidationInformation {
 
         String s6 = "2.По товарной группе «Табачные изделия» после второго просчёта выявлены следующие результаты:"+NL;
         String s7 = "Излишек : " + Bundle_For_WRS.cigarettesSURPLUS + " руб."+NL;
-        String s8 = "Недостача : " + Bundle_For_WRS.cigarettesShortage + " руб."+NL+NL;
+        String s8 = "Недостача : " + Math.abs(Bundle_For_WRS.cigarettesShortage) + " руб."+NL+NL;
         String s9 = "3.Товар не подлежащий реализации (с истекшим сроком годности, бой/порча )"+NL;
         String s10 = ""+NL;
         String s11 = ""+System.lineSeparator()+NL;
@@ -115,40 +117,14 @@ public class ConsolidationInformation {
         return "СИСТЕМНАЯ ОШИБКА!!!!!!";
     }
 
-    public void composeEmail(){
-        try {
-            String url =
-                    "mailTo:test" +
-                            "?subject=" + getEmailSubject() +
-                            "&body=" + getFullInformationString()
-                    ;
-            URI mailTo = new URI(url);
-            //log(mailTo);
-            fDesktop.mail(mailTo);
-        }
-        catch (IOException ex) {
-            log("Cannot launch mail client");
-        }
-        catch (URISyntaxException ex) {
-            log("Bad mailTo URI: " + ex.getInput());
-        }
-    }
-
     private static void log(Object aMessage){
         System.out.println(String.valueOf(aMessage));
     }
 
-
-
-    private String getEmailBody(){
-        StringBuilder result = new StringBuilder();
-        String NL = System.getProperty("line.separator");
-        result.append("Hello,");
-        result.append(NL);
-        result.append(NL);
-        //exercises a range of common characters :
-        result.append("Testing 1 2 3. This is a 'quote', _yes_? ($100.00!) 5*3");
-        return encodeUnusualChars(result.toString());
+    private static String separeteAdress(String adress){
+        int number = 0;
+        number = adress.indexOf(",");
+        return adress.substring(number+1);
     }
 
     private String encodeUnusualChars(String aText){

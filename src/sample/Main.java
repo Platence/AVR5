@@ -31,6 +31,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("AVR5");
         Scene scene = new Scene(root,1250,655);
+        scene.getStylesheets().add(getClass().getResource("style.css").toString());
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();

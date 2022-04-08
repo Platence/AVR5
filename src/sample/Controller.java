@@ -73,8 +73,6 @@ import static fin_kp_AI.AddPositionToTableAndList.clearAllList;
 
 public class Controller {
 
-    // Svod
-
     public Pane mainPainnn;
     @FXML
     public FlowPane flow_Message;

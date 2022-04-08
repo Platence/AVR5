@@ -3,8 +3,6 @@ package exportXLSX.inv15i;
 import dateClass.DateIni;
 import exportXLSX.ExportExcel;
 import info_page.smenaMOLPACKAGE.DescriptionSmenaMOL;
-import info_page.smenaMOLPACKAGE.SmenaMOL;
-import interfaces_all.GetInfo;
 import inv15docpack.Inv15Field;
 import numberShopPack.ShopDescription;
 import numberShopPack.ShopNumber;
@@ -16,7 +14,7 @@ import peopleComisson.PeopleComisson;
 import java.io.IOException;
 import java.util.LinkedList;
 
-public class ExportInv15 extends ExportExcel implements GetInfo{
+public class ExportInv15 extends ExportExcel{
 
     private Cell cell;
     public static LinkedList<ExportInv15> listCell = new LinkedList<>();
@@ -557,11 +555,6 @@ public class ExportInv15 extends ExportExcel implements GetInfo{
 
     }
 
-
-    @Override
-    public void havecall() {
-
-    }
 
     public static String getAddress() {
         try {

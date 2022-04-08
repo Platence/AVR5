@@ -311,7 +311,7 @@ public class AddPositionToTableAndList {
             if(!itsDouble(temp.qychetnoe)){continue;}
             if(!temp.controlChek.equals("EMP")&&block_Control_chek){continue;}
             if(temp.qfinal<qfMin){continue;}
-            if(Math.abs(temp.oddsCOUNT)>1){continue;}
+            if(Math.abs(temp.oddsCOUNT)>0.1D){continue;}
             if(!temp.that_count.equals("КГ")){continue;}
 
             if(alreadyChek(temp)){continue;}                   // Добавить в каждое правило!
