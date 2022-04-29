@@ -126,7 +126,7 @@
                                                            <content>
                                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                                   <children>
-                                                                      <Label layoutX="695.0" layoutY="49.0" prefHeight="17.0" prefWidth="75.0" text="Last File :" />
+                                                                      <Label disable="true" layoutX="695.0" layoutY="49.0" opacity="0.0" prefHeight="17.0" prefWidth="75.0" text="Last File :" />
                                                                       <Button fx:id="add_neprodam_but" layoutX="15.0" layoutY="20.0" mnemonicParsing="false" onAction="#add_neprodam_path" prefHeight="28.0" prefWidth="128.0" text="Добавить файл" />
                                                                       <Button fx:id="but_add_neprodam_ct" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="130.0" text="Добавить в акт" />
                                                                       <TextField fx:id="field_min_q_neprodam" layoutX="334.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="37.0" text="4" />
@@ -181,6 +181,7 @@
                                                          <TableColumn fx:id="prodaja_value" prefWidth="69.0" text="Last Sale" />
                                                      </columns>
                                                  </TableView>
+                                          <CheckBox fx:id="igNoreCheckBox" layoutX="680.0" layoutY="64.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="298.0" selected="true" text="ИГНОР &quot;Одиночных зон S&quot;" />
                                              </children>
                                           </AnchorPane>
                                       </content>

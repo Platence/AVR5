@@ -54,7 +54,7 @@ public class AddPositionToTableAndList {
             qfMin = qf;
             oddsMax = odds;
             block_Control_chek = blockCP;
-
+            CheckBoxIngroreSSSS.setBoxSelected();
             if(MAX_COUNT_NEPRODAM!=0){
                 maxFood = ((int)(MAX_COUNT_NEPRODAM*0.9D));
                 maxNonFOOD = ((int)(MAX_COUNT_NEPRODAM*0.2D));
@@ -262,9 +262,8 @@ public class AddPositionToTableAndList {
     }
 
     public static boolean current_search_sigarets(){
-
-
         int count_operation = 0;
+
         while (list_sigarets.size()<=10){
             if(list_sigarets.size()==10){break;}
             count_operation++;
@@ -423,7 +422,7 @@ public class AddPositionToTableAndList {
 
     public static boolean alreadyChek(Ostatku temp){
 
-
+        if(!checkBoxSRule(temp)){return true;}
 
         if(!have_actSklad_in_memory){
             chekmemorySklad();
@@ -488,6 +487,21 @@ public class AddPositionToTableAndList {
                          "Удачно созданного КП_Склад");
              }
         }
+    }
+
+    private static boolean checkBoxSRule(Ostatku temp){
+        // Проверка входящего параметра на кол-во зон
+        // Негативный сценарий :
+        // Включен чек бокс на игнор зон S(склад)
+        // Входящая PLU содержит либо S###? или S###? + S9999
+        if(CheckBoxIngroreSSSS.isCurrentBox()) {
+            if(temp.getArea_one_strok().contains("S") && temp.getArea_one_strok().length()<5){return false;}
+            for (String sone : temp.gates){
+                if(!sone.startsWith("S")){return true;}
+            }
+            return false;
+        }
+        return true;
     }
 
 

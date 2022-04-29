@@ -11,6 +11,7 @@ import animation_elements.HideComponents;
 import animation_elements.Repiat;
 import decriptor.ConsoleAVR;
 import decriptor.DecriptorBlock;
+import fin_kp_AI.CheckBoxIngroreSSSS;
 import graficAVR.scaleStepChoiceBox.SetStandartScale;
 import all_paths.Paths_Main_File;
 import animation_elements.AddPicutre;
@@ -86,7 +87,7 @@ public class Controller {
     public TableColumn<IgnoredPlu,String> simpledescignorcol;
     public TableColumn<IgnoredPlu,CheckBox> totalignorcolBox;
     public TableColumn<IgnoredPlu,CheckBox> onlyWrsIgnored;
-
+    public CheckBox igNoreCheckBox;
     // SSKRR
 
     public ComboBox<String> optionView;
@@ -284,6 +285,7 @@ public class Controller {
 
         buttonAddNewMag.setVisible(false);
         Rule_contollers_Main.main_controller = this;
+        new CheckBoxIngroreSSSS(igNoreCheckBox);   // Передача чекбокса на проверку зоны S в акпФ
 
         Rule_contollers_Main rule_contollers_main = new Rule_contollers_Main();
         rule_contollers_main.set_default_start();
