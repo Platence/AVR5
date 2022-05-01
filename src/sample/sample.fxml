@@ -181,7 +181,8 @@
                                                          <TableColumn fx:id="prodaja_value" prefWidth="69.0" text="Last Sale" />
                                                      </columns>
                                                  </TableView>
-                                          <CheckBox fx:id="igNoreCheckBox" layoutX="680.0" layoutY="64.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="298.0" selected="true" text="ИГНОР &quot;Одиночных зон S&quot;" />
+                                          <CheckBox fx:id="igNoreCheckBox" layoutX="665.0" layoutY="66.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="238.0" selected="true" text="ИГНОР &quot;Одиночных зон S&quot;" />
+                                          <CheckBox fx:id="fullBlockS999" layoutX="910.0" layoutY="66.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="298.0" selected="true" text="FULL BLOCK S9999" />
                                              </children>
                                           </AnchorPane>
                                       </content>
@@ -433,7 +434,7 @@
                                       <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                              <children>
-                                                 <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="14.0" prefHeight="333.0" prefWidth="1151.0" text="Автор программы выражает благорадность Артёму Крюченкову, Сергею Гудкову за существенный вклад&#10;в развитие проекта, и помощь в доработке дизайна.&#10;&#10;Рекомендуется использовать AVR, в качестве ДОПОЛНЕНИЯ к вашему рабочему месту.&#10;&#10;Обращение к пользователю : &#10;Запрещено передавать копию ПО &quot;AVR&quot; третьим лицам, без согласования с автором.&#10;Автор не несёт ответственности  за возможные ошибки в ходе обработки данных,&#10;формировании данных.&#10;&#10;Обратная связь : &#10;vladislav.ivanov@x5.ru&#10;&#10;&#10;Текущая версия сборки V12_MVC_EXT 07.04.2022&#10;&#10;&#10;" wrapText="true">
+                                                 <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="14.0" prefHeight="333.0" prefWidth="1151.0" text="Автор программы выражает благорадность Артёму Крюченкову, Сергею Гудкову за существенный вклад&#10;в развитие проекта, и помощь в доработке дизайна.&#10;&#10;Рекомендуется использовать AVR, в качестве ДОПОЛНЕНИЯ к вашему рабочему месту.&#10;&#10;Обращение к пользователю : &#10;Запрещено передавать копию ПО &quot;AVR&quot; третьим лицам, без согласования с автором.&#10;Автор не несёт ответственности  за возможные ошибки в ходе обработки данных,&#10;формировании данных.&#10;&#10;Обратная связь : &#10;vladislav.ivanov@x5.ru&#10;&#10;&#10;Текущая версия сборки V12_MVC_EXT 29.04.2022&#10;&#10;&#10;" wrapText="true">
                                                      <font>
                                                          <Font name="Constantia Italic" size="14.0" />
                                                      </font>

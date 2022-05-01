@@ -88,6 +88,7 @@ public class Controller {
     public TableColumn<IgnoredPlu,CheckBox> totalignorcolBox;
     public TableColumn<IgnoredPlu,CheckBox> onlyWrsIgnored;
     public CheckBox igNoreCheckBox;
+    public CheckBox fullBlockS999;
     // SSKRR
 
     public ComboBox<String> optionView;
@@ -285,7 +286,7 @@ public class Controller {
 
         buttonAddNewMag.setVisible(false);
         Rule_contollers_Main.main_controller = this;
-        new CheckBoxIngroreSSSS(igNoreCheckBox);   // Передача чекбокса на проверку зоны S в акпФ
+        new CheckBoxIngroreSSSS(igNoreCheckBox,fullBlockS999);   // Передача чекбокса на проверку зоны S в акпФ
 
         Rule_contollers_Main rule_contollers_main = new Rule_contollers_Main();
         rule_contollers_main.set_default_start();

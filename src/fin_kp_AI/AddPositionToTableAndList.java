@@ -494,6 +494,12 @@ public class AddPositionToTableAndList {
         // Негативный сценарий :
         // Включен чек бокс на игнор зон S(склад)
         // Входящая PLU содержит либо S###? или S###? + S9999
+
+        if(CheckBoxIngroreSSSS.getS999Status()){
+            if(temp.getArea_one_strok().contains("S9999")){return false;}
+        }
+
+
         if(CheckBoxIngroreSSSS.isCurrentBox()) {
             if(temp.getArea_one_strok().contains("S") && temp.getArea_one_strok().length()<5){return false;}
             for (String sone : temp.gates){
